@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Company.Data
 {
-    public class Class1
+    public class Repository
     {
+        //здесь будут листы, которые мы будем показывать
     }
 }
