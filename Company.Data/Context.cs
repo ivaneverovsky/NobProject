@@ -9,7 +9,14 @@ namespace Company.Data
 {
     public class Context : DbContext
     {
-        //здесь будут "столбцы"
-        //и соединение с базой данных, возмем также, как было в домашней работе, после - присоеденим к серверу.
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<Catalogue> Catalogue { get; set; }
+
+        public Context() : base("localsql")
+        {
+
+        }
     }
 }
