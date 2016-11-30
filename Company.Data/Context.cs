@@ -13,6 +13,7 @@ namespace Company.Data
         public DbSet<Admin> Admins { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Catalogue> Catalogue { get; set; }
+        public DbSet<Orders> Orders { get; set; }
 
         public Context() : base("localsql")
         {

@@ -12,7 +12,7 @@ namespace Company.Data.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Company.Data.Context context)
+        protected override void Seed(Context context)
         {
             //данные, которые всегда будут в базе, хочу добавить возможность регистрации нового человека,
             //в качестве любого из пользователей и регистрации/удаления нового продукта (возможно потребуется переписка
