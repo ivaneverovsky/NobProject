@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace Company.UI
 {
     /// <summary>
-    /// Логика взаимодействия для profile.xaml
+    /// Логика взаимодействия для profile_Supplier.xaml
     /// </summary>
-    public partial class profile : Window
+    public partial class profile_Supplier : Window
     {
-        public profile()
+        public profile_Supplier()
         {
             InitializeComponent();
         }

@@ -18,11 +18,31 @@ namespace Company.UI
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class login : Window
     {
-        public MainWindow()
+        public login()
         {
             InitializeComponent();
+        }
+
+        private void enter_Click(object sender, RoutedEventArgs e)
+        {
+            //должен прочитать инфомацию из текст боксов, отправить ее на сервер,
+            //где должен сравнить ее с данными в базе и вернуть значение, которое в дальнейшем откроет профиль пользователя
+        }
+
+        private void reg_Click(object sender, RoutedEventArgs e)
+        {
+            //добавить, после настройки пункта enter_Click
+
+            //откроет новое окно, пользователь вводит данные и выбирает свой тип профиля,
+            //считывается и отправляется на сервер, где данные после вносятся в базу,
+            //в этот момент открывается опять окно входа, и по новой (см. выше)
+        }
+
+        private void ConnectToServer_Click(object sender, RoutedEventArgs e)
+        {
+           //подключаемся к серверу
         }
     }
 }

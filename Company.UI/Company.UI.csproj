@@ -76,14 +76,28 @@
       <DependentUpon>login.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="profile.xaml">
+    <Page Include="profile_Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="profile_Client.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="profile_Supplier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="profile.xaml.cs">
-      <DependentUpon>profile.xaml</DependentUpon>
+    <Compile Include="profile_Admin.xaml.cs">
+      <DependentUpon>profile_Admin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="profile_Client.xaml.cs">
+      <DependentUpon>profile_Client.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="profile_Supplier.xaml.cs">
+      <DependentUpon>profile_Supplier.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
