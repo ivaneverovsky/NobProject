@@ -17,7 +17,7 @@ namespace Company.Data
             using (Context c = new Context())
             {
                 var a = from b in c.Catalogue
-                        orderby b.Price descending
+                        orderby b.Price
                         select b;
                 return a.ToList();
             }

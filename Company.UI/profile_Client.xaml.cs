@@ -24,5 +24,27 @@ namespace Company.UI
         {
             InitializeComponent();
         }
+
+        Repository repo = new Repository();
+
+        private void button_show_catalogue_Click(object sender, RoutedEventArgs e)
+        {
+            using (var c = new Context())
+            {
+                listView_myCatalogue.Items.Refresh();
+
+                var newList = repo.CompanyCatalogue();
+                foreach (var item in newList)
+                {
+                    listView_myCatalogue.Items.Add(item);
+                }
+            }
+            button_show_catalogue.IsEnabled = false;
+        }
+
+        private void listView_myCatalogue_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
