@@ -36,7 +36,7 @@ namespace Company.UI
         private void reg_Click(object sender, RoutedEventArgs e)
         {
             //добавить, после настройки пункта enter_Click
-
+            
             //откроет новое окно, пользователь вводит данные и выбирает свой тип профиля,
             //считывается и отправляется на сервер, где данные после вносятся в базу,
             //в этот момент открывается опять окно входа, и по новой (см. выше)
@@ -45,6 +45,11 @@ namespace Company.UI
         private void ConnectToServer_Click(object sender, RoutedEventArgs e)
         {
            //подключаемся к серверу
+        }
+
+        private void loginBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+           
         }
     }
 }
