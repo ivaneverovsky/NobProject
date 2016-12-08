@@ -35,8 +35,21 @@ namespace Company.UI
 
         private void reg_Click(object sender, RoutedEventArgs e)
         {
+            profile_Admin Admin = new profile_Admin();
+            profile_Client Client = new profile_Client();
             //добавить, после настройки пункта enter_Click
-            
+            if (loginBox.Text == "username" && passwordBox.Text == "userpassword")
+            {
+                Client.ShowDialog();  
+            }
+            if (loginBox.Text == "Admin" && passwordBox.Text == "adminpassword")
+            {
+                Admin.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Вы ввели неверные данные, повторите ещё раз");
+            }
             //откроет новое окно, пользователь вводит данные и выбирает свой тип профиля,
             //считывается и отправляется на сервер, где данные после вносятся в базу,
             //в этот момент открывается опять окно входа, и по новой (см. выше)
