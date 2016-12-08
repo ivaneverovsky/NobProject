@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace Company.UI
 {
     /// <summary>
@@ -27,6 +28,7 @@ namespace Company.UI
 
         private void enter_Click(object sender, RoutedEventArgs e)
         {
+            
             //должен прочитать инфомацию из текст боксов, отправить ее на сервер,
             //где должен сравнить ее с данными в базе и вернуть значение, которое в дальнейшем откроет профиль пользователя
         }

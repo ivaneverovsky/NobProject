@@ -16,5 +16,6 @@ namespace Company.Data
 
         public int Cost { get; set; }
         public Status Status { get; set; }
+        
     }
 }
