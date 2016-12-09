@@ -35,5 +35,15 @@ namespace Company.Data
                 return a.ToList();
             }
         }
+        public List <Orders> CompanyOrders()
+        {
+            using (Context c = new Context())
+            {
+                var a = from b in c.Orders
+                        orderby b.ItemName descending
+                        select b;
+                return a.ToList();
+            }
+        }
     }
 }
