@@ -1,0 +1,22 @@
+﻿<Window x:Class="Company.UI.registration"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Company.UI"
+        mc:Ignorable="d"
+        Title="registration" Height="338.4" Width="349.6">
+    <Grid>
+        <TextBox x:Name="name" HorizontalAlignment="Left" Height="24" Margin="29,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+        <TextBox x:Name="surname" HorizontalAlignment="Left" Height="24" Margin="29,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+        <ComboBox x:Name="type" HorizontalAlignment="Left" Height="24" Margin="29,135,0,0" VerticalAlignment="Top" Width="170"/>
+        <TextBox x:Name="login" HorizontalAlignment="Left" Height="23" Margin="29,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+        <TextBox x:Name="password" HorizontalAlignment="Left" Margin="29,226,0,0" TextWrapping="Wrap" Width="170" Height="24" VerticalAlignment="Top"/>
+        <Button x:Name="enter" Content="Enter" Height="30" Margin="76,270,76.6,0" VerticalAlignment="Top" Click="enter_Click"/>
+        <Label x:Name="label1" Content="There is no name" HorizontalAlignment="Left" Margin="217,41,0,0" VerticalAlignment="Top" Width="111" Foreground="Red"/>
+        <Label x:Name="label2" Content="There is no surname" HorizontalAlignment="Left" Margin="217,87,-0.4,0" VerticalAlignment="Top" Width="121" Foreground="Red"/>
+        <Label x:Name="label3" Content="There is no login" HorizontalAlignment="Left" Margin="217,184,0,0" VerticalAlignment="Top" Width="98" Foreground="Red"/>
+        <Label x:Name="label4" Content="There is no password" HorizontalAlignment="Left" Margin="217,224,0,0" VerticalAlignment="Top" Width="126" Foreground="Red"/>
+
+    </Grid>
+</Window>
