@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:Company.UI"
         mc:Ignorable="d" Height="350" Width="525" ToolTip="login">
     <Grid Margin="0,0,2,0">
-        <TextBox x:Name="loginBox" HorizontalAlignment="Left" Height="23" Margin="207,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="loginBox_TextChanged" IsHitTestVisible="True" ToolTip="login"/>
-        <TextBox x:Name="passwordBox" HorizontalAlignment="Left" Height="23" Margin="207,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="password"/>
+        <TextBox x:Name="loginBox" HorizontalAlignment="Left" Height="23" Margin="207,161,0,0" TextWrapping="Wrap" Text="login" VerticalAlignment="Top" Width="120" TextChanged="loginBox_TextChanged" IsHitTestVisible="True"/>
+        <TextBox x:Name="passwordBox" HorizontalAlignment="Left" Height="23" Margin="207,189,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" AutomationProperties.HelpText="pass" Text="password"/>
         <Button x:Name="enter" Content="Enter" HorizontalAlignment="Left" Margin="207,217,0,0" VerticalAlignment="Top" Width="58" Click="enter_Click"/>
         <Button x:Name="reg" Content="Reg." HorizontalAlignment="Left" Margin="270,217,0,0" VerticalAlignment="Top" Width="57" Click="reg_Click"/>
         <Button x:Name="ConnectToServer" Content="Connect" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="75" Click="ConnectToServer_Click"/>
