@@ -25,31 +25,37 @@ namespace Company.UI
         {
             InitializeComponent();
         }
-
+        
+       
         private void enter_Click(object sender, RoutedEventArgs e)
-        {
-            
-            //должен прочитать инфомацию из текст боксов, отправить ее на сервер,
-            //где должен сравнить ее с данными в базе и вернуть значение, которое в дальнейшем откроет профиль пользователя
-        }
-
-        private void reg_Click(object sender, RoutedEventArgs e)
         {
             profile_Admin Admin = new profile_Admin();
             profile_Client Client = new profile_Client();
+            login Login = new login();
+
+            
+
             //добавить, после настройки пункта enter_Click
             if (loginBox.Text == "username" && passwordBox.Text == "userpassword")
             {
-                Client.ShowDialog();  
+                Close();
+                Client.ShowDialog();
             }
             if (loginBox.Text == "Admin" && passwordBox.Text == "adminpassword")
             {
+                Close();
                 Admin.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Вы ввели неверные данные, повторите ещё раз");
             }
+            //должен прочитать инфомацию из текст боксов, отправить ее на сервер,
+            //где должен сравнить ее с данными в базе и вернуть значение, которое в дальнейшем откроет профиль пользователя
+        }
+
+        private void reg_Click(object sender, RoutedEventArgs e)
+        {
             //откроет новое окно, пользователь вводит данные и выбирает свой тип профиля,
             //считывается и отправляется на сервер, где данные после вносятся в базу,
             //в этот момент открывается опять окно входа, и по новой (см. выше)
