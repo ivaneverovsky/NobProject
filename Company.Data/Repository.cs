@@ -30,6 +30,7 @@ namespace Company.Data
             {
                 var a = from b in c.Clients
                         orderby b.Surname['A'] descending
+                        //where b.Surname[0] == 'A'
                         select b;
                 return a.ToList();
             }

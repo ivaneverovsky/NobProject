@@ -31,15 +31,16 @@ namespace Company.UI
         {
             using (var c = new Context())
             {
+                //подумать здесь над логикой
+                listView_myCatalogue.Items.Clear();
                 listView_myCatalogue.Items.Refresh();
-
                 var newList = repo.CompanyCatalogue();
                 foreach (var item in newList)
                 {
                     listView_myCatalogue.Items.Add(item);
                 }
             }
-            button_show_catalogue.IsEnabled = false;
+            //button_show_catalogue.IsEnabled = false;
         }
 
         private void listView_myCatalogue_SelectionChanged(object sender, SelectionChangedEventArgs e)
