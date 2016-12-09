@@ -31,9 +31,6 @@ namespace Company.UI
         {
             profile_Admin Admin = new profile_Admin();
             profile_Client Client = new profile_Client();
-            login Login = new login();
-
-            
 
             //добавить, после настройки пункта enter_Click
             if (loginBox.Text == "username" && passwordBox.Text == "userpassword")
@@ -49,6 +46,8 @@ namespace Company.UI
             else
             {
                 MessageBox.Show("Вы ввели неверные данные, повторите ещё раз");
+
+                //break - надо с этим сделать, а то этот месседж вылезает при закрытии проги
             }
             //должен прочитать инфомацию из текст боксов, отправить ее на сервер,
             //где должен сравнить ее с данными в базе и вернуть значение, которое в дальнейшем откроет профиль пользователя
