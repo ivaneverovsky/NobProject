@@ -40,19 +40,20 @@ namespace Company.Data.Migrations
             });
             context.Catalogue.AddOrUpdate(a => a.ItemName, new Catalogue
             {
-                ItemName = "Brick",
+                ItemName = "Thank You",
                 Price = 100
             });
             context.Catalogue.AddOrUpdate(a => a.ItemName, new Catalogue
             {
-                ItemName = "Tor",
+                ItemName = "Silver",
                 Price = 1000
             });
             context.Catalogue.AddOrUpdate(a => a.ItemName, new Catalogue
             {
-                ItemName = "Green Shit",
+                ItemName = "Gold",
                 Price = 100500
             });
+            context.SaveChanges();
         }
     }
 }

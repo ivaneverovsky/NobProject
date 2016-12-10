@@ -28,21 +28,22 @@ namespace Company.UI
 
         Repository repo = new Repository();
 
+        List<object> ListOrders = new List<object>();
+
         private void button_show_catalogue_Click(object sender, RoutedEventArgs e)
         {
             using (var c = new Context())
             {
-                //подумать здесь над логикой
-
+                //скачивание данных из базы и показ в листвью каталога
                 listView_myCatalogue.Items.Clear();
                 listView_myCatalogue.Items.Refresh();
                 var newList = repo.CompanyCatalogue();
+
                 foreach (var item in newList)
                 {
                     listView_myCatalogue.Items.Add(item);
                 }
-            } 
-            //button_show_catalogue.IsEnabled = false;
+            }
         }
 
         private void listView_myCatalogue_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -54,22 +55,19 @@ namespace Company.UI
         {
             //добавление содержимого из списка (бд) в заказ (order) бокс
 
-            DependencyObject obj = (DependencyObject)e.OriginalSource;
+            //возможно потребуется поменять листбокс этот на лист вью, как в каталоге, потому что как разконвертить эту дичь, я не знаю
+            //можно сделать также, как и в первом, просто показывать элементы, которые были выбраны, но 
+            //выбранные клиентом данные мы будем загружать в лист, объявленный в верху (ListOrders), потому что так надо))
+            //вот, и из этого листа мы будем отправлять данные в таблицу заказов
 
-            listView_myCatalogue.Items.Refresh();
-
-            while (obj != null && obj != listView_myCatalogue)
+            foreach (var item in listView_myCatalogue.SelectedItems)
             {
-                if (obj.GetType() == typeof(ListViewItem))
-                {
-                    list_myOrders.Items.Add(obj);
-                    MessageBox.Show("A List's Item was added to your Order List!");
-
-                    break;
-                }
-                obj = VisualTreeHelper.GetParent(obj);
+                ListOrders.Add(item);
+                list_myOrders.Items.Add(item);
+                MessageBox.Show("was added");
             }
         }
+
 
         private void clear_button_Click(object sender, RoutedEventArgs e)
         {
@@ -79,23 +77,19 @@ namespace Company.UI
 
         private void order_botton_Click(object sender, RoutedEventArgs e)
         {
-            //конвентирование items из ListViewItem в строку
-            //List<string> list_Client_Orders = list_myOrders.Items.Cast<ListViewItem>()
-            //        .Select(b => b.ToString())
-            //        .ToList();
-
             //оформить заказ (отправляю новые данные в таблицу бд Orders)
 
-            list_myOrders.Items.Cast<string>().ToList();
+            //нужно залезть в ListOrders и из него данные присвоить значениям в таблице Orders и отправить их в базу
 
-            using (var c = new Context())
+            for (int i = 0; i < ListOrders.Count; i++)
             {
-                //var OrderClientList = list_myOrders.Items.Cast<string>().ToList();
-
-                foreach (var item in list_myOrders.Items)
+                using (var c = new Context())
                 {
-                    //string a = "INSERT INTO PROCESS_LOGS VALUES (@ItemName, @Cost)";
-
+                    c.Orders.Add(new Orders
+                    {
+                        
+                    });
+                    c.SaveChanges();
                 }
             }
         }

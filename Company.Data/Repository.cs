@@ -10,8 +10,7 @@ namespace Company.Data
     {
         //здесь будут листы, которые мы будем показывать
 
-        //Каталог, который показываем клиенту, сделал сортировку по убыванию цены,
-        //возможно надо указать входные параметры для листа, я узнаю позже подробнее
+        //Каталог, который показываем клиенту
         public List<Catalogue> CompanyCatalogue()
         {
             using (Context c = new Context())
@@ -23,18 +22,19 @@ namespace Company.Data
             }
         }
 
-        //Список клиентов, который показываем Админу, должен сортировать по фамилии, начиная с буквы А
+        //Список клиентов, который показываем Админу
         public List<Client> CompanyClients()
         {
             using (Context c = new Context())
             {
                 var a = from b in c.Clients
-                        orderby b.Surname['A'] descending
-                        //where b.Surname[0] == 'A'
+                        where b.Surname[0] == 'A'  //eng -> A in sort
                         select b;
                 return a.ToList();
             }
         }
+
+        //Список Заказов, показываем Админу и Поставщику
         public List <Orders> CompanyOrders()
         {
             using (Context c = new Context())
