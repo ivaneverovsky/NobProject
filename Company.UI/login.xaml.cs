@@ -36,14 +36,17 @@ namespace Company.UI
         private void reg_Click(object sender, RoutedEventArgs e)
         {
             profile_Admin Admin = new profile_Admin();
+            login l = new UI.login();
             profile_Client Client = new profile_Client();
             //добавить, после настройки пункта enter_Click
             if (loginBox.Text == "username" && passwordBox.Text == "userpassword")
             {
+                l.Hide();
                 Client.ShowDialog();  
             }
             if (loginBox.Text == "Admin" && passwordBox.Text == "adminpassword")
             {
+                l.Hide();
                 Admin.ShowDialog();
             }
             else
