@@ -26,6 +26,12 @@ namespace Company.UI
 
         private void enter_Click(object sender, RoutedEventArgs e)
         {
+            //при нажатии данные отправляются в бд и записываются
+
+            //возвращение к окну входа(логин), после записи данных в бд!
+            login log = new login();
+            Close();
+            log.ShowDialog();
         }
     }
 }

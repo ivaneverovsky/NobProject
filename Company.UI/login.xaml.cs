@@ -31,7 +31,8 @@ namespace Company.UI
         {
             profile_Admin Admin = new profile_Admin();
             profile_Client Client = new profile_Client();
-            login Login = new login();
+            //login Login = new login();
+           
 
             
 
@@ -57,6 +58,10 @@ namespace Company.UI
 
         private void reg_Click(object sender, RoutedEventArgs e)
         {
+            registration reg = new registration();
+
+            Close();
+            reg.ShowDialog();
             //откроет новое окно, пользователь вводит данные и выбирает свой тип профиля,
             //считывается и отправляется на сервер, где данные после вносятся в базу,
             //в этот момент открывается опять окно входа, и по новой (см. выше)

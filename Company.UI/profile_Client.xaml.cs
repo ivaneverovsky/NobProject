@@ -1,5 +1,6 @@
 ﻿using Company.Data;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,9 +51,12 @@ namespace Company.UI
 
         private void listView_myCatalogue_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //добавление содержимого из списка (бд) в заказ (order)
+            //добавление содержимого из списка (бд) в заказ (order) бокс
+
             DependencyObject obj = (DependencyObject)e.OriginalSource;
+
             listView_myCatalogue.Items.Refresh();
+
             while (obj != null && obj != listView_myCatalogue)
             {
                 if (obj.GetType() == typeof(ListViewItem))
@@ -74,20 +78,26 @@ namespace Company.UI
 
         private void order_botton_Click(object sender, RoutedEventArgs e)
         {
+            //конвентирование items из ListViewItem в строку
+            //List<string> list_Client_Orders = list_myOrders.Items.Cast<ListViewItem>()
+            //        .Select(b => b.ToString())
+            //        .ToList();
+
             //оформить заказ (отправляю новые данные в таблицу бд Orders)
 
-            list_myOrders.Items.Cast<string>().ToList();
+            //using (var c = new Context())
+            //{
+            //    for (int i = 0; i < list_Client_Orders.Count; i++)
+            //    {
+            //        var itemOrder = list_Client_Orders[i].Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+            //        Console.WriteLine();
+            //    }
 
-            using (var c = new Context())
-            {
-                //var OrderClientList = list_myOrders.Items.Cast<string>().ToList();
+            //c.Orders.Add(new Orders
+            //{
 
-                foreach (var item in list_myOrders.Items)
-                {
-                    //string a = "INSERT INTO PROCESS_LOGS VALUES (@ItemName, @Cost)";
-
-                }
-            }
+            //});
+            //}
         }
     }
 }
