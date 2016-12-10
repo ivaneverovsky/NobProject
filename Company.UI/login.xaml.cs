@@ -21,18 +21,19 @@ namespace Company.UI
     /// </summary>
     public partial class login : Window
     {
+        
+      
         public login()
         {
             InitializeComponent();
         }
         
        
-        private void enter_Click(object sender, RoutedEventArgs e)
+        public void enter_Click(object sender, RoutedEventArgs e)
         {
             profile_Admin Admin = new profile_Admin();
             profile_Client Client = new profile_Client();
-            //login Login = new login();
-           
+            login Login = new login();
 
             
 
@@ -42,7 +43,7 @@ namespace Company.UI
                 Close();
                 Client.ShowDialog();
             }
-            if (loginBox.Text == "Admin" && passwordBox.Text == "adminpassword")
+            if (loginBox.Text == "adminname" && passwordBox.Text == "adminpassword")
             {
                 Close();
                 Admin.ShowDialog();

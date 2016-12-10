@@ -33,6 +33,7 @@ namespace Company.UI
             using (var c = new Context())
             {
                 //подумать здесь над логикой
+
                 listView_myCatalogue.Items.Clear();
                 listView_myCatalogue.Items.Refresh();
                 var newList = repo.CompanyCatalogue();
@@ -40,7 +41,7 @@ namespace Company.UI
                 {
                     listView_myCatalogue.Items.Add(item);
                 }
-            }
+            } 
             //button_show_catalogue.IsEnabled = false;
         }
 
@@ -85,19 +86,18 @@ namespace Company.UI
 
             //оформить заказ (отправляю новые данные в таблицу бд Orders)
 
-            //using (var c = new Context())
-            //{
-            //    for (int i = 0; i < list_Client_Orders.Count; i++)
-            //    {
-            //        var itemOrder = list_Client_Orders[i].Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-            //        Console.WriteLine();
-            //    }
+            list_myOrders.Items.Cast<string>().ToList();
 
-            //c.Orders.Add(new Orders
-            //{
+            using (var c = new Context())
+            {
+                //var OrderClientList = list_myOrders.Items.Cast<string>().ToList();
 
-            //});
-            //}
+                foreach (var item in list_myOrders.Items)
+                {
+                    //string a = "INSERT INTO PROCESS_LOGS VALUES (@ItemName, @Cost)";
+
+                }
+            }
         }
     }
 }
