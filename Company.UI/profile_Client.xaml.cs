@@ -29,6 +29,7 @@ namespace Company.UI
         Repository repo = new Repository();
 
         List<object> ListOrders = new List<object>();
+        //List<object> listOfItems = new List<object>();
 
         private void button_show_catalogue_Click(object sender, RoutedEventArgs e)
         {
@@ -42,7 +43,10 @@ namespace Company.UI
                 foreach (var item in newList)
                 {
                     listView_myCatalogue.Items.Add(item);
+
+
                 }
+
             }
         }
 
@@ -64,7 +68,7 @@ namespace Company.UI
             {
                 ListOrders.Add(item);
                 list_myOrders.Items.Add(item);
-                MessageBox.Show("was added");
+                MessageBox.Show("item was added");
             }
         }
 
@@ -87,11 +91,19 @@ namespace Company.UI
                 {
                     c.Orders.Add(new Orders
                     {
-                        
+
                     });
                     c.SaveChanges();
+
+
                 }
             }
+            var ListOfOrders = repo.CompanyOrders();
+            foreach (var item in ListOrders)
+            {
+                ListOfOrders.Add(item);
+            }
+
         }
     }
 }
