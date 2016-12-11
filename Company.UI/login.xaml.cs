@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Company.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,22 +32,34 @@ namespace Company.UI
        
         public void enter_Click(object sender, RoutedEventArgs e)
         {
-            profile_Admin Admin = new profile_Admin();
-            profile_Client Client = new profile_Client();
+            Client Client = new Client();
+            profile_Client client = new profile_Client();
+            Admin Admin = new Admin();
+            profile_Admin admin = new profile_Admin();
+            Supplier Supplier = new Supplier();
+            profile_Supplier supplier = new profile_Supplier();
             login Login = new login();
+            
 
             
 
             //добавить, после настройки пункта enter_Click
-            if (loginBox.Text == "username" && passwordBox.Text == "userpassword")
+            if ( loginBox.Text == Client.login && passwordBox.Text == Client.password)
             {
+                
                 Close();
-                Client.ShowDialog();
+                client.ShowDialog();
+
             }
-            if (loginBox.Text == "adminname" && passwordBox.Text == "adminpassword")
+            if (loginBox.Text == Admin.login && passwordBox.Text == Admin.password )
             {
                 Close();
-                Admin.ShowDialog();
+                admin.ShowDialog();
+            }
+            if (loginBox.Text == Supplier.login && passwordBox.Text == Supplier.password)
+            {
+                Close();
+                supplier.ShowDialog();
             }
             else
             {
