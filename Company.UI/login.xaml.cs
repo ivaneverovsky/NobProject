@@ -85,10 +85,5 @@ namespace Company.UI
         {
            //подключаемся к серверу
         }
-
-        private void loginBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-           
-        }
     }
 }
