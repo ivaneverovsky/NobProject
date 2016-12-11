@@ -101,9 +101,10 @@ namespace Company.UI
             var ListOfOrders = repo.CompanyOrders();
             foreach (var item in ListOrders)
             {
+                item.ToString();
                 ListOfOrders.Add(item);
             }
-
+                    
         }
     }
 }
