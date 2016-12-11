@@ -9,14 +9,6 @@
     <Grid>
         <Label x:Name="label" Content="My Orders" HorizontalAlignment="Left" Margin="353,178,0,0" VerticalAlignment="Top" Height="26" Width="110"/>
         <Label x:Name="label1" Content="My Catalogue" HorizontalAlignment="Left" Margin="10,178,0,0" VerticalAlignment="Top" Width="100"/>
-        <ListView x:Name="listView_myCatalogue" HorizontalAlignment="Left" Height="159" Margin="10,209,0,0" VerticalAlignment="Top" Width="249" SelectionChanged="listView_myCatalogue_SelectionChanged" MouseDoubleClick="listView_myCatalogue_MouseDoubleClick">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Items" DisplayMemberBinding="{Binding ItemName}"/>
-                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
         <Button x:Name="button_show_catalogue" Content="Show" HorizontalAlignment="Left" Margin="10,373,0,0" VerticalAlignment="Top" Width="75" Click="button_show_catalogue_Click"/>
         <Button x:Name="clear_button" Content="Delete Order" HorizontalAlignment="Left" Margin="353,373,0,0" VerticalAlignment="Top" Width="75" Click="clear_button_Click"/>
         <Button x:Name="order_botton" Content="Order" HorizontalAlignment="Left" Margin="538,373,0,0" VerticalAlignment="Top" Width="75" Click="order_botton_Click"/>
@@ -25,5 +17,12 @@
         <Label x:Name="user_surname" Content="Surname" HorizontalAlignment="Left" Margin="158,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="user_post" Content="Post" HorizontalAlignment="Left" Margin="115,41,0,0" VerticalAlignment="Top"/>
         <ListBox x:Name="list_myOrders" HorizontalAlignment="Left" Height="159" Margin="353,209,0,0" VerticalAlignment="Top" Width="260"/>
+        <ListView x:Name="listView_myCatalogue" HorizontalAlignment="Left" Height="159" Margin="10,209,0,0" VerticalAlignment="Top" Width="292" MouseDoubleClick="listView_myCatalogue_MouseDoubleClick">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>

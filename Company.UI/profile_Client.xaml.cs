@@ -27,8 +27,8 @@ namespace Company.UI
         }
 
         Repository repo = new Repository();
-
-        List<object> ListOrders = new List<object>();
+        List<Catalogue> ListCatalogue = new List<Catalogue>();
+        List<string> ListOrders = new List<string>();
 
         private void button_show_catalogue_Click(object sender, RoutedEventArgs e)
         {
@@ -37,33 +37,30 @@ namespace Company.UI
                 //скачивание данных из базы и показ в листвью каталога
                 listView_myCatalogue.Items.Clear();
                 listView_myCatalogue.Items.Refresh();
-                var newList = repo.CompanyCatalogue();
 
-                foreach (var item in newList)
+                ListCatalogue = c.Catalogue.ToList();
+
+                foreach (Catalogue item in ListCatalogue)
                 {
-                    listView_myCatalogue.Items.Add(item);
+                    //ListViewItem boxitem = new ListViewItem();
+                    listView_myCatalogue.Items.Add(item.ItemName + " " + item.Price);
                 }
             }
         }
 
-        private void listView_myCatalogue_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            //это не нужно, нужно будет найти какую-то ссылку, чтобы это потом удалить, если сейчас убрать, то приложуха падать будет
-        }
-
         private void listView_myCatalogue_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //добавление содержимого из списка (бд) в заказ (order) бокс
-
-            //возможно потребуется поменять листбокс этот на лист вью, как в каталоге, потому что как разконвертить эту дичь, я не знаю
-            //можно сделать также, как и в первом, просто показывать элементы, которые были выбраны, но 
-            //выбранные клиентом данные мы будем загружать в лист, объявленный в верху (ListOrders), потому что так надо))
-            //вот, и из этого листа мы будем отправлять данные в таблицу заказов
+            //добавление содержимого из списка каталога в список заказа
 
             foreach (var item in listView_myCatalogue.SelectedItems)
             {
-                ListOrders.Add(item);
+                //добавляю данные в листбокс заказов
                 list_myOrders.Items.Add(item);
+
+                //все данные в строку и отправляю их в лист
+                var a = item.ToString();
+                ListOrders.Add(a);
+
                 MessageBox.Show("was added");
             }
         }
@@ -71,27 +68,34 @@ namespace Company.UI
 
         private void clear_button_Click(object sender, RoutedEventArgs e)
         {
-            //удалить заказ
+            //удалить заказ (удаляет весь список, позже можно настроить, чтобы поштучно удалял)
             list_myOrders.Items.Clear();
+            ListOrders.Clear();
         }
 
         private void order_botton_Click(object sender, RoutedEventArgs e)
         {
             //оформить заказ (отправляю новые данные в таблицу бд Orders)
 
-            //нужно залезть в ListOrders и из него данные присвоить значениям в таблице Orders и отправить их в базу
-
-            for (int i = 0; i < ListOrders.Count; i++)
+            //Разделяю данные в ListOrders
+            using (var c = new Context())
             {
-                using (var c = new Context())
+                foreach (string item in ListOrders)
                 {
-                    c.Orders.Add(new Orders
-                    {
-                        
-                    });
+                    //отрываю название от цены)
+                    string[] a = item.Split(' ');
+                    int price = Convert.ToInt32(a[1]);
+                    
+                        c.Orders.Add(new Orders
+                        {
+                            //ItemName = a[0],
+                            Cost = price
+                        });
                     c.SaveChanges();
                 }
             }
+
+            
         }
     }
 }
