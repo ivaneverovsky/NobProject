@@ -85,10 +85,11 @@ namespace Company.UI
                     //отрываю название от цены)
                     string[] a = item.Split(' ');
                     int price = Convert.ToInt32(a[1]);
+                    var itemname = new Catalogue { ItemName = a[0] };
                     
                         c.Orders.Add(new Orders
                         {
-                            //ItemName = a[0],
+                            ItemName = itemname,
                             Cost = price
                         });
                     c.SaveChanges();

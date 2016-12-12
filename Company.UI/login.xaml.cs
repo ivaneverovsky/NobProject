@@ -46,7 +46,6 @@ namespace Company.UI
             //добавить, после настройки пункта enter_Click
             if ( loginBox.Text == Client.login && passwordBox.Text == Client.password)
             {
-                
                 Close();
                 client.ShowDialog();
 
@@ -65,9 +64,9 @@ namespace Company.UI
             {
                 MessageBox.Show("Вы ввели неверные данные, повторите ещё раз");
                 //break - надо с этим сделать, а то этот месседж вылезает при закрытии проги
+                //либо не надо)
             }
-            //должен прочитать инфомацию из текст боксов, отправить ее на сервер,
-            //где должен сравнить ее с данными в базе и вернуть значение, которое в дальнейшем откроет профиль пользователя
+            //должен прочитать инфомацию из текст боксов, сравнить ее с данными в базе
         }
 
         private void reg_Click(object sender, RoutedEventArgs e)
