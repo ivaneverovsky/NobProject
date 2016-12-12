@@ -35,7 +35,7 @@ namespace Company.Data
         }
 
         //Список Заказов, показываем Админу и Поставщику
-        public List <Orders> CompanyOrders()
+        public List<Orders> CompanyOrders()
         {
             using (Context c = new Context())
             {
@@ -45,5 +45,26 @@ namespace Company.Data
                 return a.ToList();
             }
         }
+        public List<Client> ListOfClients()
+        {
+            using (Context c = new Context())
+            {
+                var a = from b in c.Clients
+                       
+                        select b;
+                return a.ToList();
+                
+            }
+        }
+        public List<Admin> ListOfAdmins()
+        {
+            using (Context c = new Context())
+            {
+                var a = from b in c.Admins
+                        select b;
+                return a.ToList();
+            }
+        }
+
     }
-}
+}   

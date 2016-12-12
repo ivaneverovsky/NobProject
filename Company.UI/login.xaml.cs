@@ -31,21 +31,22 @@ namespace Company.UI
         
        
         public void enter_Click(object sender, RoutedEventArgs e)
-        {
+        { Repository repo = new Repository();
             Client Client = new Client();
-          //  profile_Client client = new profile_Client();
+            profile_Client client = new profile_Client();
             Admin Admin = new Admin();
-            //profile_Admin admin = new profile_Admin();
+            profile_Admin admin = new profile_Admin();
             Supplier Supplier = new Supplier();
             profile_Supplier supplier = new profile_Supplier();
             login Login = new login();
             Context Context = new Context();
-            List<Admin> admin = new List<Admin>();
+            var _login = repo.ListOfClients();
+            //loginBox.Text == Context.Clients.ToString() && passwordBox.Text == Context.Clients.ToString())
 
-            
+
 
             //добавить, после настройки пункта enter_Click
-            if ( loginBox.Text == Context.Clients.ToString() && passwordBox.Text == Context.Clients.ToString())
+       //     if (loginBox.Text =   && passwordBox.Text == Context.Clients.ToString())
             {
                 Close();
                 client.ShowDialog();
