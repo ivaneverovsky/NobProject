@@ -2,6 +2,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -86,12 +87,18 @@ namespace Company.UI
                     string[] a = item.Split(' ');
                     int price = Convert.ToInt32(a[1]);
                     var itemname = new Catalogue { ItemName = a[0] };
-                    
-                        c.Orders.Add(new Orders
-                        {
-                            ItemName = itemname,
-                            Cost = price
-                        });
+
+
+                    //ИЗБЕЖАТЬ ДУБЛИКАТА
+                    c.Orders.AddOrUpdate(b => b.Id, new Orders
+                    {
+                        ItemName = itemname,
+                        Cost = price
+                    });
+                        //{
+                        //    ItemName = itemname,
+                        //    Cost = price
+                        //});
                     c.SaveChanges();
                 }
                 MessageBox.Show("Заказано");
