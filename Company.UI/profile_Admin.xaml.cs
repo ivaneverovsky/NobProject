@@ -75,7 +75,16 @@ namespace Company.UI
             var newpr = pr.Replace(" ", "");
 
             //отправляю в инт
-            int price = Convert.ToInt32(newpr);
+            string price = newpr;
+            
+            int n;  
+            while(!int.TryParse(price,out n))
+            {
+                MessageBox.Show("Введите заново");
+                   
+            }
+           
+
 
             //добавляю в базу
             using (var c = new Context())
@@ -83,7 +92,7 @@ namespace Company.UI
                 c.Catalogue.Add(new Catalogue
                 {
                     ItemName = itemname,
-                    Price = price
+                    Price = n
                 });
                 c.SaveChanges();
 
