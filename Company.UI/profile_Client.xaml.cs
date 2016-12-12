@@ -90,15 +90,12 @@ namespace Company.UI
 
 
                     //ИЗБЕЖАТЬ ДУБЛИКАТА
-                    c.Orders.AddOrUpdate(b => b.Id, new Orders
+
+                    c.Orders.Add(new Orders
                     {
                         ItemName = itemname,
                         Cost = price
                     });
-                        //{
-                        //    ItemName = itemname,
-                        //    Cost = price
-                        //});
                     c.SaveChanges();
                 }
                 MessageBox.Show("Заказано");

@@ -9,7 +9,11 @@
     <Grid>
         <TextBox x:Name="name" HorizontalAlignment="Left" Height="24" Margin="29,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
         <TextBox x:Name="surname" HorizontalAlignment="Left" Height="24" Margin="29,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <ComboBox x:Name="type" HorizontalAlignment="Left" Height="24" Margin="29,135,0,0" VerticalAlignment="Top" Width="170"/>
+        <ComboBox x:Name="type" SelectedIndex = "0" HorizontalAlignment="Left" Height="24" Margin="29,135,0,0" VerticalAlignment="Top" Width="170" SelectionChanged="type_SelectionChanged" IsSynchronizedWithCurrentItem="True">
+            <ListBoxItem Content="Client"/>
+            <ListBoxItem Content="Supplier"/>
+            <ListBoxItem Content="Admin"/>
+        </ComboBox>
         <TextBox x:Name="login" HorizontalAlignment="Left" Height="23" Margin="29,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
         <TextBox x:Name="password" HorizontalAlignment="Left" Margin="29,226,0,0" TextWrapping="Wrap" Width="170" Height="24" VerticalAlignment="Top"/>
         <Button x:Name="enter" Content="Enter" Height="30" Margin="76,270,76.6,0" VerticalAlignment="Top" Click="enter_Click"/>
@@ -20,3 +24,4 @@
 
     </Grid>
 </Window>
+
