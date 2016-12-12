@@ -39,12 +39,13 @@ namespace Company.UI
             Supplier Supplier = new Supplier();
             profile_Supplier supplier = new profile_Supplier();
             login Login = new login();
+            Context Context = new Context();
             
 
             
 
             //добавить, после настройки пункта enter_Click
-            if ( loginBox.Text == Client.login && passwordBox.Text == Client.password)
+            if ( loginBox.Text == Context.Clients.ToString() && passwordBox.Text == Context.Clients.ToString())
             {
                 Close();
                 client.ShowDialog();
