@@ -66,6 +66,8 @@ namespace Company.UI
 
             //пробую отправить в строку
             string itemname = Convert.ToString(newstr);
+            
+            
 
             //(2) оформляю Price
             var strPrice = textBox_newPrice.Text.ToString();
@@ -76,13 +78,14 @@ namespace Company.UI
 
             //отправляю в инт
             string price = newpr;
+
+            int n;
             
-            int n;  
             while (!int.TryParse(price, out n))
             { 
                 MessageBox.Show("Введите заново");
-                
-                   
+
+                return;
             }
            
 
