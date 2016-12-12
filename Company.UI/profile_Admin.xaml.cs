@@ -78,9 +78,10 @@ namespace Company.UI
             string price = newpr;
             
             int n;  
-            while(!int.TryParse(price,out n))
-            {
+            while (!int.TryParse(price, out n))
+            { 
                 MessageBox.Show("Введите заново");
+                
                    
             }
            
