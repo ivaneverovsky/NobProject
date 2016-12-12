@@ -94,6 +94,8 @@ namespace Company.UI
                         });
                     c.SaveChanges();
                 }
+                MessageBox.Show("Заказано");
+                list_myOrders.Items.Clear();
             }
         }
     }

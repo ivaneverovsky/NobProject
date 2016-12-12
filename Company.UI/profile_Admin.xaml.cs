@@ -56,6 +56,8 @@ namespace Company.UI
         {
             //конвертация тексбоксов в нужный формат, подумать над более оптимальным решением
             //и использовать здесь try catchб ибо падать будет, если не сможет конвертировать
+            
+            //(1) оформляю ItemName
             var strItemname = textBox_newItem.Text.ToString();
 
             //удаляю пробелы в строке
@@ -65,6 +67,7 @@ namespace Company.UI
             //пробую отправить в строку
             string itemname = Convert.ToString(newstr);
 
+            //(2) оформляю Price
             var strPrice = textBox_newPrice.Text.ToString();
 
             //удаляю пробелы
@@ -84,6 +87,7 @@ namespace Company.UI
                 });
                 c.SaveChanges();
 
+                //добавляю в лист
                 ListCatalogue = c.Catalogue.ToList();
             }
 
@@ -95,7 +99,7 @@ namespace Company.UI
             listBox_myCatalogue.Items.Clear();
             listBox_myCatalogue.Items.Refresh();
 
-            //добавляем новый элемент
+            //добавляем новый элемент в листбокс
             foreach (Catalogue item in ListCatalogue)
             {
                 listBox_myCatalogue.Items.Add(item.ItemName + " " + item.Price);
@@ -105,6 +109,8 @@ namespace Company.UI
         private void listBox_myCatalogue_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             //удаление выбраных элементов по двойному щелчку мыши из листбокса и из базы
+
+            //пока не работает
             foreach (var item in listBox_myCatalogue.SelectedItems)
             {
                 //удаляю из листбокса
@@ -113,6 +119,11 @@ namespace Company.UI
                 var a = item.ToString();
                 string[] newItem = a.Split(' ');
                 MessageBox.Show(newItem[0] +" for "+ newItem [1]+"$");
+
+                var str1 = newItem[0];
+                var str2 = newItem[1];
+
+                
                 //ListCatalogue.Contains(a);
             }
         }
