@@ -86,19 +86,16 @@ namespace Company.UI
                     //отрываю название от цены)
                     string[] a = item.Split(' ');
                     int price = Convert.ToInt32(a[1]);
-                    var itemname = new Catalogue { ItemName = a[0] };
+                    var itemname = a[0];
 
 
                     //ИЗБЕЖАТЬ ДУБЛИКАТА
-                    c.Orders.AddOrUpdate(b => b.Id, new Orders
+
+                    c.Orders.Add(new Orders
                     {
                         ItemName = itemname,
                         Cost = price
                     });
-                        //{
-                        //    ItemName = itemname,
-                        //    Cost = price
-                        //});
                     c.SaveChanges();
                 }
                 MessageBox.Show("Заказано");
