@@ -12,7 +12,7 @@ namespace Company.Data
 
         public Client Client { get; set; }
         public Admin Admin { get; set; }
-        public Catalogue ItemName { get; set; }
+        public string ItemName { get; set; }
 
         public int Cost { get; set; }
         public Status Status { get; set; }
