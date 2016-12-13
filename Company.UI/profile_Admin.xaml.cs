@@ -64,11 +64,15 @@ namespace Company.UI
             var str = strItemname;
             var newstr = str.Replace(" ", "");
 
+            while (textBox_newItem.Text == "" || textBox_newItem.Text == " " || textBox_newItem.Text == null)
+            {
+                MessageBox.Show("Error in ItemName");
+                textBox_newItem.Clear();
+                return;
+            }
             //пробую отправить в строку
             string itemname = Convert.ToString(newstr);
             
-            
-
             //(2) оформляю Price
             var strPrice = textBox_newPrice.Text.ToString();
 
@@ -83,13 +87,11 @@ namespace Company.UI
             
             while (!int.TryParse(price, out n))
             { 
-                MessageBox.Show("Введите заново");
-
+                MessageBox.Show("error in Price");
+                textBox_newPrice.Clear();
                 return;
             }
            
-
-
             //добавляю в базу
             using (var c = new Context())
             {
@@ -135,8 +137,6 @@ namespace Company.UI
 
                 var str1 = newItem[0];
                 var str2 = newItem[1];
-
-                
                 //ListCatalogue.Contains(a);
             }
         }
