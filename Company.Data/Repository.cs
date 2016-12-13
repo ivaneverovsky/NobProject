@@ -66,5 +66,17 @@ namespace Company.Data
             }
         }
 
+
+
+
+
+        //public  Authorization()  // хочу в этот метод потом засунуть логику реализации
+        //{
+        //    foreach (var item in AuthDic)
+        //    {
+
+        //    }
+        //}
+
     }
 }   

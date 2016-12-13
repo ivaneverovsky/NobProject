@@ -22,53 +22,59 @@ namespace Company.UI
     /// </summary>
     public partial class login : Window
     {
-        
-      
+
+
         public login()
         {
             InitializeComponent();
         }
-        
-       
+        List<Client> ListClients = new List<Client>();
+
         public void enter_Click(object sender, RoutedEventArgs e)
-        { Repository repo = new Repository();
-            Client Client = new Client();
+        {
+            Repository repo = new Repository();
             profile_Client client = new profile_Client();
-            Admin Admin = new Admin();
             profile_Admin admin = new profile_Admin();
-            Supplier Supplier = new Supplier();
             profile_Supplier supplier = new profile_Supplier();
-            login Login = new login();
-            Context Context = new Context();
-            var _login = repo.ListOfClients();
-            //loginBox.Text == Context.Clients.ToString() && passwordBox.Text == Context.Clients.ToString())
+
+            Dictionary<string, string> dictAuth = new Dictionary<string, string>();
+            using (var c = new Context())
+            {
+                foreach (var login in c.Clients)
+                {
+                    dictAuth.Add(login.login,login.password);
+                }
+            }
+
+
+
 
 
 
             //добавить, после настройки пункта enter_Click
-       //     if (loginBox.Text =   && passwordBox.Text == Context.Clients.ToString())
+            if (loginBox.Text == dictAuth.Keys.First() && passwordBox.Text == dictAuth.Values.First())
             {
                 Close();
                 client.ShowDialog();
 
             }
-            if (loginBox.Text == Admin.login && passwordBox.Text == Admin.password )
-            {
-                Close();
-                admin.ShowDialog();
-            }
-            if (loginBox.Text == Supplier.login && passwordBox.Text == Supplier.password)
-            {
-                Close();
-                supplier.ShowDialog();
-            }
+            //if (loginBox.Text == && passwordBox.Text == )
+            //{
+            //    Close();
+            //    admin.ShowDialog();
+            //}
+            //if (loginBox.Text ==  && passwordBox.Text == )
+            //{
+            //    Close();
+            //    supplier.ShowDialog();
+            //}
             else
             {
                 MessageBox.Show("Вы ввели неверные данные, повторите ещё раз");
-                //break - надо с этим сделать, а то этот месседж вылезает при закрытии проги
-                //либо не надо)
+                // break -надо с этим сделать, а то этот месседж вылезает при закрытии проги
+                //  либо не надо)
             }
-            //должен прочитать инфомацию из текст боксов, сравнить ее с данными в базе
+            // должен прочитать инфомацию из текст боксов, сравнить ее с данными в базе
         }
 
         private void reg_Click(object sender, RoutedEventArgs e)
@@ -84,7 +90,7 @@ namespace Company.UI
 
         private void ConnectToServer_Click(object sender, RoutedEventArgs e)
         {
-           //подключаемся к серверу
+            //подключаемся к серверу
         }
     }
 }
