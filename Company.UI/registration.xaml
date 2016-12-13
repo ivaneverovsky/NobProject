@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Company.UI"
         mc:Ignorable="d"
-        Title="registration" Height="338.4" Width="349.6">
+        Title="registration" Height="348" Width="349.6">
     <Grid>
         <TextBox x:Name="name" HorizontalAlignment="Left" Height="24" Margin="29,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
         <TextBox x:Name="surname" HorizontalAlignment="Left" Height="24" Margin="29,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>

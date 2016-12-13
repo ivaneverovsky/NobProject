@@ -21,8 +21,6 @@ namespace Company.UI
     public partial class registration : Window
     {
 
-        List<string> ListNewUser = new List<string>();
-
         public registration()
         {
             InitializeComponent();
@@ -30,38 +28,28 @@ namespace Company.UI
 
         private void enter_Click(object sender, RoutedEventArgs e)
         {
-            var a = name.ToString();
-            ListNewUser.Add(a);
 
-            var b = surname.ToString();
-            ListNewUser.Add(b);
-
-            var c = login.ToString();
-            ListNewUser.Add(c);
-
-            var d = password.ToString();
-            ListNewUser.Add(d);
+            string[] a = name.ToString().Split(' ');
+            string[] b = surname.ToString().Split(' ');
+            string[] c = login.ToString().Split(' ');
+            string[] d = password.ToString().Split(' ');
 
             //Разделяю данные в ListOrders
             using (var g = new Context())
             {
-                foreach (string item in ListNewUser)
+                g.Clients.Add(new Client
                 {
-                    //отделяю элементы
-                    string[] f = item.Split(' ');
-                    //int price = Convert.ToInt32(f[1]);
-                    //var itemname = new Catalogue { ItemName = f[0] };
-
-                    g.Orders.Add(new Orders
-                    {
-                        //ItemName = itemname,
-                        //Cost = price
-                    });
-                    g.SaveChanges();
+                        
+                        Name = a[1],
+                        Surname = b[1],
+                        login = c[1],
+                        password = d[1]
                 }
-                MessageBox.Show("Пользователь сохранен");
-                ListNewUser.Clear();
+                );
+                g.SaveChanges();
             }
+                MessageBox.Show("Пользователь сохранен");
+            
 
             //при нажатии данные отправляются в бд и записываются
             //возвращение к окну входа(логин), после записи данных в бд!
