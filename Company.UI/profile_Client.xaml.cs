@@ -91,15 +91,16 @@ namespace Company.UI
 
                     //ИЗБЕЖАТЬ ДУБЛИКАТА
 
-                    c.Orders.Add(new Orders
-                    {
-                        ItemName = itemname,
-                        Cost = price
-                    });
-                    c.SaveChanges();
+                    //c.Orders.Add(new Orders
+                    //{
+                    //    ItemName = itemname,
+                    //    Cost = price
+                    //});
+                    //c.SaveChanges();
+                    //}
+                    MessageBox.Show("Заказано");
+                    list_myOrders.Items.Clear();
                 }
-                MessageBox.Show("Заказано");
-                list_myOrders.Items.Clear();
             }
         }
     }

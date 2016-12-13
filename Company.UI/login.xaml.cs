@@ -36,45 +36,67 @@ namespace Company.UI
             profile_Client client = new profile_Client();
             profile_Admin admin = new profile_Admin();
             profile_Supplier supplier = new profile_Supplier();
+            //repo.AuthorizationAdmin();
+            //repo.AuthorizationAdmin();
+            //repo.AuthorizationSupplier();
 
-            Dictionary<string, string> dictAuth = new Dictionary<string, string>();
+            Dictionary<string, string> dictAuthClient = new Dictionary<string, string>();
             using (var c = new Context())
             {
                 foreach (var login in c.Clients)
                 {
-                    dictAuth.Add(login.login,login.password);
+                    dictAuthClient.Add(login.login, login.password);
                 }
             }
-
+            Dictionary<string, string> dictAuthAdmin = new Dictionary<string, string>();
+            using (var c = new Context())
+            {
+                foreach (var login in c.Admins)
+                {
+                    dictAuthAdmin.Add(login.login, login.password);
+                }
+            }
+            Dictionary<string, string> dictAuthSupplier = new Dictionary<string, string>();
+            using (var c = new Context())
+            {
+                foreach (var login in c.Suppliers)
+                {
+                    dictAuthSupplier.Add(login.login, login.password);
+                }
+            }
+            string test;
+            
 
 
 
 
 
             //добавить, после настройки пункта enter_Click
-            if (loginBox.Text == dictAuth.Keys.First() && passwordBox.Text == dictAuth.Values.First())
+            if (dictAuthClient.TryGetValue(loginBox.Text,out test))
             {
                 Close();
                 client.ShowDialog();
-
             }
-            //if (loginBox.Text == && passwordBox.Text == )
-            //{
-            //    Close();
-            //    admin.ShowDialog();
-            //}
-            //if (loginBox.Text ==  && passwordBox.Text == )
-            //{
-            //    Close();
-            //    supplier.ShowDialog();
-            //}
+            
+            if (dictAuthAdmin.TryGetValue(loginBox.Text,out test))
+            {
+                Close();
+                admin.ShowDialog();
+                
+            }
+            if (dictAuthSupplier.TryGetValue(loginBox.Text,out test))
+            {
+                Close();
+                supplier.ShowDialog();
+                
+            }
             else
             {
                 MessageBox.Show("Вы ввели неверные данные, повторите ещё раз");
                 // break -надо с этим сделать, а то этот месседж вылезает при закрытии проги
                 //  либо не надо)
             }
-            // должен прочитать инфомацию из текст боксов, сравнить ее с данными в базе
+            //должен прочитать инфомацию из текст боксов, сравнить ее с данными в базе
         }
 
         private void reg_Click(object sender, RoutedEventArgs e)
