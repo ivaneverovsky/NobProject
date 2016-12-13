@@ -133,12 +133,17 @@ namespace Company.UI
 
                 var a = item.ToString();
                 string[] newItem = a.Split(' ');
-                MessageBox.Show(newItem[0] +" for "+ newItem [1]+"$");
+                MessageBox.Show(newItem[0] + " for " + newItem[1] + "$");
 
                 var str1 = newItem[0];
                 var str2 = newItem[1];
                 //ListCatalogue.Contains(a);
             }
+        }
+
+        private void listBox_myCatalogue_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

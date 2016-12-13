@@ -5,8 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Company.UI"
         mc:Ignorable="d"
-        Title="profile_Supplier" Height="300" Width="300">
-    <Grid>
-        
+        Title="profile_Supplier">
+    <Grid RenderTransformOrigin="0.474,0.555" Margin="0,0,-155.667,-62.667">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="17*"/>
+            <ColumnDefinition Width="900*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox x:Name="listBox_CatalogueOfOrders" HorizontalAlignment="Left" Height="117" Margin="9.667,135,0,0" VerticalAlignment="Top" Width="185" MouseDoubleClick="listBox_CatalogueOfOrders_MouseDoubleClick" Grid.Column="5" SelectionChanged="listBox_CatalogueOfOrders_SelectionChanged"/>
+        <Label x:Name="labelCatalogue" Content="   Catalogue" HorizontalAlignment="Left" Margin="59.667,87,0,0" VerticalAlignment="Top" Grid.Column="5" Height="43" Width="94"/>
+        <Label x:Name="label_Orders" Content="Orders" HorizontalAlignment="Left" Margin="568.667,87,0,0" VerticalAlignment="Top" Grid.Column="5" Width="76"/>
+        <ListBox x:Name="listBox_Orders" HorizontalAlignment="Left" Height="117" Margin="492.667,135,0,0" VerticalAlignment="Top" Width="216" Grid.Column="5" SelectionChanged="listBox_Orders_SelectionChanged"/>
+        <Button x:Name="button_Show" Content="Show catalogue" HorizontalAlignment="Left" Margin="59.667,274,0,0" VerticalAlignment="Top" Width="94" Click="button_Show_Click" Grid.Column="5"/>
     </Grid>
 </Window>
