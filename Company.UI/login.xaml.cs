@@ -36,6 +36,9 @@ namespace Company.UI
             profile_Client client = new profile_Client();
             profile_Admin admin = new profile_Admin();
             profile_Supplier supplier = new profile_Supplier();
+            //repo.AuthorizationAdmin();
+            //repo.AuthorizationAdmin();
+            //repo.AuthorizationSupplier();
 
             Dictionary<string, string> dictAuthClient = new Dictionary<string, string>();
             using (var c = new Context())

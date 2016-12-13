@@ -5,9 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Company.Data
-{
+{ 
     public class Repository
     {
+        
+
         //здесь будут листы, которые мы будем показывать
 
         //Каталог, который показываем клиенту
@@ -70,11 +72,37 @@ namespace Company.Data
 
 
 
-        //public  Authorization()  // хочу в этот метод потом засунуть логику реализации
+        //public void  AuthorizationClient()   //хочу в этот метод потом засунуть логику реализации
         //{
-        //    foreach (var item in AuthDic)
+        //    Dictionary<string, string> dictAuthClients = new Dictionary<string, string>();
+        //    using (var c = new Context())
         //    {
-
+        //        foreach (var login in c.Clients)
+        //        {
+        //            dictAuthClients.Add(login.login, login.password);
+        //        }
+        //    }
+        //}
+        //public void AuthorizationAdmin()   //хочу в этот метод потом засунуть логику реализации
+        //{
+        //    Dictionary<string, string> dictAuthAdmins = new Dictionary<string, string>();
+        //    using (var c = new Context())
+        //    {
+        //        foreach (var login in c.Admins)
+        //        {
+        //            dictAuthAdmins.Add(login.login, login.password);
+        //        }
+        //    }
+        //}
+        //public void AuthorizationSupplier()
+        //{
+        //    Dictionary<string, string> dictAuthSupplier = new Dictionary<string, string>();
+        //    using (var c = new Context())
+        //    {
+        //        foreach (var login in c.Suppliers)
+        //        {
+        //            dictAuthSupplier.Add(login.login, login.password);
+        //        }
         //    }
         //}
 
