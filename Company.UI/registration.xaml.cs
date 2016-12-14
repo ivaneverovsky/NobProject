@@ -38,7 +38,7 @@ namespace Company.UI
 
             if (a.Length == 2)
             {
-                x+=1;
+                x += 1;
                 label1.Visibility = Visibility.Hidden;
             }
             else
@@ -49,7 +49,7 @@ namespace Company.UI
 
             if (b.Length == 2)
             {
-                x+=1;
+                x += 1;
                 label2.Visibility = Visibility.Hidden;
             }
             else
@@ -63,7 +63,7 @@ namespace Company.UI
                 label3.Visibility = Visibility.Hidden;
                 if (Comparing(c[1]))
                 {
-                    x+=1;
+                    x += 1;
                     label5.Visibility = Visibility.Hidden;
                 }
                 else
@@ -79,7 +79,7 @@ namespace Company.UI
 
             if (d.Length == 2)
             {
-                x+=1;
+                x += 1;
                 label4.Visibility = Visibility.Hidden;
             }
             else
@@ -94,7 +94,7 @@ namespace Company.UI
                 {
                     switch (selectedIndex)
                     {
-                        case 2:
+                        case 1:
                             g.Suppliers.Add(new Supplier
                             {
                                 Name = a[1],
@@ -104,7 +104,7 @@ namespace Company.UI
                             }
                             );
                             break;
-                        case 3:
+                        case 2:
                             g.Admins.Add(new Admin
                             {
                                 Name = a[1],
