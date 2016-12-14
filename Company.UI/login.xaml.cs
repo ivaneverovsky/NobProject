@@ -31,8 +31,7 @@ namespace Company.UI
         List<Client> ListClients = new List<Client>();
 
         public void enter_Click(object sender, RoutedEventArgs e)
-        {
-            //Context cntxt = new Context();
+        { Context cntxt = new Context();
             Repository repo = new Repository();
             profile_Client client = new profile_Client();
             profile_Admin admin = new profile_Admin();
@@ -40,9 +39,8 @@ namespace Company.UI
             //repo.AuthorizationAdmin();
             //repo.AuthorizationAdmin();
             //repo.AuthorizationSupplier();
-
-            //сохраняем в словари логины и пароли
-            Dictionary<string, string> dictAuthClient = new Dictionary<string, string>();
+           
+                Dictionary<string, string> dictAuthClient = new Dictionary<string, string>();
             using (var c = new Context())
             {
                 foreach (var login in c.Clients)
@@ -50,7 +48,6 @@ namespace Company.UI
                     dictAuthClient.Add(login.login, login.password);
                 }
             }
-
             Dictionary<string, string> dictAuthAdmin = new Dictionary<string, string>();
             using (var c = new Context())
             {
@@ -59,7 +56,6 @@ namespace Company.UI
                     dictAuthAdmin.Add(login.login, login.password);
                 }
             }
-
             Dictionary<string, string> dictAuthSupplier = new Dictionary<string, string>();
             using (var c = new Context())
             {
@@ -69,32 +65,47 @@ namespace Company.UI
                 }
             }
             string test;
+            
+
+
+
+
 
             //добавить, после настройки пункта enter_Click
-            if (dictAuthClient.TryGetValue(loginBox.Text, out test))
+            if (dictAuthClient.TryGetValue(loginBox.Text,out test))
             {
-                client.ClientNameBox.Text = loginBox.Text;
+               
+                
+                     ;
+                  
+                
                 Close();
                 client.ShowDialog();
-            }
 
-            if (dictAuthAdmin.TryGetValue(loginBox.Text, out test))
+                return; 
+                }
+            
+            if (dictAuthAdmin.TryGetValue(loginBox.Text,out test))
             {
                 Close();
                 admin.ShowDialog();
+                return;
+                
             }
-
-            if (dictAuthSupplier.TryGetValue(loginBox.Text, out test))
+            if (dictAuthSupplier.TryGetValue(loginBox.Text,out test))
             {
                 Close();
                 supplier.ShowDialog();
-            }
-
-            else
-            {
-                MessageBox.Show("Вы ввели неверные данные, повторите ещё раз");
                 return;
             }
+            else
+            { 
+                MessageBox.Show("Вы ввели неверные данные, повторите ещё раз");
+                return;
+               
+                
+            }
+            //должен прочитать инфомацию из текст боксов, сравнить ее с данными в базе
         }
 
         private void reg_Click(object sender, RoutedEventArgs e)
