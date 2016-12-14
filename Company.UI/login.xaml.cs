@@ -76,27 +76,27 @@ namespace Company.UI
             {
                
                 
-                    client.ClientNameBox.Text = loginBox.Text ;
+                     ;
                   
                 
                 Close();
                 client.ShowDialog();
-    
-                              
+
+                return; 
                 }
             
             if (dictAuthAdmin.TryGetValue(loginBox.Text,out test))
             {
                 Close();
                 admin.ShowDialog();
-                
+                return;
                 
             }
             if (dictAuthSupplier.TryGetValue(loginBox.Text,out test))
             {
                 Close();
                 supplier.ShowDialog();
-                
+                return;
             }
             else
             { 
