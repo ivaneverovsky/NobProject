@@ -39,14 +39,7 @@ namespace Company.UI
             //repo.AuthorizationAdmin();
             //repo.AuthorizationAdmin();
             //repo.AuthorizationSupplier();
-            Dictionary<string, string> dictClientNames = new Dictionary<string, string>();
-            using (var c = new Context())
-            {
-                foreach (var name in c.Clients)
-                {
-                    dictClientNames.Add(name.login, name.Name);
-                }
-            }
+           
                 Dictionary<string, string> dictAuthClient = new Dictionary<string, string>();
             using (var c = new Context())
             {
@@ -72,7 +65,7 @@ namespace Company.UI
                 }
             }
             string test;
-            string o;
+            
 
 
 
@@ -84,7 +77,7 @@ namespace Company.UI
                
                 
                     client.ClientNameBox.Text = loginBox.Text ;
-                    client.ClientSurnameBox.Text = loginBox.Text + "ev";
+                  
                 
                 Close();
                 client.ShowDialog();
@@ -106,10 +99,11 @@ namespace Company.UI
                 
             }
             else
-            {
+            { 
                 MessageBox.Show("Вы ввели неверные данные, повторите ещё раз");
-                // break -надо с этим сделать, а то этот месседж вылезает при закрытии проги
-                //  либо не надо)
+                return;
+               
+                
             }
             //должен прочитать инфомацию из текст боксов, сравнить ее с данными в базе
         }
