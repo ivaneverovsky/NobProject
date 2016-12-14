@@ -94,7 +94,7 @@ namespace Company.UI
                 {
                     switch (selectedIndex)
                     {
-                        case 2:
+                        case 1:
                             g.Suppliers.Add(new Supplier
                             {
                                 Name = a[1],
@@ -104,7 +104,7 @@ namespace Company.UI
                             }
                             );
                             break;
-                        case 3:
+                        case 2:
                             g.Admins.Add(new Admin
                             {
                                 Name = a[1],
