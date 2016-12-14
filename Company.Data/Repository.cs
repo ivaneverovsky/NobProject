@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Company.Data
-{ 
+{
     public class Repository
     {
-        
+
 
         //здесь будут листы, которые мы будем показывать
 
@@ -52,10 +52,10 @@ namespace Company.Data
             using (Context c = new Context())
             {
                 var a = from b in c.Clients
-                       
+
                         select b;
                 return a.ToList();
-                
+
             }
         }
         public List<Admin> ListOfAdmins()
@@ -68,7 +68,11 @@ namespace Company.Data
             }
         }
 
-
+        public List<string> DeletedItems = new List<string>();
+        public List<string> items()
+        {
+            return DeletedItems;
+        }
 
 
 
@@ -107,4 +111,4 @@ namespace Company.Data
         //}
 
     }
-}   
+}

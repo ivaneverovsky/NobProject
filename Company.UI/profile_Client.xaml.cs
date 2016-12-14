@@ -77,7 +77,7 @@ namespace Company.UI
 
         private void order_botton_Click(object sender, RoutedEventArgs e)
         {
-            
+
             Catalogue itemname = new Catalogue();
             //оформить заказ (отправляю новые данные в таблицу бд Orders)
 
@@ -89,22 +89,22 @@ namespace Company.UI
                     //отрываю название от цены)
                     string[] a = item.Split(' ');
                     int price = Convert.ToInt32(a[1]);
-                     itemname.ItemName = a[0];
+                    itemname.ItemName = a[0];
 
 
                     //ИЗБЕЖАТЬ ДУБЛИКАТА
 
                     c.Orders.Add(new Orders
-                    {    
+                    {
                         ItemName = itemname,
                         Cost = price
                     });
                     c.SaveChanges();
                 }
                 MessageBox.Show("Заказано");
-                    list_myOrders.Items.Clear();
-                }
+                list_myOrders.Items.Clear();
             }
+        }
 
         private void ClientNameBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -115,6 +115,15 @@ namespace Company.UI
         {
             ClientSurnameBox.Text = client.Surname;
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in repo.DeletedItems)
+            {
+                var a = item.ToString();
+                MessageBox.Show(a);
+            }
+        }
     }
-    }
+}
 

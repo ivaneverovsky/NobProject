@@ -28,7 +28,6 @@ namespace Company.UI
         Repository repo = new Repository();
         List<Catalogue> ListCatalogue = new List<Catalogue>();
         List<Orders> ListOrders = new List<Orders>();
-        List<string> DeletedItems = new List<string>();
 
         //по кнопке показываю базу данных Админу
         private void button_Show_Click(object sender, RoutedEventArgs e)
@@ -40,6 +39,25 @@ namespace Company.UI
 
                 ListCatalogue = c.Catalogue.ToList();
                 ListOrders = c.Orders.ToList();
+
+                //сказочный цикл :)
+                foreach (var item in ListCatalogue)
+                {
+                    foreach (var deleteditem in repo.DeletedItems)
+                    {
+                        var a = deleteditem.ToString();
+                        string[] split = a.Split(' ');
+                        var newshit = split[0];
+
+                        for (int i = 0; i < ListCatalogue.Count; i++)
+                        {
+                            if (ListCatalogue[i].ItemName == newshit)
+                            {
+                                ListCatalogue.Remove(item);
+                            }
+                        }
+                    }
+                }
 
                 //показываю лист бд админу
                 foreach (Catalogue item in ListCatalogue)
@@ -132,12 +150,15 @@ namespace Company.UI
 
                 //добавляю в лист удаленных (строку)
                 string deletedstr = item.ToString();
-                DeletedItems.Add(deletedstr);
+                repo.DeletedItems.Add(deletedstr);
 
                 //удаляю из листбокса
                 listBox_myCatalogue.Items.Remove(item);
                 listBox_myCatalogue.Items.Refresh();
 
+                
+                //вызвать обязательно в конце цикла, а то падает
+                break;
                 //базу трогать не стал (много тонкостей), код оставлю закоменченным
 
                 //int newID = index + 1;
@@ -156,6 +177,16 @@ namespace Company.UI
 
                 //var str1 = newItem[0];
                 //var str2 = newItem[1];
+                //}
+            }
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (var item in repo.DeletedItems)
+            {
+                var a = item.ToString();
+                MessageBox.Show(a);
             }
         }
     }

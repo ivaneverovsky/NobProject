@@ -27,5 +27,6 @@
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24" Margin="163,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="54"/>
         <TextBox x:Name="ClientNameBox" HorizontalAlignment="Left" Height="24" Margin="163,12,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="54" TextChanged="ClientNameBox_TextChanged"/>
         <TextBox x:Name="ClientSurnameBox" HorizontalAlignment="Left" Height="24" Margin="306,0,0,370" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="54" TextChanged="ClientSurnameBox_TextChanged"/>
+        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="428,122,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
     </Grid>
 </Window>
