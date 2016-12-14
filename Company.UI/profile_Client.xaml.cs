@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
@@ -22,20 +24,21 @@ namespace Company.UI
     /// </summary>
     public partial class profile_Client : Window
     {
-        
-        
-            
+
+
+
         public profile_Client()
         {
             InitializeComponent();
         }
         Dictionary<string, string> dictClientNames = new Dictionary<string, string>();
-            
+
         Client client = new Client();
         Admin admin = new Admin();
         Repository repo = new Repository();
         List<Catalogue> ListCatalogue = new List<Catalogue>();
-        List<string> ListOrders = new List<string>();
+        List<string> ListBasket = new List<string>();
+        List<string> ListMyOrder = new List<string>();
 
         private void button_show_catalogue_Click(object sender, RoutedEventArgs e)
         {
@@ -66,7 +69,7 @@ namespace Company.UI
 
                 //все данные в строку и отправляю их в лист
                 var a = item.ToString();
-                ListOrders.Add(a);
+                ListBasket.Add(a);
 
                 MessageBox.Show("was added");
             }
@@ -77,7 +80,7 @@ namespace Company.UI
         {
             //удалить заказ (удаляет весь список, позже можно настроить, чтобы поштучно удалял)
             list_myBasket.Items.Clear();
-            ListOrders.Clear();
+            ListBasket.Clear();
         }
 
         private void order_botton_Click(object sender, RoutedEventArgs e)
@@ -89,13 +92,13 @@ namespace Company.UI
             //Разделяю данные в ListOrders
             using (var c = new Context())
             {
-                foreach (string item in ListOrders)
+                foreach (string item in ListBasket)
                 {
                     //отрываю название от цены)
                     string[] a = item.Split(' ');
                     int price = Convert.ToInt32(a[1]);
                     itemname.ItemName = a[0];
-
+                    ListMyOrder.Add(item);
                     listBox_orders.Items.Add(a[0] + " " + price.ToString() + "$");
 
 
@@ -115,15 +118,6 @@ namespace Company.UI
             }
         }
 
-        public void ClientNameBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-        }
-
-        public void ClientSurnameBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
-        }
-
         private void button_Click(object sender, RoutedEventArgs e)
         {
             foreach (var item in repo.DeletedItems)
@@ -131,6 +125,23 @@ namespace Company.UI
                 var a = item.ToString();
                 MessageBox.Show(a);
             }
+        }
+
+        //экспорт в текстовый файл
+        private void btn_exl_Click(object sender, RoutedEventArgs e)
+        {
+            using (TextWriter tw = new StreamWriter("C:\\Users\\Ivan\\Desktop\\list.txt"))
+            {
+                foreach (var item in ListMyOrder)
+                {
+                    string[] a = item.Split(' ');
+                    string str1 = a[0];
+                    string str2 = a[1];
+                    tw.WriteLine(str1 + " " + str2 + "$");
+                }
+                MessageBox.Show("Done");
+            }
+
         }
     }
 }
