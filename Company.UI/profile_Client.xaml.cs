@@ -62,7 +62,7 @@ namespace Company.UI
             foreach (var item in listView_myCatalogue.SelectedItems)
             {
                 //добавляю данные в листбокс заказов
-                list_myBasket.Items.Add(item);
+                list_myCart.Items.Add(item);
 
                 //все данные в строку и отправляю их в лист
                 var a = item.ToString();
@@ -76,7 +76,7 @@ namespace Company.UI
         private void clear_button_Click(object sender, RoutedEventArgs e)
         {
             //удалить заказ (удаляет весь список, позже можно настроить, чтобы поштучно удалял)
-            list_myBasket.Items.Clear();
+            list_myCart.Items.Clear();
             ListOrders.Clear();
         }
 
@@ -102,7 +102,7 @@ namespace Company.UI
                     //ИЗБЕЖАТЬ ДУБЛИКАТА
 
                     c.Orders.Add(new Orders
-                    {
+                    {   
                         ItemName = itemname,
                         Cost = price
                     });
@@ -111,7 +111,7 @@ namespace Company.UI
                 }
                 totalCost.Content = purchase.ToString() + "$";
                 MessageBox.Show("Заказано");
-                list_myBasket.Items.Clear();
+                list_myCart.Items.Clear();
             }
         }
 
@@ -131,6 +131,11 @@ namespace Company.UI
                 var a = item.ToString();
                 MessageBox.Show(a);
             }
+        }
+
+        private void list_myCart_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

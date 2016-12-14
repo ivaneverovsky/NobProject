@@ -131,16 +131,17 @@ namespace Company.UI
                     }
                 }
 
-
+               
                 if (test == passwordBox.Text)
                 {
                     Close();
-                    supplier.ShowDialog();
+                    client.ShowDialog();
+                    return;
                 }
 
-                return; 
+               
                 }
-
+            
             string AdminName;
             string AdminSurname;
             if (dictAuthAdmin.TryGetValue(loginBox.Text,out test))
@@ -154,15 +155,16 @@ namespace Company.UI
                 if (test == passwordBox.Text)
                 {
                     Close();
-                    supplier.ShowDialog();
+                    admin.ShowDialog();
+                    return;
                 }
-                return;
+                
                 
             }
             string SupplierName;
             string SupplierSurname;
             if (dictAuthSupplier.TryGetValue(loginBox.Text,out test))
-            { if (test == passwordBox.Text)
+            {
                 
                 
                 if (dictSuppliersName.TryGetValue(loginBox.Text, out SupplierName) && dictSuppliersSurname.TryGetValue(loginBox.Text, out SupplierSurname))
@@ -177,7 +179,7 @@ namespace Company.UI
                 }
                     
                 
-                return;
+                
             }
             else
             { 
