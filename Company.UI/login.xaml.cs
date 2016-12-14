@@ -130,10 +130,13 @@ namespace Company.UI
                         client.labelSurname.Content = ClientSurname;
                     }
                 }
-                  
-                
-                Close();
-                client.ShowDialog();
+
+
+                if (test == passwordBox.Text)
+                {
+                    Close();
+                    supplier.ShowDialog();
+                }
 
                 return; 
                 }
@@ -148,22 +151,32 @@ namespace Company.UI
                     admin.labelSurname.Content = AdminSurname;
                 }
 
-                Close();
-                admin.ShowDialog();
+                if (test == passwordBox.Text)
+                {
+                    Close();
+                    supplier.ShowDialog();
+                }
                 return;
                 
             }
             string SupplierName;
             string SupplierSurname;
             if (dictAuthSupplier.TryGetValue(loginBox.Text,out test))
-            {
+            { if (test == passwordBox.Text)
+                
+                
                 if (dictSuppliersName.TryGetValue(loginBox.Text, out SupplierName) && dictSuppliersSurname.TryGetValue(loginBox.Text, out SupplierSurname))
                 {
                     supplier.labelName.Content = SupplierName;
                     supplier.labelSurname.Content = SupplierSurname;
                 }
-                Close();
-                supplier.ShowDialog();
+                if (test == passwordBox.Text)
+                {
+                    Close();
+                    supplier.ShowDialog();
+                }
+                    
+                
                 return;
             }
             else
