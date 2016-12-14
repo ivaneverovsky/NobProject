@@ -57,12 +57,12 @@ namespace Company.UI
 
         private void listView_myCatalogue_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //добавление содержимого из списка каталога в список заказа
+            //добавление содержимого из списка каталога в корзину
 
             foreach (var item in listView_myCatalogue.SelectedItems)
             {
                 //добавляю данные в листбокс заказов
-                list_myOrders.Items.Add(item);
+                list_myBasket.Items.Add(item);
 
                 //все данные в строку и отправляю их в лист
                 var a = item.ToString();
@@ -76,7 +76,7 @@ namespace Company.UI
         private void clear_button_Click(object sender, RoutedEventArgs e)
         {
             //удалить заказ (удаляет весь список, позже можно настроить, чтобы поштучно удалял)
-            list_myOrders.Items.Clear();
+            list_myBasket.Items.Clear();
             ListOrders.Clear();
         }
 
@@ -96,6 +96,8 @@ namespace Company.UI
                     int price = Convert.ToInt32(a[1]);
                     itemname.ItemName = a[0];
 
+                    listBox_orders.Items.Add(a[0] + " for " + price.ToString() + "$");
+
 
                     //ИЗБЕЖАТЬ ДУБЛИКАТА
 
@@ -107,7 +109,7 @@ namespace Company.UI
                     c.SaveChanges();
                 }
                 MessageBox.Show("Заказано");
-                list_myOrders.Items.Clear();
+                list_myBasket.Items.Clear();
             }
         }
 

@@ -27,14 +27,7 @@ namespace Company.UI
         Repository repo = new Repository();
         List<Catalogue> ListCatalogue = new List<Catalogue>();
         List<Orders> ListOrders = new List<Orders>();
-        private void listBox_CatalogueOfOrders_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-        private void listBox_Orders_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+        
         private void listBox_CatalogueOfOrders_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             //удаление выбраных элементов по двойному щелчку мыши из листбокса и из базы
@@ -60,9 +53,7 @@ namespace Company.UI
             using (var c = new Context())
             {
                 listBox_CatalogueOfOrders.Items.Clear();
-                listBox_CatalogueOfOrders.Items.Refresh();
                 listBox_Orders.Items.Clear();
-                listBox_Orders.Items.Refresh();
 
                 ListCatalogue = c.Catalogue.ToList();
                 ListOrders = c.Orders.ToList();
@@ -73,7 +64,11 @@ namespace Company.UI
                 }
                 foreach (Orders item in ListOrders)
                 {
-                    listBox_Orders.Items.Add(item.Client + " " + item.ItemName + " " + item.Cost + " " + item.Status + " " + item.Admin);
+                    string itemname = item.ItemName.ItemName;
+                    //string nameClient = item.Client.Name;
+                    //string nameAdmin = item.Admin.Name;
+
+                    listBox_Orders.Items.Add(/*nameClient +*/" " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/);
                 }
             }
         }

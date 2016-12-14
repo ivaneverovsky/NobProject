@@ -43,6 +43,7 @@ namespace Company.UI
             }
             else
             {
+                name.Clear();
                 label1.Visibility = Visibility.Visible;
             }
 
@@ -53,6 +54,7 @@ namespace Company.UI
             }
             else
             {
+                surname.Clear();
                 label2.Visibility = Visibility.Visible;
             }
 
@@ -66,6 +68,7 @@ namespace Company.UI
                 }
                 else
                 {
+                    Login.Clear();
                     label5.Visibility = Visibility.Visible;
                 }
             }
@@ -81,11 +84,10 @@ namespace Company.UI
             }
             else
             {
+                password.Clear();
                 label4.Visibility = Visibility.Visible;
             }
 
-
-            //Разделяю данные в ListOrders
             if (x == 4)
             {
                 using (var g = new Context())
@@ -95,7 +97,6 @@ namespace Company.UI
                         case 2:
                             g.Suppliers.Add(new Supplier
                             {
-
                                 Name = a[1],
                                 Surname = b[1],
                                 login = c[1],
@@ -106,7 +107,6 @@ namespace Company.UI
                         case 3:
                             g.Admins.Add(new Admin
                             {
-
                                 Name = a[1],
                                 Surname = b[1],
                                 login = c[1],
@@ -117,7 +117,6 @@ namespace Company.UI
                         default:
                             g.Clients.Add(new Client
                             {
-
                                 Name = a[1],
                                 Surname = b[1],
                                 login = c[1],
@@ -144,11 +143,6 @@ namespace Company.UI
             login log = new login();
             Close();
             log.ShowDialog();
-        }
-
-        private void comboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private static bool Comparing(string NewLogin)

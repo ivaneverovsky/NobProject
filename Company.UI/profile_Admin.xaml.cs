@@ -41,23 +41,23 @@ namespace Company.UI
                 ListOrders = c.Orders.ToList();
 
                 //сказочный цикл :)
-                foreach (var item in ListCatalogue)
-                {
-                    foreach (var deleteditem in repo.DeletedItems)
-                    {
-                        var a = deleteditem.ToString();
-                        string[] split = a.Split(' ');
-                        var newshit = split[0];
+                //foreach (var item in ListCatalogue)
+                //{
+                //    foreach (var deleteditem in repo.DeletedItems)
+                //    {
+                //        var a = deleteditem.ToString();
+                //        string[] split = a.Split(' ');
+                //        var newshit = split[0];
 
-                        for (int i = 0; i < ListCatalogue.Count; i++)
-                        {
-                            if (ListCatalogue[i].ItemName == newshit)
-                            {
-                                ListCatalogue.Remove(item);
-                            }
-                        }
-                    }
-                }
+                //        for (int i = 0; i < ListCatalogue.Count; i++)
+                //        {
+                //            if (ListCatalogue[i].ItemName == newshit)
+                //            {
+                //                ListCatalogue.Remove(item);
+                //            }
+                //        }
+                //    }
+                //}
 
                 //показываю лист бд админу
                 foreach (Catalogue item in ListCatalogue)
@@ -67,7 +67,11 @@ namespace Company.UI
                 //показываю заказы админу
                 foreach (Orders item in ListOrders)
                 {
-                    listBox_Orders.Items.Add((item.Client + " " + item.ItemName + " " + item.Cost + " " + item.Status + " " + item.Admin).ToString());
+                    string itemname = item.ItemName.ItemName;
+                    //string nameClient = item.Client.Name;
+                    //string nameAdmin = item.Admin.Name;
+
+                    listBox_Orders.Items.Add(/*nameClient +*/" " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/);
                 }
             }
         }
