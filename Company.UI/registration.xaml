@@ -5,22 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Company.UI"
         mc:Ignorable="d"
-        Title="registration" Height="348" Width="349.6">
-    <Grid>
+        Title="registration" Height="362.4" Width="349.6">
+    <Grid Margin="0,0,0.2,0">
         <TextBox x:Name="name" HorizontalAlignment="Left" Height="24" Margin="29,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
         <TextBox x:Name="surname" HorizontalAlignment="Left" Height="24" Margin="29,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <ComboBox x:Name="type" SelectedIndex = "0" HorizontalAlignment="Left" Height="24" Margin="29,135,0,0" VerticalAlignment="Top" Width="170" SelectionChanged="type_SelectionChanged" IsSynchronizedWithCurrentItem="True">
+        <ComboBox x:Name="type" SelectedIndex = "0" HorizontalAlignment="Left" Height="24" Margin="29,135,0,0" VerticalAlignment="Top" Width="170" IsSynchronizedWithCurrentItem="True">
             <ListBoxItem Content="Client"/>
             <ListBoxItem Content="Supplier"/>
             <ListBoxItem Content="Admin"/>
         </ComboBox>
-        <TextBox x:Name="login" HorizontalAlignment="Left" Height="23" Margin="29,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <TextBox x:Name="password" HorizontalAlignment="Left" Margin="29,226,0,0" TextWrapping="Wrap" Width="170" Height="24" VerticalAlignment="Top"/>
-        <Button x:Name="enter" Content="Enter" Height="30" Margin="76,270,76.6,0" VerticalAlignment="Top" Click="enter_Click"/>
-        <Label x:Name="label1" Content="There is no name" HorizontalAlignment="Left" Margin="217,41,0,0" VerticalAlignment="Top" Width="111" Foreground="Red"/>
-        <Label x:Name="label2" Content="There is no surname" HorizontalAlignment="Left" Margin="217,87,-0.4,0" VerticalAlignment="Top" Width="121" Foreground="Red"/>
-        <Label x:Name="label3" Content="There is no login" HorizontalAlignment="Left" Margin="217,184,0,0" VerticalAlignment="Top" Width="98" Foreground="Red"/>
-        <Label x:Name="label4" Content="There is no password" HorizontalAlignment="Left" Margin="217,224,0,0" VerticalAlignment="Top" Width="126" Foreground="Red"/>
+        <TextBox x:Name="Login" HorizontalAlignment="Left" Height="23" Margin="29,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+        <TextBox x:Name="password" HorizontalAlignment="Left" Margin="29,235,0,0" TextWrapping="Wrap" Width="170" Height="24" VerticalAlignment="Top"/>
+        <Button x:Name="enter" Content="Enter" Height="30" Margin="41,289,193,0" VerticalAlignment="Top" Click="enter_Click"/>
+        <Label x:Name="label1" Content="There is no name" HorizontalAlignment="Left" Margin="217,41,0,0" VerticalAlignment="Top" Width="111" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="label2" Content="There is no surname" HorizontalAlignment="Left" Margin="217,87,-0.4,0" VerticalAlignment="Top" Width="121" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="label3" Content="There is no login" HorizontalAlignment="Left" Margin="217,184,0,0" VerticalAlignment="Top" Width="98" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="label4" Content="There is no password" HorizontalAlignment="Left" Margin="217,224,0,0" VerticalAlignment="Top" Width="126" Foreground="Red" Visibility="Hidden"/>
+        <Button x:Name="Cancel" Content="Cancel" Margin="193,289,41,0" VerticalAlignment="Top" Height="30" Click="Cancel_Click_1"/>
+        <Label x:Name="label5" Content="This login already exists" HorizontalAlignment="Left" Margin="204,184,0,0" VerticalAlignment="Top" Height="24" Width="134" Foreground="Red" Visibility="Hidden"/>
+        <Label x:Name="label" Content="Enter your name" HorizontalAlignment="Left" Margin="29,15,0,0" VerticalAlignment="Top" Width="170"/>
+        <Label x:Name="label6" Content="Enter your surname" HorizontalAlignment="Left" Margin="29,65,0,0" VerticalAlignment="Top" Width="170"/>
+        <Label x:Name="label7" Content="Enter your login" HorizontalAlignment="Left" Margin="29,160,0,0" VerticalAlignment="Top" Width="170"/>
+        <Label x:Name="label8" Content="Choose your type of user" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,113,0,0" Width="170"/>
+        <Label x:Name="label9" Content="Enter your password" HorizontalAlignment="Left" Margin="29,209,0,0" VerticalAlignment="Top" Width="170"/>
 
     </Grid>
 </Window>
