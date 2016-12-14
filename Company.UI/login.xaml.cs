@@ -112,7 +112,7 @@ namespace Company.UI
                 }
             }
             string test;
-
+            string test2;
 
 
 
@@ -146,6 +146,7 @@ namespace Company.UI
                 {
                     admin.AdminNameBox.Text = AdminName;
                     admin.AdminSurnameBox.Text = AdminSurname;
+                    
                 }
 
                 Close();
@@ -155,7 +156,7 @@ namespace Company.UI
             }
             string SupplierName;
             string SupplierSurname;
-            if (dictAuthSupplier.TryGetValue(loginBox.Text,out test))
+            if (dictAuthSupplier.ContainsKey(loginBox.Text) && dictAuthSupplier.TryGetValue(loginBox.Text,out test2))
             {
                 if (dictSuppliersName.TryGetValue(loginBox.Text, out SupplierName) && dictSuppliersSurname.TryGetValue(loginBox.Text, out SupplierSurname))
                 {
