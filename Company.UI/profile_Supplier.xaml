@@ -21,6 +21,6 @@
         <ListBox x:Name="listBox_Orders" HorizontalAlignment="Left" Height="117" Margin="496,199,0,0" VerticalAlignment="Top" Width="216" Grid.Column="5"/>
         <Button x:Name="button_Show" Content="Show catalogue" HorizontalAlignment="Left" Margin="60,346,0,0" VerticalAlignment="Top" Width="94" Click="button_Show_Click" Grid.Column="5" Height="20"/>
         <Label x:Name="labelName" Content="Name" Grid.Column="5" HorizontalAlignment="Left" Margin="72,10,0,0" VerticalAlignment="Top" Height="26" Width="42"/>
-        <Label x:Name="labelSurname" Content="Surname&#xD;&#xA;" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="57"/>
+        <Label x:Name="labelSurname" Content="Surname" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="57"/>
     </Grid>
 </Window>
