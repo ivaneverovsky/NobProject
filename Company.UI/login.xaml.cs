@@ -31,7 +31,7 @@ namespace Company.UI
         List<Client> ListClients = new List<Client>();
 
         public void enter_Click(object sender, RoutedEventArgs e)
-        {
+        { Context cntxt = new Context();
             Repository repo = new Repository();
             profile_Client client = new profile_Client();
             profile_Admin admin = new profile_Admin();
@@ -44,7 +44,7 @@ namespace Company.UI
             {
                 foreach (var name in c.Clients)
                 {
-                    dictClientNames.Add(name.Name, name.Surname);
+                    dictClientNames.Add(name.login, name.Name);
                 }
             }
                 Dictionary<string, string> dictAuthClient = new Dictionary<string, string>();
@@ -72,7 +72,7 @@ namespace Company.UI
                 }
             }
             string test;
-            
+            string o;
 
 
 
@@ -81,15 +81,16 @@ namespace Company.UI
             //добавить, после настройки пункта enter_Click
             if (dictAuthClient.TryGetValue(loginBox.Text,out test))
             {
+               
+                
+                    client.ClientNameBox.Text = loginBox.Text ;
+                    client.ClientSurnameBox.Text = loginBox.Text + "ev";
+                
                 Close();
                 client.ShowDialog();
-                if (dictClientNames.ContainsKey(client.Name))
-                {
-                    client.ClientNameBox.Text = client.Name;
-                }
+    
                               
-                
-            }
+                }
             
             if (dictAuthAdmin.TryGetValue(loginBox.Text,out test))
             {
