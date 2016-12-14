@@ -41,23 +41,23 @@ namespace Company.UI
                 ListOrders = c.Orders.ToList();
 
                 //сказочный цикл :)
-                //foreach (var item in ListCatalogue)
-                //{
-                //    foreach (var deleteditem in repo.DeletedItems)
-                //    {
-                //        var a = deleteditem.ToString();
-                //        string[] split = a.Split(' ');
-                //        var newshit = split[0];
+                foreach (var item in ListCatalogue)
+                {
+                    foreach (var deleteditem in repo.DeletedItems)
+                    {
+                        var a = deleteditem.ToString();
+                        string[] split = a.Split(' ');
+                        var newshit = split[0];
 
-                //        for (int i = 0; i < ListCatalogue.Count; i++)
-                //        {
-                //            if (ListCatalogue[i].ItemName == newshit)
-                //            {
-                //                ListCatalogue.Remove(item);
-                //            }
-                //        }
-                //    }
-                //}
+                        for (int i = 0; i < ListCatalogue.Count; i++)
+                        {
+                            if (ListCatalogue[i].ItemName == newshit)
+                            {
+                                ListCatalogue.Remove(item);
+                            }
+                        }
+                    }
+                }
 
                 //показываю лист бд админу
                 foreach (Catalogue item in ListCatalogue)
