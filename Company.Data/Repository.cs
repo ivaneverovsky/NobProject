@@ -24,18 +24,6 @@ namespace Company.Data
             }
         }
 
-        //Список клиентов, который показываем Админу
-        public List<Client> CompanyClients()
-        {
-            using (Context c = new Context())
-            {
-                var a = from b in c.Clients
-                        where b.Surname[0] == 'A'  //eng -> A in sort
-                        select b;
-                return a.ToList();
-            }
-        }
-
         //Список Заказов, показываем Админу и Поставщику
         public List<Orders> CompanyOrders()
         {
@@ -47,34 +35,45 @@ namespace Company.Data
                 return a.ToList();
             }
         }
+
+        //Список клиентов
         public List<Client> ListOfClients()
         {
             using (Context c = new Context())
             {
                 var a = from b in c.Clients
-
+                        where b.Surname[0] == 'A'  //eng -> A in sort
                         select b;
                 return a.ToList();
-
             }
         }
+
+        //Cписок админов
         public List<Admin> ListOfAdmins()
         {
             using (Context c = new Context())
             {
                 var a = from b in c.Admins
+                        where b.Surname[0] == 'A'
                         select b;
                 return a.ToList();
             }
         }
 
-        public List<string> DeletedItems = new List<string>();
-        public List<string> items()
+        //Cписок саплеров
+        public List<Supplier> ListOfSuppliers()
         {
-            return DeletedItems;
+            using (Context c = new Context())
+            {
+                var a = from b in c.Suppliers
+                        where b.Surname[0] == 'A'
+                        select b;
+                return a.ToList();
+            }
         }
 
-
+        //список удаленных айтэмов из показа каталога
+        public List<string> DeletedItems = new List<string>();
 
         //public void  AuthorizationClient()   //хочу в этот метод потом засунуть логику реализации
         //{
