@@ -12,17 +12,15 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="17*"/>
-            <ColumnDefinition Width="900*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="listBox_CatalogueOfOrders" HorizontalAlignment="Left" Height="117" Margin="9.667,199,0,0" VerticalAlignment="Top" Width="185" MouseDoubleClick="listBox_CatalogueOfOrders_MouseDoubleClick" Grid.Column="5"/>
-        <Label x:Name="labelCatalogue" Content="   Catalogue" HorizontalAlignment="Left" Margin="59.667,151,0,0" VerticalAlignment="Top" Grid.Column="5" Height="43" Width="94"/>
-        <Label x:Name="label_Orders" Content="Orders" HorizontalAlignment="Left" Margin="570.667,151,0,0" VerticalAlignment="Top" Grid.Column="5" Width="76"/>
-        <ListBox x:Name="listBox_Orders" HorizontalAlignment="Left" Height="117" Margin="495.667,199,0,0" VerticalAlignment="Top" Width="216" Grid.Column="5"/>
-        <Button x:Name="button_Show" Content="Show catalogue" HorizontalAlignment="Left" Margin="59.667,346,0,0" VerticalAlignment="Top" Width="94" Click="button_Show_Click" Grid.Column="5"/>
-        <Label x:Name="label" Content="Name" Grid.Column="5" HorizontalAlignment="Left" Margin="59.667,34,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy" Content="Surname&#xD;&#xA;" Grid.Column="5" HorizontalAlignment="Left" Margin="262.667,34,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="SupplierNameBox" Grid.Column="5" HorizontalAlignment="Left" Height="23" Margin="106.667,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="SupplierSurnameBox" Grid.Column="5" HorizontalAlignment="Left" Height="23" Margin="324.667,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ListBox x:Name="listBox_CatalogueOfOrders" HorizontalAlignment="Left" Height="117" Margin="10,199,0,0" VerticalAlignment="Top" Width="185" MouseDoubleClick="listBox_CatalogueOfOrders_MouseDoubleClick" Grid.Column="5"/>
+        <Label x:Name="labelCatalogue" Content="   Catalogue" HorizontalAlignment="Left" Margin="60,151,0,0" VerticalAlignment="Top" Grid.Column="5" Height="43" Width="94"/>
+        <Label x:Name="label_Orders" Content="Orders" HorizontalAlignment="Left" Margin="571,151,0,0" VerticalAlignment="Top" Grid.Column="5" Width="76" Height="26"/>
+        <ListBox x:Name="listBox_Orders" HorizontalAlignment="Left" Height="117" Margin="496,199,0,0" VerticalAlignment="Top" Width="216" Grid.Column="5"/>
+        <Button x:Name="button_Show" Content="Show catalogue" HorizontalAlignment="Left" Margin="60,346,0,0" VerticalAlignment="Top" Width="94" Click="button_Show_Click" Grid.Column="5" Height="20"/>
+        <Label x:Name="labelName" Content="Name" Grid.Column="5" HorizontalAlignment="Left" Margin="72,10,0,0" VerticalAlignment="Top" Height="26" Width="42"/>
+        <Label x:Name="labelSurname" Content="Surname&#xD;&#xA;" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="57"/>
     </Grid>
 </Window>

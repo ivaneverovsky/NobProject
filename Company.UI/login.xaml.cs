@@ -126,8 +126,8 @@ namespace Company.UI
                 {
                     if (dictClientsName.TryGetValue(loginBox.Text, out ClientName) && dictClientsSurname.TryGetValue(loginBox.Text, out ClientSurname))
                     {
-                        client.ClientNameBox.Text = ClientName;
-                        client.ClientSurnameNameBox.Text = ClientSurname;
+                        client.labelName.Content = ClientName;
+                        client.labelSurname.Content = ClientSurname;
                     }
                 }
                   
@@ -144,8 +144,8 @@ namespace Company.UI
             {
                 if (dictAdminsName.TryGetValue(loginBox.Text, out AdminName) && dictAdminsSurname.TryGetValue(loginBox.Text, out AdminSurname))
                 {
-                    admin.AdminNameBox.Text = AdminName;
-                    admin.AdminSurnameBox.Text = AdminSurname;
+                    admin.labelName.Content = AdminName;
+                    admin.labelSurname.Content = AdminSurname;
                 }
 
                 Close();
@@ -159,8 +159,8 @@ namespace Company.UI
             {
                 if (dictSuppliersName.TryGetValue(loginBox.Text, out SupplierName) && dictSuppliersSurname.TryGetValue(loginBox.Text, out SupplierSurname))
                 {
-                    supplier.SupplierNameBox.Text = SupplierName;
-                    supplier.SupplierSurnameBox.Text = SupplierSurname;
+                    supplier.labelName.Content = SupplierName;
+                    supplier.labelSurname.Content = SupplierSurname;
                 }
                 Close();
                 supplier.ShowDialog();
