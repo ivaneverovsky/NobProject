@@ -26,7 +26,8 @@ namespace Company.UI
         {
             InitializeComponent();
         }
-
+        Client client = new Client();
+        Admin admin = new Admin();
         Repository repo = new Repository();
         List<Catalogue> ListCatalogue = new List<Catalogue>();
         List<string> ListOrders = new List<string>();
@@ -76,6 +77,8 @@ namespace Company.UI
 
         private void order_botton_Click(object sender, RoutedEventArgs e)
         {
+            
+            Catalogue itemname = new Catalogue();
             //оформить заказ (отправляю новые данные в таблицу бд Orders)
 
             //Разделяю данные в ListOrders
@@ -86,22 +89,33 @@ namespace Company.UI
                     //отрываю название от цены)
                     string[] a = item.Split(' ');
                     int price = Convert.ToInt32(a[1]);
-                    var itemname = a[0];
+                     itemname.ItemName = a[0];
+
 
 
                     //ИЗБЕЖАТЬ ДУБЛИКАТА
 
-                    //c.Orders.Add(new Orders
-                    //{
-                    //    ItemName = itemname,
-                    //    Cost = price
-                    //});
-                    //c.SaveChanges();
-                    //}
-                    MessageBox.Show("Заказано");
+                    c.Orders.Add(new Orders
+                    {    
+                        ItemName = itemname,
+                        Cost = price
+                    });
+                    c.SaveChanges();
+                }
+                MessageBox.Show("Заказано");
                     list_myOrders.Items.Clear();
                 }
             }
+
+        private void ClientNameBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ClientNameBox.Text = client.Name;
+        }
+
+        private void ClientSurnameBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            ClientSurnameBox.Text = client.Surname;
         }
     }
-}
+    }
+
