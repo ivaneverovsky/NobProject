@@ -39,17 +39,15 @@ namespace Company.UI
             {
                 g.Clients.Add(new Client
                 {
-                        
-                        Name = a[1],
-                        Surname = b[1],
-                        login = c[1],
-                        password = d[1]
-                }
-                );
+                    Name = a[1],
+                    Surname = b[1],
+                    login = c[1],
+                    password = d[1]
+                });
                 g.SaveChanges();
             }
-                MessageBox.Show("Пользователь сохранен");
-            
+            MessageBox.Show("Пользователь сохранен");
+
 
             //при нажатии данные отправляются в бд и записываются
             //возвращение к окну входа(логин), после записи данных в бд!

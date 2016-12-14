@@ -92,7 +92,6 @@ namespace Company.UI
                      itemname.ItemName = a[0];
 
 
-
                     //ИЗБЕЖАТЬ ДУБЛИКАТА
 
                     c.Orders.Add(new Orders
