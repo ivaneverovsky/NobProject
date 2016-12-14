@@ -28,5 +28,6 @@
         <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="194,67,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <ListBox x:Name="listBox_orders" HorizontalAlignment="Left" Height="100" Margin="428,41,0,0" VerticalAlignment="Top" Width="185"/>
         <Label x:Name="label_orders" Content="My Orders" HorizontalAlignment="Left" Margin="428,15,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="totalCost" Content="0" HorizontalAlignment="Left" Margin="538,146,0,0" VerticalAlignment="Top" ToolTip="purchase"/>
     </Grid>
 </Window>

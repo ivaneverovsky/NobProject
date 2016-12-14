@@ -85,7 +85,7 @@ namespace Company.UI
 
             Catalogue itemname = new Catalogue();
             //оформить заказ (отправляю новые данные в таблицу бд Orders)
-
+            int purchase = 0;
             //Разделяю данные в ListOrders
             using (var c = new Context())
             {
@@ -96,7 +96,7 @@ namespace Company.UI
                     int price = Convert.ToInt32(a[1]);
                     itemname.ItemName = a[0];
 
-                    listBox_orders.Items.Add(a[0] + " for " + price.ToString() + "$");
+                    listBox_orders.Items.Add(a[0] + " " + price.ToString() + "$");
 
 
                     //ИЗБЕЖАТЬ ДУБЛИКАТА
@@ -107,7 +107,9 @@ namespace Company.UI
                         Cost = price
                     });
                     c.SaveChanges();
+                    purchase += price;
                 }
+                totalCost.Content = purchase.ToString() + "$";
                 MessageBox.Show("Заказано");
                 list_myBasket.Items.Clear();
             }
