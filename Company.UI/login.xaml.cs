@@ -39,8 +39,15 @@ namespace Company.UI
             //repo.AuthorizationAdmin();
             //repo.AuthorizationAdmin();
             //repo.AuthorizationSupplier();
-
-            Dictionary<string, string> dictAuthClient = new Dictionary<string, string>();
+            Dictionary<string, string> dictClientNames = new Dictionary<string, string>();
+            using (var c = new Context())
+            {
+                foreach (var name in c.Clients)
+                {
+                    dictClientNames.Add(name.Name, name.Surname);
+                }
+            }
+                Dictionary<string, string> dictAuthClient = new Dictionary<string, string>();
             using (var c = new Context())
             {
                 foreach (var login in c.Clients)
@@ -76,12 +83,19 @@ namespace Company.UI
             {
                 Close();
                 client.ShowDialog();
+                if (dictClientNames.ContainsKey(client.Name))
+                {
+                    client.ClientNameBox.Text = client.Name;
+                }
+                              
+                
             }
             
             if (dictAuthAdmin.TryGetValue(loginBox.Text,out test))
             {
                 Close();
                 admin.ShowDialog();
+                
                 
             }
             if (dictAuthSupplier.TryGetValue(loginBox.Text,out test))

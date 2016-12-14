@@ -22,10 +22,15 @@ namespace Company.UI
     /// </summary>
     public partial class profile_Client : Window
     {
+        
+        
+            
         public profile_Client()
         {
             InitializeComponent();
         }
+        Dictionary<string, string> dictClientNames = new Dictionary<string, string>();
+            
         Client client = new Client();
         Admin admin = new Admin();
         Repository repo = new Repository();
@@ -107,14 +112,13 @@ namespace Company.UI
                 }
             }
 
-        private void ClientNameBox_TextChanged(object sender, TextChangedEventArgs e)
+        public void ClientNameBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ClientNameBox.Text = client.Name;
         }
 
-        private void ClientSurnameBox_TextChanged(object sender, TextChangedEventArgs e)
+        public void ClientSurnameBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ClientSurnameBox.Text = client.Surname;
+            
         }
     }
     }
