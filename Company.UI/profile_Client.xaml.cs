@@ -22,9 +22,9 @@ namespace Company.UI
     /// </summary>
     public partial class profile_Client : Window
     {
-        
-        
-            
+
+
+
         public profile_Client()
         {
             InitializeComponent();
@@ -41,9 +41,9 @@ namespace Company.UI
 
         private void button_show_catalogue_Click(object sender, RoutedEventArgs e)
         {
-            
-            
-            
+
+
+
             using (var c = new Context())
             {
                 //скачивание данных из базы и показ в листвью каталога
@@ -63,7 +63,7 @@ namespace Company.UI
         private void listView_myCatalogue_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             //добавление содержимого из списка каталога в корзину
-            
+
             foreach (var item in listView_myCatalogue.SelectedItems)
             {
                 //добавляю данные в листбокс заказов
@@ -87,7 +87,7 @@ namespace Company.UI
                 MessageBox.Show("Вы не выбрали ни одного товара!");
                 return;
             }
-                list_myCart.Items.Clear();
+            list_myCart.Items.Clear();
             ListOrders.Clear();
         }
 
@@ -108,11 +108,11 @@ namespace Company.UI
                     itemname.ItemName = a[0];
 
                     listBox_orders.Items.Add(a[0] + " " + price.ToString() + "$");
-                   
+
 
 
                     //ИЗБЕЖАТЬ ДУБЛИКАТА
-                   
+
                     //using (var b = new Context())
                     //{
                     //    foreach (var _item in b.Clients)
@@ -120,12 +120,13 @@ namespace Company.UI
                     //        DublicatesDic.Add(_item.login, client);
                     //    }
                     //    //DublicatesDic.TryGetValue(l.loginBox.Text, out client);
-                        
+
                     //}
 
 
                     c.Orders.Add(new Orders
-                    { Client = client,
+                    {
+                        Client = client,
                         ItemName = itemname,
                         Cost = price
                     });
@@ -142,7 +143,7 @@ namespace Company.UI
                 list_myCart.Items.Clear();
 
                 senter.ShowDialog();
-                
+
             }
         }
 
@@ -152,7 +153,7 @@ namespace Company.UI
 
         public void ClientSurnameBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -175,7 +176,7 @@ namespace Company.UI
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void btn_exl_Click(object sender, RoutedEventArgs e)
@@ -183,6 +184,6 @@ namespace Company.UI
 
         }
     }
-    }
+}
 
 

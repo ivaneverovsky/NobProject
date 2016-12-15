@@ -32,7 +32,7 @@ namespace Company.UI
 
         public void enter_Click(object sender, RoutedEventArgs e)
         {   
-            /*Context cntxt = new Context();*/
+            Context cntxt = new Context();
 
             Repository repo = new Repository();
             profile_Client client = new profile_Client();
