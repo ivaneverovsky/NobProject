@@ -30,13 +30,14 @@ namespace Company.UI
             InitializeComponent();
         }
         Dictionary<string, string> dictClientNames = new Dictionary<string, string>();
-            
+        //Dictionary<string, Client> DublicatesDic = new Dictionary<string, Client>();
         Client client = new Client();
         Admin admin = new Admin();
         Repository repo = new Repository();
         List<Catalogue> ListCatalogue = new List<Catalogue>();
         List<string> ListOrders = new List<string>();
         EmailSenter senter = new EmailSenter();
+        login l = new login();
 
         private void button_show_catalogue_Click(object sender, RoutedEventArgs e)
         {
@@ -62,7 +63,7 @@ namespace Company.UI
         private void listView_myCatalogue_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             //добавление содержимого из списка каталога в корзину
-
+            
             foreach (var item in listView_myCatalogue.SelectedItems)
             {
                 //добавляю данные в листбокс заказов
@@ -113,8 +114,19 @@ namespace Company.UI
                     //ИЗБЕЖАТЬ ДУБЛИКАТА
                     listBox_orders.Items.Add(a[0] + " " + price.ToString() + "$");
                    
+                    //using (var b = new Context())
+                    //{
+                    //    foreach (var _item in b.Clients)
+                    //    {
+                    //        DublicatesDic.Add(_item.login, client);
+                    //    }
+                    //    //DublicatesDic.TryGetValue(l.loginBox.Text, out client);
+                        
+                    //}
+
+
                     c.Orders.Add(new Orders
-                    {   
+                    { Client = client,
                         ItemName = itemname,
                         Cost = price
                     });
