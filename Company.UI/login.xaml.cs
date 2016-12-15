@@ -31,7 +31,9 @@ namespace Company.UI
         List<Client> ListClients = new List<Client>();
 
         public void enter_Click(object sender, RoutedEventArgs e)
-        { Context cntxt = new Context();
+        {   
+            /*Context cntxt = new Context();*/
+
             Repository repo = new Repository();
             profile_Client client = new profile_Client();
             profile_Admin admin = new profile_Admin();
@@ -120,8 +122,8 @@ namespace Company.UI
             string ClientName;
             string ClientSurname;
             //добавить, после настройки пункта enter_Click
-            if (dictAuthClient.TryGetValue(loginBox.Text,out test))
-            { 
+            if (dictAuthClient.TryGetValue(loginBox.Text, out test))
+            {
                 foreach (var item in dictClientsName)
                 {
                     if (dictClientsName.TryGetValue(loginBox.Text, out ClientName) && dictClientsSurname.TryGetValue(loginBox.Text, out ClientSurname))
@@ -131,7 +133,7 @@ namespace Company.UI
                     }
                 }
 
-               
+
                 if (test == passwordBox.Text)
                 {
                     Close();
@@ -139,12 +141,12 @@ namespace Company.UI
                     return;
                 }
 
-               
-                }
-            
+
+            }
+
             string AdminName;
             string AdminSurname;
-            if (dictAuthAdmin.TryGetValue(loginBox.Text,out test))
+            if (dictAuthAdmin.TryGetValue(loginBox.Text, out test))
             {
                 if (dictAdminsName.TryGetValue(loginBox.Text, out AdminName) && dictAdminsSurname.TryGetValue(loginBox.Text, out AdminSurname))
                 {
@@ -158,15 +160,15 @@ namespace Company.UI
                     admin.ShowDialog();
                     return;
                 }
-                
-                
+
+
             }
             string SupplierName;
             string SupplierSurname;
-            if (dictAuthSupplier.TryGetValue(loginBox.Text,out test))
+            if (dictAuthSupplier.TryGetValue(loginBox.Text, out test))
             {
-                
-                
+
+
                 if (dictSuppliersName.TryGetValue(loginBox.Text, out SupplierName) && dictSuppliersSurname.TryGetValue(loginBox.Text, out SupplierSurname))
                 {
                     supplier.labelName.Content = SupplierName;
@@ -177,16 +179,16 @@ namespace Company.UI
                     Close();
                     supplier.ShowDialog();
                 }
-                    
-                
-                
+
+
+
             }
             else
-            { 
+            {
                 MessageBox.Show("Вы ввели неверные данные, повторите ещё раз");
                 return;
-               
-                
+
+
             }
             //должен прочитать инфомацию из текст боксов, сравнить ее с данными в базе
         }

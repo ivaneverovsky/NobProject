@@ -112,7 +112,6 @@ namespace Company.UI
 
 
                     //ИЗБЕЖАТЬ ДУБЛИКАТА
-                    listBox_orders.Items.Add(a[0] + " " + price.ToString() + "$");
                    
                     //using (var b = new Context())
                     //{
