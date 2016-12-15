@@ -1,0 +1,17 @@
+﻿<Window x:Class="Company.UI.EmailSenter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Company.UI"
+        mc:Ignorable="d"
+        Title="EmailSenter" Height="332.667" Width="414">
+    <Grid Margin="-239,0,0.333,-28.667">
+        <Label x:Name="label" Content="Введите логин &#xD;&#xA;" HorizontalAlignment="Left" Margin="362,31,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Введите пароль&#xD;&#xA;" HorizontalAlignment="Left" Margin="362,100,0,0" VerticalAlignment="Top" Width="103"/>
+        <TextBox x:Name="EmailLoginBox" HorizontalAlignment="Left" Height="23" Margin="354,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="EmailLoginBox_TextChanged"/>
+        <TextBox x:Name="EmailPassBox" HorizontalAlignment="Left" Height="23" Margin="354,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="EmailPassBox_TextChanged"/>
+        <Button x:Name="SentButton" Content="Отправить письмо&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="357,182,0,0" VerticalAlignment="Top" Width="117" Height="23" Click="SentButton_Click"/>
+
+    </Grid>
+</Window>

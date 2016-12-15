@@ -13,8 +13,13 @@ namespace Company.Data
         Rejected
     }
     
-    class StatusChangedEvent
-    {
-        
+   public class StatusChangedEvent
+    { 
+        public void StatusChanged(string num)
+        { StatusNumerator stat = new StatusNumerator();
+            stat = StatusNumerator.Confirmed;
+            string show = stat.ToString();
+          
+        }
     }
 }

@@ -36,6 +36,7 @@ namespace Company.UI
         Repository repo = new Repository();
         List<Catalogue> ListCatalogue = new List<Catalogue>();
         List<string> ListOrders = new List<string>();
+        EmailSenter senter = new EmailSenter();
 
         private void button_show_catalogue_Click(object sender, RoutedEventArgs e)
         {
@@ -72,6 +73,7 @@ namespace Company.UI
                 ListOrders.Add(a);
 
                 MessageBox.Show("was added");
+
             }
         }
 
@@ -115,6 +117,9 @@ namespace Company.UI
                 totalCost.Content = purchase.ToString() + "$";
                 MessageBox.Show("Заказано");
                 list_myCart.Items.Clear();
+
+                senter.ShowDialog();
+                
             }
         }
 
@@ -140,6 +145,21 @@ namespace Company.UI
         {
 
         }
+
+        private void StatusButton_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void btn_exl_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
-}
+    }
+
 

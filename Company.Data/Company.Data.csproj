@@ -53,7 +53,6 @@
     <Compile Include="Catalogue.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Context.cs" />
-    <Compile Include="EmailNotifier\EmailNotifier.cs" />
     <Compile Include="Migrations\201611301043245_Initial.cs" />
     <Compile Include="Migrations\201611301043245_Initial.Designer.cs">
       <DependentUpon>201611301043245_Initial.cs</DependentUpon>
