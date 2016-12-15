@@ -41,7 +41,7 @@ namespace Company.UI
         {
             string to = EmailLoginBox.Text;
             string from = "thenobproject@gmail.com";
-            string password = EmailPassBox.Text;
+            string password = "Missisippi";
             MailMessage message = new MailMessage(from, to);
             message.Subject = "Your Order!";
             message.Body = string.Format("Dear client! Your order have been accepted!");
@@ -58,6 +58,8 @@ namespace Company.UI
             {
                 throw new Exception("Mail: " + v.Message);
             }
+            MessageBox.Show("Письмо было отправлено Вам на почту!");
+            Close();
         }
     }
     }

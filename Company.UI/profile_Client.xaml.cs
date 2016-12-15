@@ -81,7 +81,12 @@ namespace Company.UI
         private void clear_button_Click(object sender, RoutedEventArgs e)
         {
             //удалить заказ (удаляет весь список, позже можно настроить, чтобы поштучно удалял)
-            list_myCart.Items.Clear();
+            if (list_myCart.Items.Count == 0)
+            {
+                MessageBox.Show("Вы не выбрали ни одного товара!");
+                return;
+            }
+                list_myCart.Items.Clear();
             ListOrders.Clear();
         }
 
@@ -102,10 +107,12 @@ namespace Company.UI
                     itemname.ItemName = a[0];
 
                     listBox_orders.Items.Add(a[0] + " " + price.ToString() + "$");
+                   
 
 
                     //ИЗБЕЖАТЬ ДУБЛИКАТА
-
+                    listBox_orders.Items.Add(a[0] + " " + price.ToString() + "$");
+                   
                     c.Orders.Add(new Orders
                     {   
                         ItemName = itemname,
@@ -115,6 +122,11 @@ namespace Company.UI
                     purchase += price;
                 }
                 totalCost.Content = purchase.ToString() + "$";
+                if (list_myCart.Items.Count == 0)
+                {
+                    MessageBox.Show("Вы не выбрали ни одного товара!");
+                    return;
+                }
                 MessageBox.Show("Заказано");
                 list_myCart.Items.Clear();
 
