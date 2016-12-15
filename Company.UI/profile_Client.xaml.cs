@@ -39,6 +39,9 @@ namespace Company.UI
 
         private void button_show_catalogue_Click(object sender, RoutedEventArgs e)
         {
+            
+            
+            
             using (var c = new Context())
             {
                 //скачивание данных из базы и показ в листвью каталога
