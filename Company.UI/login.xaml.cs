@@ -28,89 +28,20 @@ namespace Company.UI
         {
             InitializeComponent();
         }
-       
+
 
         public void enter_Click(object sender, RoutedEventArgs e)
-        {   
-           
+        {
 
-          
+
+
             profile_Client client = new profile_Client();
             profile_Admin admin = new profile_Admin();
             profile_Supplier supplier = new profile_Supplier();
-           
-            Dictionary<string, string> dictSuppliersSurname = new Dictionary<string, string>();
-            using (var c = new Context())
-            {
-                foreach (var field in c.Suppliers)
-                {
-                    dictSuppliersSurname.Add(field.login, field.Surname);
-                }
-            }
-            Dictionary<string, string> dictSuppliersName = new Dictionary<string, string>();
-            using (var c = new Context())
-            {
-                foreach (var field in c.Suppliers)
-                {
-                    dictSuppliersName.Add(field.login, field.Name);
-                }
-            }
-            Dictionary<string, string> dictAdminsName = new Dictionary<string, string>();
-            using (var c = new Context())
-            {
-                foreach (var field in c.Admins)
-                {
-                    dictAdminsName.Add(field.login, field.Name);
-                }
-            }
-            Dictionary<string, string> dictAdminsSurname = new Dictionary<string, string>();
-            using (var c = new Context())
-            {
-                foreach (var field in c.Admins)
-                {
-                    dictAdminsSurname.Add(field.login, field.Surname);
-                }
-            }
-            Dictionary<string, string> dictClientsName = new Dictionary<string, string>();
-            using (var c = new Context())
-            {
-                foreach (var field in c.Clients)
-                {
-                    dictClientsName.Add(field.login, field.Name);
-                }
-            }
-            Dictionary<string, string> dictClientsSurname = new Dictionary<string, string>();
-            using (var c = new Context())
-            {
-                foreach (var field in c.Clients)
-                {
-                    dictClientsSurname.Add(field.login, field.Surname);
-                }
-            }
-            Dictionary<string, string> dictAuthClient = new Dictionary<string, string>();
-            using (var c = new Context())
-            {
-                foreach (var login in c.Clients)
-                {
-                    dictAuthClient.Add(login.login, login.password);
-                }
-            }
-            Dictionary<string, string> dictAuthAdmin = new Dictionary<string, string>();
-            using (var c = new Context())
-            {
-                foreach (var login in c.Admins)
-                {
-                    dictAuthAdmin.Add(login.login, login.password);
-                }
-            }
-            Dictionary<string, string> dictAuthSupplier = new Dictionary<string, string>();
-            using (var c = new Context())
-            {
-                foreach (var login in c.Suppliers)
-                {
-                    dictAuthSupplier.Add(login.login, login.password);
-                }
-            }
+            Repository repo = new Repository();
+
+
+
             string test;
 
 
@@ -120,16 +51,16 @@ namespace Company.UI
             string ClientName;
             string ClientSurname;
             //добавить, после настройки пункта enter_Click
-            if (dictAuthClient.TryGetValue(loginBox.Text, out test))
+            if (repo.DictAuthClient().TryGetValue(loginBox.Text, out test))
             {
-                foreach (var item in dictClientsName)
+
+
+                if (repo.DictNameClient().TryGetValue(loginBox.Text, out ClientName) && repo.DictSurnameClient().TryGetValue(loginBox.Text, out ClientSurname))
                 {
-                    if (dictClientsName.TryGetValue(loginBox.Text, out ClientName) && dictClientsSurname.TryGetValue(loginBox.Text, out ClientSurname))
-                    {
-                        client.labelName.Content = ClientName;
-                        client.labelSurname.Content = ClientSurname;
-                    }
+                    client.labelName.Content = ClientName;
+                    client.labelSurname.Content = ClientSurname;
                 }
+
 
 
                 if (test == passwordBox.Text)
@@ -144,9 +75,9 @@ namespace Company.UI
 
             string AdminName;
             string AdminSurname;
-            if (dictAuthAdmin.TryGetValue(loginBox.Text, out test))
+            if (repo.DictAuthAdmin().TryGetValue(loginBox.Text, out test))
             {
-                if (dictAdminsName.TryGetValue(loginBox.Text, out AdminName) && dictAdminsSurname.TryGetValue(loginBox.Text, out AdminSurname))
+                if (repo.DictNameAdmin().TryGetValue(loginBox.Text, out AdminName) && repo.DictSurnameAdmin().TryGetValue(loginBox.Text, out AdminSurname))
                 {
                     admin.labelName.Content = AdminName;
                     admin.labelSurname.Content = AdminSurname;
@@ -163,11 +94,11 @@ namespace Company.UI
             }
             string SupplierName;
             string SupplierSurname;
-            if (dictAuthSupplier.TryGetValue(loginBox.Text, out test))
+            if (repo.DictAuthSupplier().TryGetValue(loginBox.Text, out test))
             {
 
 
-                if (dictSuppliersName.TryGetValue(loginBox.Text, out SupplierName) && dictSuppliersSurname.TryGetValue(loginBox.Text, out SupplierSurname))
+                if (repo.DictNameSupplier().TryGetValue(loginBox.Text, out SupplierName) && repo.DictSurnameSupplier().TryGetValue(loginBox.Text, out SupplierSurname))
                 {
                     supplier.labelName.Content = SupplierName;
                     supplier.labelSurname.Content = SupplierSurname;
