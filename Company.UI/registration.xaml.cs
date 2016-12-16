@@ -25,6 +25,7 @@ namespace Company.UI
         {
             InitializeComponent();
         }
+        login log = new login();
 
         private void enter_Click(object sender, RoutedEventArgs e)
         {
@@ -131,7 +132,7 @@ namespace Company.UI
 
                 //при нажатии данные отправляются в бд и записываются
                 //возвращение к окну входа(логин), после записи данных в бд!
-                login log = new login();
+                
                 Close();
                 log.ShowDialog();
             }
@@ -140,7 +141,7 @@ namespace Company.UI
         private void Cancel_Click_1(object sender, RoutedEventArgs e)
         {
             //возвращение к окну входа(логин)
-            login log = new login();
+            
             Close();
             log.ShowDialog();
         }

@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Net;
 using System.Net.Mail;
+using Company.Data;
 
 namespace Company.UI
 {
@@ -25,7 +26,8 @@ namespace Company.UI
         {
             InitializeComponent();
         }
-        profile_Client clientInfo = new profile_Client();
+       //  profile_Client clientInfo = new profile_Client();
+        
 
         private void EmailLoginBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -39,17 +41,18 @@ namespace Company.UI
 
         private void SentButton_Click(object sender, RoutedEventArgs e)
         {
-            var a = clientInfo.listBox_orders;
-            string name = clientInfo.labelName.Content.ToString();
-            string surname = clientInfo.labelSurname.Content.ToString();
+           // var a = clientInfo.listBox_orders;
+           // string name = clientInfo.labelName.Content.ToString();
+           // string surname = clientInfo.labelSurname.Content.ToString();
 
             string to = EmailLoginBox.Text;
             string from = "thenobproject@gmail.com";
             string password = "Missisippi";
             MailMessage message = new MailMessage(from, to);
             message.Subject = "Your Order!";
-            message.Body = string.Format("Dear {0} {1}! Your order have been accepted!\n\n Details: \n\n {2}\n\n", name, surname, a);
-            message.To.Add(new MailAddress(to));
+            //message.Body = string.Format("Dear {0} {1}! Your order have been accepted!\n\n Details: \n\n {2}\n\n", name, surname, a);
+            //message.To.Add(new MailAddress(to));
+            message.Body = string.Format(")))");
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
             try
             {

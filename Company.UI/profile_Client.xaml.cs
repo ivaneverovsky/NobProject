@@ -29,15 +29,15 @@ namespace Company.UI
         {
             InitializeComponent();
         }
-        Dictionary<string, string> dictClientNames = new Dictionary<string, string>();
+       
         //Dictionary<string, Client> DublicatesDic = new Dictionary<string, Client>();
-        Client client = new Client();
-        Admin admin = new Admin();
+       // Client client = new Client();
+      //  Admin admin = new Admin();
         Repository repo = new Repository();
         List<Catalogue> ListCatalogue = new List<Catalogue>();
         List<string> ListOrders = new List<string>();
         EmailSenter senter = new EmailSenter();
-        login l = new login();
+        //login l = new login();
 
         private void button_show_catalogue_Click(object sender, RoutedEventArgs e)
         {
@@ -126,7 +126,7 @@ namespace Company.UI
 
                     c.Orders.Add(new Orders
                     {
-                        Client = client,
+                        
                         ItemName = itemname,
                         Cost = price
                     });
@@ -142,9 +142,12 @@ namespace Company.UI
                 MessageBox.Show("Заказано");
                 list_myCart.Items.Clear();
 
-                senter.ShowDialog();
+              
 
             }
+
+            senter.ShowDialog();
+            Close();
         }
 
         public void ClientNameBox_TextChanged(object sender, TextChangedEventArgs e)

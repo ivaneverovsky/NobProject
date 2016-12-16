@@ -73,7 +73,7 @@ namespace Company.Data
         }
 
         //список удаленных айтэмов из показа каталога
-        public List<string> DeletedItems = new List<string>();
+       public List<string> DeletedItems = new List<string>();
 
         //public void  AuthorizationClient()   //хочу в этот метод потом засунуть логику реализации
         //{

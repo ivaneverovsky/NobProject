@@ -28,19 +28,17 @@ namespace Company.UI
         {
             InitializeComponent();
         }
-        List<Client> ListClients = new List<Client>();
+       
 
         public void enter_Click(object sender, RoutedEventArgs e)
         {   
-            Context cntxt = new Context();
+           
 
-            Repository repo = new Repository();
+          
             profile_Client client = new profile_Client();
             profile_Admin admin = new profile_Admin();
             profile_Supplier supplier = new profile_Supplier();
-            //repo.AuthorizationAdmin();
-            //repo.AuthorizationAdmin();
-            //repo.AuthorizationSupplier();
+           
             Dictionary<string, string> dictSuppliersSurname = new Dictionary<string, string>();
             using (var c = new Context())
             {

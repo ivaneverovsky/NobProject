@@ -24,7 +24,7 @@ namespace Company.UI
         {
             InitializeComponent();
         }
-        Repository repo = new Repository();
+     
         List<Catalogue> ListCatalogue = new List<Catalogue>();
         List<Orders> ListOrders = new List<Orders>();
         
