@@ -53,15 +53,26 @@ namespace Company.UI
             using (var c = new Context())
             {
                 listBox_CatalogueOfOrders.Items.Clear();
-                listBox_Orders.Items.Clear();
+               
 
                 ListCatalogue = c.Catalogue.ToList();
-                ListOrders = c.Orders.ToList();
+                
 
                 foreach (Catalogue item in ListCatalogue)
                 {
                     listBox_CatalogueOfOrders.Items.Add(item.ItemName + " " + item.Price);
                 }
+                
+            }
+        }
+
+        private void button_Show_Orders_Click(object sender, RoutedEventArgs e)
+        {
+            using (var c = new Context())
+            {
+                ListCatalogue = c.Catalogue.ToList();
+                listBox_Orders.Items.Clear();
+                ListOrders = c.Orders.ToList();
                 foreach (Orders item in ListOrders)
                 {
                     string itemname = item.ItemName.ItemName;
@@ -71,6 +82,7 @@ namespace Company.UI
                     listBox_Orders.Items.Add(/*nameClient +*/" " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/);
                 }
             }
+
         }
     }
     }

@@ -44,7 +44,7 @@ namespace Company.UI
             {
                 foreach (var field in c.Suppliers)
                 {
-                    dictSuppliersSurname.Add(field.login, field.Name);
+                    dictSuppliersSurname.Add(field.login, field.Surname);
                 }
             }
             Dictionary<string, string> dictSuppliersName = new Dictionary<string, string>();
@@ -52,7 +52,7 @@ namespace Company.UI
             {
                 foreach (var field in c.Suppliers)
                 {
-                    dictSuppliersName.Add(field.login, field.Surname);
+                    dictSuppliersName.Add(field.login, field.Name);
                 }
             }
             Dictionary<string, string> dictAdminsName = new Dictionary<string, string>();

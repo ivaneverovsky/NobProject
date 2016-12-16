@@ -60,7 +60,7 @@ namespace Company.UI
             }
         }
 
-        private void listView_myCatalogue_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private  void listView_myCatalogue_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             //добавление содержимого из списка каталога в корзину
             
@@ -71,9 +71,9 @@ namespace Company.UI
 
                 //все данные в строку и отправляю их в лист
                 var a = item.ToString();
-                ListOrders.Add(a);
+                  ListOrders.Add(a);
 
-                MessageBox.Show("was added");
+               MessageBox.Show("was added");
 
             }
         }
@@ -107,9 +107,9 @@ namespace Company.UI
                     int price = Convert.ToInt32(a[1]);
                     itemname.ItemName = a[0];
 
-                    listBox_orders.Items.Add(a[0] + " " + price.ToString() + "$");
                    
-
+                   
+                    
 
                     //ИЗБЕЖАТЬ ДУБЛИКАТА
                     listBox_orders.Items.Add(a[0] + " " + price.ToString() + "$");
@@ -126,7 +126,7 @@ namespace Company.UI
 
 
                     c.Orders.Add(new Orders
-                    { Client = client,
+                    { 
                         ItemName = itemname,
                         Cost = price
                     });
