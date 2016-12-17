@@ -93,12 +93,10 @@ namespace Company.UI
 
                     listBox_orders.Items.Add(a[0] + " " + price.ToString() + "$");
 
-                    string tovar = a[0].ToString();
-
                     //не воркает(
                     //result почему-то приходит null
                     var result = c.Orders
-                        .FirstOrDefault(t => (tovar == itemname.ItemName) && (price == t.Cost));
+                        .FirstOrDefault(t => (a[0] == t.ItemName.ItemName));
                     /* сюда дописать нужно переменную поиска клиента по логину и все, остальное дописывается из класса Админ */
                     c.SaveChanges();
 
