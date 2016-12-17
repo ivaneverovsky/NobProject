@@ -1,19 +1,11 @@
 ﻿using Company.Data;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data.Entity.Migrations;
+using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Company.UI
 {
@@ -22,35 +14,26 @@ namespace Company.UI
     /// </summary>
     public partial class profile_Client : Window
     {
-
-
-
         public profile_Client()
         {
             InitializeComponent();
         }
-       
-        //Dictionary<string, Client> DublicatesDic = new Dictionary<string, Client>();
-       // Client client = new Client();
-      //  Admin admin = new Admin();
+
         Repository repo = new Repository();
         List<Catalogue> ListCatalogue = new List<Catalogue>();
+        List<string> ListMyCart = new List<string>();
         List<string> ListOrders = new List<string>();
         EmailSenter senter = new EmailSenter();
-        //login l = new login();
 
-        private void button_show_catalogue_Click(object sender, RoutedEventArgs e)
+        private async void button_show_catalogue_Click(object sender, RoutedEventArgs e)
         {
-
-
-
             using (var c = new Context())
             {
                 //скачивание данных из базы и показ в листвью каталога
                 listView_myCatalogue.Items.Clear();
                 listView_myCatalogue.Items.Refresh();
 
-                ListCatalogue = c.Catalogue.ToList();
+                ListCatalogue = await c.Catalogue.ToListAsync();
 
                 foreach (Catalogue item in ListCatalogue)
                 {
@@ -71,7 +54,7 @@ namespace Company.UI
 
                 //все данные в строку и отправляю их в лист
                 var a = item.ToString();
-                ListOrders.Add(a);
+                ListMyCart.Add(a);
 
                 MessageBox.Show("was added");
 
@@ -88,7 +71,7 @@ namespace Company.UI
                 return;
             }
             list_myCart.Items.Clear();
-            ListOrders.Clear();
+            ListMyCart.Clear();
         }
 
         private void order_botton_Click(object sender, RoutedEventArgs e)
@@ -97,11 +80,12 @@ namespace Company.UI
             Catalogue itemname = new Catalogue();
             //оформить заказ (отправляю новые данные в таблицу бд Orders)
             int purchase = 0;
-            //Разделяю данные в ListOrders
+
             using (var c = new Context())
             {
-                foreach (string item in ListOrders)
+                foreach (string item in ListMyCart)
                 {
+                    ListOrders.Add(item);
                     //отрываю название от цены)
                     string[] a = item.Split(' ');
                     int price = Convert.ToInt32(a[1]);
@@ -109,28 +93,22 @@ namespace Company.UI
 
                     listBox_orders.Items.Add(a[0] + " " + price.ToString() + "$");
 
+                    string tovar = a[0].ToString();
 
-
-                    //ИЗБЕЖАТЬ ДУБЛИКАТА
-
-                    //using (var b = new Context())
-                    //{
-                    //    foreach (var _item in b.Clients)
-                    //    {
-                    //        DublicatesDic.Add(_item.login, client);
-                    //    }
-                    //    //DublicatesDic.TryGetValue(l.loginBox.Text, out client);
-
-                    //}
-
-
-                    c.Orders.Add(new Orders
-                    {
-                        
-                        ItemName = itemname,
-                        Cost = price
-                    });
+                    //не воркает(
+                    //result почему-то приходит null
+                    var result = c.Orders
+                        .FirstOrDefault(t => (tovar == itemname.ItemName) && (price == t.Cost));
+                    /* сюда дописать нужно переменную поиска клиента по логину и все, остальное дописывается из класса Админ */
                     c.SaveChanges();
+
+                    //c.Orders.Add(new Orders
+                    //{
+
+                    //    ItemName = itemname,
+                    //    Cost = price
+                    //});
+                    //c.SaveChanges();
                     purchase += price;
                 }
                 totalCost.Content = purchase.ToString() + "$";
@@ -142,7 +120,7 @@ namespace Company.UI
                 MessageBox.Show("Заказано");
                 list_myCart.Items.Clear();
 
-              
+
 
             }
 
