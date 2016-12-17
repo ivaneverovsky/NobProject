@@ -80,11 +80,11 @@ namespace Company.UI
             Catalogue itemname = new Catalogue();
             //оформить заказ (отправляю новые данные в таблицу бд Orders)
             int purchase = 0;
-
+            Dictionary<string, int> dictItems = new Dictionary<string, int>();
             using (var c = new Context())
             {
                 foreach (string item in ListMyCart)
-                {
+                { 
                     ListOrders.Add(item);
                     //отрываю название от цены)
                     string[] a = item.Split(' ');
@@ -93,15 +93,21 @@ namespace Company.UI
 
                     listBox_orders.Items.Add(a[0] + " " + price.ToString() + "$");
 
-                    string tovar = a[0].ToString();
+                    string tovar = a[0];
+                    foreach (var resultItem in dictItems)
+                    {
+                        dictItems.Add(tovar, price);
+                    }
+                    int outItem;
+                   if (dictItems.TryGetValue(tovar, out outItem);
+                    {  //не воркает(
+                       //result почему-то приходит null
 
-                    //не воркает(
-                    //result почему-то приходит null
-                    var result = c.Orders
-                        .FirstOrDefault(t => (tovar == itemname.ItemName) && (price == t.Cost));
-                    /* сюда дописать нужно переменную поиска клиента по логину и все, остальное дописывается из класса Админ */
-                    c.SaveChanges();
+                        //var result = c.Orders.FirstOrDefault(t => (tovar == itemname.ItemName) && (price == t.Cost));
 
+                        /* сюда дописать нужно переменную поиска клиента по логину и все, остальное дописывается из класса Админ */
+                        c.SaveChanges();
+                    }
                     //c.Orders.Add(new Orders
                     //{
 
