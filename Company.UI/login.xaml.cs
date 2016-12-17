@@ -33,21 +33,12 @@ namespace Company.UI
         public void enter_Click(object sender, RoutedEventArgs e)
         {
 
-
-
             profile_Client client = new profile_Client();
             profile_Admin admin = new profile_Admin();
             profile_Supplier supplier = new profile_Supplier();
             Repository repo = new Repository();
 
-
-
             string test;
-
-
-
-
-
             string ClientName;
             string ClientSurname;
             //добавить, после настройки пункта enter_Click

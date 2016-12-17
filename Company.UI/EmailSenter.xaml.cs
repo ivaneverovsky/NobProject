@@ -49,7 +49,7 @@ namespace Company.UI
             string from = "thenobproject@gmail.com";
             string password = "Missisippi";
             MailMessage message = new MailMessage(from, to);
-            message.Subject = "Your Order!";
+            message.Subject = "Your Order was accepted!";
             //message.Body = string.Format("Dear {0} {1}! Your order have been accepted!\n\n Details: \n\n {2}\n\n", name, surname, a);
             //message.To.Add(new MailAddress(to));
             message.Body = string.Format(")))");
