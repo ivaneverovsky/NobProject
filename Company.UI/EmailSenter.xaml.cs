@@ -26,8 +26,8 @@ namespace Company.UI
         {
             InitializeComponent();
         }
-       //  profile_Client clientInfo = new profile_Client();
-        
+        //  profile_Client clientInfo = new profile_Client();
+
 
         private void EmailLoginBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -41,21 +41,33 @@ namespace Company.UI
 
         private void SentButton_Click(object sender, RoutedEventArgs e)
         {
-           // var a = clientInfo.listBox_orders;
-           // string name = clientInfo.labelName.Content.ToString();
-           // string surname = clientInfo.labelSurname.Content.ToString();
+            Repository repo = new Repository();
+            //беру имя и фамилию зашедшего
+            var name = new List<string>();
+            foreach (var item in repo.DictNameClient().Values)
+                name.Add(item.ToString());
+            var surname = new List<string>();
+            foreach (var item in repo.DictSurnameClient().Values)
+                surname.Add(item.ToString());
 
-            string to = EmailLoginBox.Text;
-            string from = "thenobproject@gmail.com";
-            string password = "Missisippi";
-            MailMessage message = new MailMessage(from, to);
-            message.Subject = "Your Order was accepted!";
-            //message.Body = string.Format("Dear {0} {1}! Your order have been accepted!\n\n Details: \n\n {2}\n\n", name, surname, a);
-            //message.To.Add(new MailAddress(to));
-            message.Body = string.Format(")))");
-            SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+            //в строку
+            var namestr = name[0].ToString();
+            var surnamestr = surname[0].ToString();
+
+            //беру список заказов (пока не удалось)
+            //MessageBox.Show(repo.ORDERS().ToString());
+
             try
             {
+                string to = EmailLoginBox.Text;
+                string from = "thenobproject@gmail.com";
+                string password = "Missisippi";
+                MailMessage message = new MailMessage(from, to);
+                message.Subject = "Your Order!";
+                message.Body = string.Format("Dear {0} {1}! Your order have been accepted!\n\n Details: \n\n \n\n", namestr, surnamestr);
+                message.To.Add(new MailAddress(to));
+                SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
+
                 client.EnableSsl = true;
                 client.Credentials = new NetworkCredential(from, password);
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
@@ -63,10 +75,12 @@ namespace Company.UI
             }
             catch (Exception v)
             {
-                throw new Exception("Mail: " + v.Message);
+                MessageBox.Show("Error in Email!");
+                return;
             }
-            MessageBox.Show("Письмо было отправлено Вам на почту!");
             Close();
+            MessageBox.Show("Письмо было отправлено Вам на почту!");
+
         }
     }
 }
