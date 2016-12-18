@@ -43,16 +43,16 @@ namespace Company.UI
         {
             Repository repo = new Repository();
             //беру имя и фамилию зашедшего
-            var name = new List<string>();
-            foreach (var item in repo.DictNameClient().Values)
-                name.Add(item.ToString());
-            var surname = new List<string>();
-            foreach (var item in repo.DictSurnameClient().Values)
-                surname.Add(item.ToString());
+            //var name = new List<string>();
+            //foreach (var item in repo.DictNameClient().Values)
+            //    name.Add(item.ToString());
+            //var surname = new List<string>();
+            //foreach (var item in repo.DictSurnameClient().Values)
+            //    surname.Add(item.ToString());
 
-            //в строку
-            var namestr = name[0].ToString();
-            var surnamestr = surname[0].ToString();
+            ////в строку
+            //var namestr = name[0].ToString();
+            //var surnamestr = surname[0].ToString();
 
 
 
@@ -63,7 +63,7 @@ namespace Company.UI
                 string password = "Missisippi";
                 MailMessage message = new MailMessage(from, to);
                 message.Subject = "Your Order!";
-                message.Body = string.Format("Dear {0} {1}! Your order have been accepted!\n\n Details: \n\n \n\n", namestr, surnamestr);
+                message.Body = string.Format("Dear Client! Your order have been accepted!");
                 message.To.Add(new MailAddress(to));
                 SmtpClient client = new SmtpClient("smtp.gmail.com", 587);
 
