@@ -16,14 +16,18 @@
         <ListView x:Name="listView_Orders" HorizontalAlignment="Left" Height="100" Margin="312,211,0,0" VerticalAlignment="Top" Width="312">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Id}">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <CheckBox IsChecked="{Binding isChecked}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    <GridViewColumn Header="Details" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Status}"/>
+                    <GridViewColumn Header="login" DisplayMemberBinding="{Binding login}"/>
+                    <GridViewColumn Header="Item" DisplayMemberBinding="{Binding Item}"/>
+                    <!--<GridViewColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox Margin="0"
+                                          VerticalAlignment="Center"
+                                          IsChecked="{Binding IsChecked}"/>
+                        </DataTemplate>
+                    </GridViewColumn.CellTemplate>-->
+
+                    <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}"/>
                 </GridView>
             </ListView.View>
             </ListView>

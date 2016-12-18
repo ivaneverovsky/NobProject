@@ -195,6 +195,8 @@ namespace Company.UI
         {
             listView_Orders.Items.Clear();
             listBox_Clients.Items.Clear();
+            CheckBox checkbox = new CheckBox();
+
             foreach (var item in repo.ListOfClients())
             {
                 listBox_Clients.Items.Add(item);
@@ -203,14 +205,15 @@ namespace Company.UI
             {
                 string itemname = item.ItemName;
                 string nameClient = item.Client;
-                CheckBox checkbox = new CheckBox();
                 listView_Orders.Items.Add(new
                 {
-                    Id = checkbox.IsChecked,
-                    Name = " " + nameClient + " " + itemname + " " + item.Cost + "$ "
+                    Status = checkbox.IsVisible,
+                    login = nameClient,
+                    Item = itemname,
+                    Price = item.Cost + "$ "
                 });
             }
-
+            
 
 
         }
