@@ -38,7 +38,7 @@ namespace Company.UI
             using (var c = new Context())
             {
                 listBox_myCatalogue.Items.Clear();
-                
+
 
                 ListCatalogue = c.Catalogue.ToList();
                 ListOrders = c.Orders.ToList();
@@ -67,8 +67,8 @@ namespace Company.UI
                 {
                     listBox_myCatalogue.Items.Add(item.ItemName + " " + item.Price);
                 }
-              
-                
+
+
             }
         }
 
@@ -156,7 +156,7 @@ namespace Company.UI
                 listBox_myCatalogue.Items.Remove(item);
                 listBox_myCatalogue.Items.Refresh();
 
-                
+
                 //вызвать обязательно в конце цикла, а то падает
                 break;
                 //базу трогать не стал (много тонкостей), код оставлю закоменченным
@@ -193,7 +193,7 @@ namespace Company.UI
 
         private void ShowOrdersButton_Click(object sender, RoutedEventArgs e)
         {
-            listView_Orders.Items.Clear();
+            listBox_Orders.Items.Clear();
             foreach (Orders item in ListOrders)
             {
                 string itemname = item.ItemName;
@@ -201,12 +201,14 @@ namespace Company.UI
                 //string nameAdmin = item.Admin.Name;
                 CheckBox checkbox = new CheckBox();
                 checkbox.Content = "order is checked";
-                listView_Orders.Items.Add(/*nameClient +*/" " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/ );
-                listView_Orders.Items.Add(checkbox);
 
+                listBox_Orders.Items.Add(/*nameClient +*/" " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/ );
+                listBox_Orders.Items.Add(checkbox);
+                
             }
            
             
+
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)
