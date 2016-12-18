@@ -205,13 +205,24 @@ namespace Company.UI
             {
                 string itemname = item.ItemName;
                 string nameClient = item.Client;
+                CheckBox checkbox = new CheckBox();
                 listView_Orders.Items.Add(new
+
                 {
-                    Status = checkbox.IsVisible,
-                    login = nameClient,
-                    Item = itemname,
-                    Price = item.Cost + "$ "
+                    Id = checkbox.IsChecked,
+                    Name = " " + nameClient + " " + itemname + " " + item.Cost + "$ "
                 });
+                if (checkbox.IsChecked == true)
+                {
+                    using (var c = new Context())
+                    {
+                        foreach (var stat in c.Orders)
+                        {
+                            stat.Status += 1;
+                        }
+                    }
+                    MessageBox.Show("is checked");
+                }
             }
             
 
