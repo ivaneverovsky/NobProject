@@ -35,7 +35,7 @@ namespace Company.UI
             using (var c = new Context())
             {
                 listBox_myCatalogue.Items.Clear();
-                listBox_Orders.Items.Clear();
+                
 
                 ListCatalogue = c.Catalogue.ToList();
                 ListOrders = c.Orders.ToList();
@@ -64,15 +64,8 @@ namespace Company.UI
                 {
                     listBox_myCatalogue.Items.Add(item.ItemName + " " + item.Price);
                 }
-                //показываю заказы админу
-                foreach (Orders item in ListOrders)
-                {
-                    string itemname = item.ItemName.ItemName;
-                    //string nameClient = item.Client.Name;
-                    //string nameAdmin = item.Admin.Name;
-
-                    listBox_Orders.Items.Add(/*nameClient +*/" " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/);
-                }
+              
+                
             }
         }
 
@@ -192,6 +185,20 @@ namespace Company.UI
                 var a = item.ToString();
                 MessageBox.Show(a);
             }
+        }
+
+        private void ShowOrdersButton_Click(object sender, RoutedEventArgs e)
+        {
+            listBox_Orders.Items.Clear();
+            foreach (Orders item in ListOrders)
+            {
+                string itemname = item.ItemName.ItemName;
+                //string nameClient = item.Client.Name;
+                //string nameAdmin = item.Admin.Name;
+
+                listBox_Orders.Items.Add(/*nameClient +*/" " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/);
+            }
+            
         }
     }
 }
