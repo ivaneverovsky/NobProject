@@ -73,9 +73,9 @@ namespace Company.UI
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.Send(message);
             }
-            catch (Exception v)
+            catch (Exception )
             {
-                MessageBox.Show("Error in Email!" + v);
+                MessageBox.Show("You've entered incorrect Email adress!");
                 return;
             }
             Close();

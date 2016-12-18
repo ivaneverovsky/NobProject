@@ -97,39 +97,7 @@ namespace Company.Data
         //список удаленных айтэмов из показа каталога
         public List<string> DeletedItems = new List<string>();
 
-        //public void  AuthorizationClient()   //хочу в этот метод потом засунуть логику реализации
-        //{
-        //    Dictionary<string, string> dictAuthClients = new Dictionary<string, string>();
-        //    using (var c = new Context())
-        //    {
-        //        foreach (var login in c.Clients)
-        //        {
-        //            dictAuthClients.Add(login.login, login.password);
-        //        }
-        //    }
-        //}
-        //public void AuthorizationAdmin()   //хочу в этот метод потом засунуть логику реализации
-        //{
-        //    Dictionary<string, string> dictAuthAdmins = new Dictionary<string, string>();
-        //    using (var c = new Context())
-        //    {
-        //        foreach (var login in c.Admins)
-        //        {
-        //            dictAuthAdmins.Add(login.login, login.password);
-        //        }
-        //    }
-        //}
-        //public void AuthorizationSupplier()
-        //{
-        //    Dictionary<string, string> dictAuthSupplier = new Dictionary<string, string>();
-        //    using (var c = new Context())
-        //    {
-        //        foreach (var login in c.Suppliers)
-        //        {
-        //            dictAuthSupplier.Add(login.login, login.password);
-        //        }
-        //    }
-        //}
+       
 
         public Dictionary<string, string> DictAuthClient()
         {

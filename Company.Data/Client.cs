@@ -14,7 +14,7 @@ namespace Company.Data
         public string login { get; set; }
         public string password { get; set; }
         public List<Orders> Orders { get; set; }
-        //может потребуется отсюда на что-то ссылаться
+       
 
     }
 }
