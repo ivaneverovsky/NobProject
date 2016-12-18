@@ -1,3 +1,2 @@
-ThankYou 100$
-Gold 100500$
-the sum of your order is: 100600$
+Silver 1000$
+the sum of your order is: 1000$
