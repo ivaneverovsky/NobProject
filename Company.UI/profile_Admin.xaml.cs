@@ -26,7 +26,6 @@ namespace Company.UI
 
         }
 
-
         Repository repo = new Repository();
         List<Catalogue> ListCatalogue = new List<Catalogue>();
         List<Orders> ListOrders = new List<Orders>();
@@ -38,19 +37,14 @@ namespace Company.UI
             {
                 listBox_myCatalogue.Items.Clear();
 
-
                 ListCatalogue = c.Catalogue.ToList();
                 ListOrders = c.Orders.ToList();
-
-               
 
                 //показываю лист бд админу
                 foreach (Catalogue item in ListCatalogue)
                 {
                     listBox_myCatalogue.Items.Add(item.ItemName + " " + item.Price);
                 }
-
-
             }
         }
 
@@ -137,14 +131,10 @@ namespace Company.UI
                 //удаляю из листбокса
                 listBox_myCatalogue.Items.Remove(item);
                 listBox_myCatalogue.Items.Refresh();
-
-
                 
                 break;
-               
             }
         }
-
 
         private void button_Click(object sender, RoutedEventArgs e)
         {

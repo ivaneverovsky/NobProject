@@ -58,7 +58,6 @@ namespace Company.UI
                 ListMyCart.Add(a);
 
                 MessageBox.Show("item was added");
-
             }
         }
 
@@ -100,8 +99,6 @@ namespace Company.UI
                     listBox_orders.Items.Add(a[0] + " " + price.ToString() + "$");
 
                     string tovar = a[0];
-
-
 
                     c.Orders.Add(new Orders
                     {
@@ -161,8 +158,6 @@ namespace Company.UI
                 {
                     orderList.Add(order);
                     sw.WriteLine(order);
-
-
                 }
                 sw.WriteLine("the sum of your order is: " + totalCost.Content);
                 sw.Close();
@@ -173,10 +168,6 @@ namespace Company.UI
             {
                 MessageBox.Show("you didn't have any orders!");
             }
-
-
-
-
         }
     }
 }

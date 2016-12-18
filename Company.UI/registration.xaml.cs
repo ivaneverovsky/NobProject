@@ -128,7 +128,7 @@ namespace Company.UI
                     }
                     g.SaveChanges();
                 }
-                MessageBox.Show("Пользователь сохранен");
+                MessageBox.Show("New User was added!");
 
                 //при нажатии данные отправляются в бд и записываются
                 //возвращение к окну входа(логин), после записи данных в бд!

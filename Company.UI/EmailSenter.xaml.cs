@@ -26,7 +26,7 @@ namespace Company.UI
         {
             InitializeComponent();
         }
-        
+
 
 
         private void EmailLoginBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -54,7 +54,7 @@ namespace Company.UI
             var namestr = name[0].ToString();
             var surnamestr = surname[0].ToString();
 
-           
+
 
             try
             {
@@ -72,7 +72,7 @@ namespace Company.UI
                 client.DeliveryMethod = SmtpDeliveryMethod.Network;
                 client.Send(message);
             }
-            catch (Exception )
+            catch (Exception)
             {
                 MessageBox.Show("You've entered incorrect Email adress!");
                 return;
@@ -82,7 +82,7 @@ namespace Company.UI
 
         }
 
-        
-       
+
+
     }
 }
