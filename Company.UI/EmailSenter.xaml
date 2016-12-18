@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="EmailSenter" Height="332.667" Width="414">
     <Grid Margin="-239,0,0.333,-28.667">
-        <Label x:Name="label" Content="Введите адрес электронной почты&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="319,26,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label" Content="Enter your E-mail adress&#xA;" HorizontalAlignment="Left" Margin="344,19,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="EmailLoginBox" HorizontalAlignment="Left" Height="23" Margin="319,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="EmailLoginBox_TextChanged"/>
-        <Button x:Name="SentButton" Content="Отправить письмо&#xD;&#xA;&#xD;&#xA;" HorizontalAlignment="Left" Margin="356,103,0,0" VerticalAlignment="Top" Width="117" Height="23" Click="SentButton_Click"/>
+        <Button x:Name="SentButton" Content="Sent message&#xA;&#xA;" HorizontalAlignment="Left" Margin="356,103,0,0" VerticalAlignment="Top" Width="117" Height="23" Click="SentButton_Click"/>
 
     </Grid>
 </Window>
