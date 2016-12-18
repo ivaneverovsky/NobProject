@@ -22,14 +22,10 @@ namespace Company.UI
     /// </summary>
     public partial class login : Window
     {
-
-
         public login()
         {
             InitializeComponent();
         }
-
-
         public void enter_Click(object sender, RoutedEventArgs e)
         {
 
@@ -41,27 +37,20 @@ namespace Company.UI
             string test;
             string ClientName;
             string ClientSurname;
-            //добавить, после настройки пункта enter_Click
+
             if (repo.DictAuthClient().TryGetValue(loginBox.Text, out test))
             {
-
-
                 if (repo.DictNameClient().TryGetValue(loginBox.Text, out ClientName) && repo.DictSurnameClient().TryGetValue(loginBox.Text, out ClientSurname))
                 {
                     client.labelName.Content = ClientName;
                     client.labelSurname.Content = ClientSurname;
                 }
-
-
-
                 if (test == passwordBox.Text)
                 {
                     Close();
                     client.ShowDialog();
                     return;
                 }
-
-
             }
 
             string AdminName;
@@ -73,15 +62,12 @@ namespace Company.UI
                     admin.labelName.Content = AdminName;
                     admin.labelSurname.Content = AdminSurname;
                 }
-
                 if (test == passwordBox.Text)
                 {
                     Close();
                     admin.ShowDialog();
                     return;
                 }
-
-
             }
             string SupplierName;
             string SupplierSurname;
@@ -99,18 +85,12 @@ namespace Company.UI
                     Close();
                     supplier.ShowDialog();
                 }
-
-
-
             }
             else
             {
                 MessageBox.Show("Вы ввели неверные данные, повторите ещё раз");
                 return;
-
-
             }
-            //должен прочитать инфомацию из текст боксов, сравнить ее с данными в базе
         }
 
         private void reg_Click(object sender, RoutedEventArgs e)
