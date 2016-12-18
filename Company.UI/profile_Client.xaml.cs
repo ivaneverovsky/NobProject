@@ -170,6 +170,13 @@ namespace Company.UI
         {
 
         }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            login l = new login();
+            l.ShowDialog();
+        }
     }
 }
 
