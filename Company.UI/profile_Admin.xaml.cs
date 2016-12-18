@@ -34,7 +34,6 @@ namespace Company.UI
         //по кнопке показываю базу данных Админу
         private void button_Show_Click(object sender, RoutedEventArgs e)
         {
-
             using (var c = new Context())
             {
                 listBox_myCatalogue.Items.Clear();
@@ -193,14 +192,16 @@ namespace Company.UI
 
         private void ShowOrdersButton_Click(object sender, RoutedEventArgs e)
         {
+            labelcost.Visibility = Visibility.Visible;
+
             listView_Orders.Items.Clear();
             listBox_Clients.Items.Clear();
             CheckBox checkbox = new CheckBox();
-
             foreach (var item in repo.ListOfClients())
             {
                 listBox_Clients.Items.Add(item);
             }
+            int cost = 0;
             foreach (Orders item in ListOrders)
             {
                 string itemname = item.ItemName;
@@ -208,12 +209,12 @@ namespace Company.UI
 
                 listView_Orders.Items.Add(new
                 {
-
                     Status = checkbox.IsVisible,
                     login = nameClient,
                     Item = itemname,
                     Price = item.Cost + "$ "
                 });
+                cost += item.Cost;
                 if (checkbox.IsChecked == true)
                 {
                     using (var c = new Context())
@@ -225,17 +226,38 @@ namespace Company.UI
                     }
                     MessageBox.Show("is checked");
                 }
+                labelcost.Content = "Total income from sales: " + cost + "$ ";
             }
-
-
-
         }
         private void listBox_Clients_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            listView_Orders.Items.Clear();
-           listView_Orders.Items.Add(repo._SortedClients());
+            labelcost.Visibility = Visibility.Visible;
 
-            
+            listView_Orders.Items.Clear();
+            foreach (var item in listBox_Clients.SelectedItems)
+            {
+                string info = item.ToString();
+                string[] a = info.Split(' ');
+                var b = a[2];
+                var newstr = b.Replace("(", "");
+                var newstr2 = newstr.Replace(")", "");
+                var sortedlist = from z in repo._SortedOrders()
+                                 where z.Client == newstr2
+                                 select z;
+                int cost = 0;
+                foreach (Orders element in sortedlist)
+                {
+                    listView_Orders.Items.Add(new
+                    {
+                        Status = element.Status,
+                        login = element.Client,
+                        Item = element.ItemName,
+                        Price = element.Cost + "$ "
+                    });
+                    cost += element.Cost;
+                }
+                labelcost.Content = "Total sum: " + cost + "$ ";
+            }
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)
@@ -243,11 +265,6 @@ namespace Company.UI
             Close();
             login l = new login();
             l.ShowDialog();
-        }
-
-        private void listBox_Clients_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
         }
     }
 }

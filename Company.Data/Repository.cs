@@ -23,7 +23,8 @@ namespace Company.Data
                 return a.ToList();
             }
         }
-        public List<Orders> _SortedClients()
+
+        public List<Orders> _SortedOrders()
         {
             using (var c = new Context())
             {
@@ -31,7 +32,6 @@ namespace Company.Data
                         orderby b.Client
                         select b;
                 return a.ToList();
-
             }
         }
 
