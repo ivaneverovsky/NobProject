@@ -13,7 +13,14 @@
         <TextBox x:Name="textBox_newPrice" HorizontalAlignment="Left" Height="23" Margin="187,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="Price"/>
         <Label x:Name="label_Add" Content="Add to Data Base" HorizontalAlignment="Left" Margin="187,180,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="button_Add" Content="Add new item" HorizontalAlignment="Left" Margin="187,291,0,0" VerticalAlignment="Top" Width="120" Click="button_Add_Click"/>
-        <ListView x:Name="listView_Orders" HorizontalAlignment="Left" Height="100" Margin="312,211,0,0" VerticalAlignment="Top" Width="312"/>
+        <ListView x:Name="listView_Orders" HorizontalAlignment="Left" Height="100" Margin="312,211,0,0" VerticalAlignment="Top" Width="312">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Status" DisplayMemberBinding="{Binding Id}"/>
+                    <GridViewColumn Header="Details" DisplayMemberBinding="{Binding Name}"/>
+                </GridView>
+            </ListView.View>
+            </ListView>
         <Label x:Name="label_Orders" Content="Orders" HorizontalAlignment="Left" Margin="312,180,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button_Show" Content="Show list" HorizontalAlignment="Left" Margin="10,336,0,103.333" Width="151" Click="button_Show_Click"/>
         <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="273,8,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>

@@ -43,7 +43,7 @@ namespace Company.Data
             {
                 var a = from b in c.Clients
                             //where b.Surname[0] == 'A'  //eng -> A in sort
-                        select b.Name + b.Surname;
+                        select b.Name + " " + b.Surname;
                 return a.ToList();
             }
         }
