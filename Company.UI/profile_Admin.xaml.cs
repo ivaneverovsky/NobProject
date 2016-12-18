@@ -203,11 +203,12 @@ namespace Company.UI
             {
                 string itemname = item.ItemName;
                 string nameClient = item.Client;
-                //string nameAdmin = item.Admin.Name;
                 CheckBox checkbox = new CheckBox();
-                checkbox.Content = "is checked";
-                listView_Orders.Items.Add(checkbox);
-                //listView_Orders.Items.Add(new {id = checkbox, Name =" " + nameClient + " " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/});
+                listView_Orders.Items.Add(new
+                {
+                    Id = checkbox.IsChecked,
+                    Name = " " + nameClient + " " + itemname + " " + item.Cost + "$ "
+                });
             }
 
 
