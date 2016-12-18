@@ -27,16 +27,14 @@ namespace Company.UI
 
         List<Catalogue> ListCatalogue = new List<Catalogue>();
         List<Orders> ListOrders = new List<Orders>();
+        Repository repo = new Repository();
 
         private void listBox_CatalogueOfOrders_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //удаление выбраных элементов по двойному щелчку мыши из листбокса и из базы
-
-            //пока не работает
+            
             foreach (var item in listBox_CatalogueOfOrders.SelectedItems)
             {
-                //удаляю из листбокса
-                //listBox_myCatalogue.Items.Remove(item);
+                
 
                 var a = item.ToString();
                 string[] newItem = a.Split(' ');
@@ -44,7 +42,7 @@ namespace Company.UI
 
                 var str1 = newItem[0];
                 var str2 = newItem[1];
-                //ListCatalogue.Contains(a);
+                
             }
         }
 
@@ -70,17 +68,24 @@ namespace Company.UI
         {
             using (var c = new Context())
             {
+                foreach (var item in repo.ListOfClients())
+                {
+                    listBox_Clients.Items.Add(item);
+                }
+                
                 ListCatalogue = c.Catalogue.ToList();
                 listBox_Orders.Items.Clear();
                 ListOrders = c.Orders.ToList();
-                foreach (Orders item in ListOrders)
+                foreach (var item in ListOrders)
                 {
+                   
+                    string nameClient = item.Client;
                     string itemname = item.ItemName;
-                    //string nameClient = item.Client.Name;
-                    //string nameAdmin = item.Admin.Name;
-
-                    listBox_Orders.Items.Add(/*nameClient +*/" " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/);
+                    listBox_Orders.Items.Add(nameClient + " " + itemname + " " + item.Cost + "$");
+                    
+                    
                 }
+               
             }
 
         }

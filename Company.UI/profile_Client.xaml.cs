@@ -57,7 +57,7 @@ namespace Company.UI
                 var a = item.ToString();
                 ListMyCart.Add(a);
 
-                MessageBox.Show("was added");
+                MessageBox.Show("item was added");
 
             }
         }
@@ -68,7 +68,7 @@ namespace Company.UI
             //удалить заказ (удаляет весь список, позже можно настроить, чтобы поштучно удалял)
             if (list_myCart.Items.Count == 0)
             {
-                MessageBox.Show("Вы не выбрали ни одного товара!");
+                MessageBox.Show("you haven't choose any item!");
                 return;
             }
             list_myCart.Items.Clear();
@@ -101,7 +101,7 @@ namespace Company.UI
 
                     string tovar = a[0];
 
-                    
+
 
                     c.Orders.Add(new Orders
                     {
@@ -115,16 +115,24 @@ namespace Company.UI
                 totalCost.Content = purchase.ToString() + "$";
                 if (list_myCart.Items.Count == 0)
                 {
-                    MessageBox.Show("Вы не выбрали ни одного товара!");
+                    MessageBox.Show("You haven't choose any item!");
                     return;
                 }
-                MessageBox.Show("Заказано");
+                MessageBox.Show("The order was done");
                 list_myCart.Items.Clear();
-                listBox_orders.Items.Clear();
+
                 ListOrders.Clear();
                 ListMyCart.Clear();
             }
-            senter.ShowDialog();
+            try
+            {
+                senter.ShowDialog();
+            }
+            catch (InvalidOperationException)
+            {
+                return;
+            }
+
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -145,19 +153,30 @@ namespace Company.UI
 
         private void btn_exl_Click(object sender, RoutedEventArgs e)
         {
-            StreamWriter sw = new StreamWriter(@"C:\Users\Андрей Метельский\Desktop\path.txt");
-            List<object> orderList = new List<object>();
-            foreach (var order in listBox_orders.Items)
+            if (!(listBox_orders.Items.Count == 0))
             {
-                orderList.Add(order);
-                sw.WriteLine(order);
+                StreamWriter sw = new StreamWriter(@"..\..\..\path.txt");
+                List<object> orderList = new List<object>();
+                foreach (var order in listBox_orders.Items)
+                {
+                    orderList.Add(order);
+                    sw.WriteLine(order);
 
+
+                }
+                sw.WriteLine("the sum of your order is: " + totalCost.Content);
+                sw.Close();
+                MessageBox.Show("Details of your order was added to a txt file!");
+                listBox_orders.Items.Clear();
             }
-            sw.Close();
-            
-            
+            else
+            {
+                MessageBox.Show("you didn't have any orders!");
+            }
 
-        
+
+
+
         }
     }
 }

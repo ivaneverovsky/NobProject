@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Company.UI"
         mc:Ignorable="d"
         Title="profile_Supplier" Height="399.167" Width="667">
-    <Grid RenderTransformOrigin="0.474,0.555" Margin="0,0,64.333,62.667">
+    <Grid RenderTransformOrigin="0.474,0.555" Margin="0,0,3,41.667">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
@@ -18,12 +18,14 @@
         </Grid.ColumnDefinitions>
         <ListBox x:Name="listBox_CatalogueOfOrders" HorizontalAlignment="Left" Height="87" Margin="10,151,0,0" VerticalAlignment="Top" Width="170" MouseDoubleClick="listBox_CatalogueOfOrders_MouseDoubleClick" Grid.Column="5" Grid.ColumnSpan="2"/>
         <Label x:Name="labelCatalogue" Content="   Catalogue" HorizontalAlignment="Left" Margin="0.333,115,0,0" VerticalAlignment="Top" Grid.Column="6" Height="43" Width="94"/>
-        <Label x:Name="label_Orders" Content="Orders" HorizontalAlignment="Left" Margin="314.667,115,0,0" VerticalAlignment="Top" Grid.Column="6" Width="76" Height="26"/>
-        <ListBox x:Name="listBox_Orders" HorizontalAlignment="Left" Height="87" Margin="257.667,151,0,0" VerticalAlignment="Top" Width="171" Grid.Column="6"/>
+        <Label x:Name="label_Orders" Content="Orders" HorizontalAlignment="Left" Margin="230.333,115,0,0" VerticalAlignment="Top" Grid.Column="6" Width="76" Height="26"/>
+        <ListBox x:Name="listBox_Orders" HorizontalAlignment="Left" Height="87" Margin="189.333,151,0,0" VerticalAlignment="Top" Width="136" Grid.Column="6"/>
         <Button x:Name="button_Show" Content="Show catalogue" HorizontalAlignment="Left" Margin="50,256,0,0" VerticalAlignment="Top" Width="94" Click="button_Show_Click" Grid.Column="5" Height="20" Grid.ColumnSpan="2"/>
         <Label x:Name="labelName" Content="Name" Grid.Column="6" HorizontalAlignment="Left" Margin="52.667,10,0,0" VerticalAlignment="Top" Height="26" Width="78"/>
         <Label x:Name="labelSurname" Content="Surname" Grid.Column="5" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="26" Width="73" Grid.ColumnSpan="2"/>
-        <Button x:Name="button_Show_Orders" Content="Show Orders" Grid.Column="6" HorizontalAlignment="Left" Margin="295.667,256,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="-0.089,0.508" Click="button_Show_Orders_Click"/>
+        <Button x:Name="button_Show_Orders" Content="Show Orders" Grid.Column="6" HorizontalAlignment="Left" Margin="211.333,254,0,0" VerticalAlignment="Top" Width="95" RenderTransformOrigin="-0.089,0.508" Click="button_Show_Orders_Click"/>
         <Button x:Name="exit" Content="Exit" Grid.Column="6" HorizontalAlignment="Left" Margin="461,10,0,0" VerticalAlignment="Top" Width="75" Click="exit_Click"/>
+        <ListBox x:Name="listBox_Clients" Grid.Column="6" HorizontalAlignment="Left" Height="91" Margin="410.333,151,0,0" VerticalAlignment="Top" Width="182"/>
+        <Label x:Name="label" Content="Clients" Grid.Column="6" HorizontalAlignment="Left" Margin="463.333,119,0,0" VerticalAlignment="Top" Width="73"/>
     </Grid>
 </Window>

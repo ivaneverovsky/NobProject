@@ -42,24 +42,7 @@ namespace Company.UI
                 ListCatalogue = c.Catalogue.ToList();
                 ListOrders = c.Orders.ToList();
 
-                //сказочный цикл :)
-                //foreach (var item in ListCatalogue)
-                //{
-                //    foreach (var deleteditem in repo.DeletedItems)
-                //    {
-                //        var a = deleteditem.ToString();
-                //        string[] split = a.Split(' ');
-                //        var newshit = split[0];
-
-                //        for (int i = 0; i < ListCatalogue.Count; i++)
-                //        {
-                //            if (ListCatalogue[i].ItemName == newshit)
-                //            {
-                //                ListCatalogue.Remove(item);
-                //            }
-                //        }
-                //    }
-                //}
+               
 
                 //показываю лист бд админу
                 foreach (Catalogue item in ListCatalogue)
@@ -156,27 +139,9 @@ namespace Company.UI
                 listBox_myCatalogue.Items.Refresh();
 
 
-                //вызвать обязательно в конце цикла, а то падает
+                
                 break;
-                //базу трогать не стал (много тонкостей), код оставлю закоменченным
-
-                //int newID = index + 1;
-                //using (var c = new Context())
-                //{
-                //    //ищет по айди элемент и удалает его (можно сделать наверное поиск по имени и цене, например)
-                //    var ItemToRemove = c.Catalogue.SingleOrDefault(x => x.Id == newID);
-                //    c.Catalogue.Remove(ItemToRemove);
-                //    c.SaveChanges();
-                //}
-
-
-                //делим строку, берем два элемента, имя товара и цену
-                //string[] newItem = a.Split(' ');
-                //MessageBox.Show(newItem[0] + " for " + newItem[1] + "$");
-
-                //var str1 = newItem[0];
-                //var str2 = newItem[1];
-                //}
+               
             }
         }
 
@@ -209,7 +174,7 @@ namespace Company.UI
 
                 listView_Orders.Items.Add(new
                 {
-                    Status = checkbox.IsVisible,
+                    Status = "awaits",
                     login = nameClient,
                     Item = itemname,
                     Price = item.Cost + "$ "
@@ -222,6 +187,7 @@ namespace Company.UI
                         foreach (var stat in c.Orders)
                         {
                             stat.Status += 1;
+                            
                         }
                     }
                     MessageBox.Show("is checked");

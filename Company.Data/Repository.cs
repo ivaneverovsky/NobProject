@@ -10,7 +10,7 @@ namespace Company.Data
     {
 
 
-        //здесь будут листы, которые мы будем показывать
+        
 
         //Каталог, который показываем клиенту
         public List<Catalogue> CompanyCatalogue()
@@ -53,7 +53,7 @@ namespace Company.Data
             using (Context c = new Context())
             {
                 var a = from b in c.Clients
-                            //where b.Surname[0] == 'A'  //eng -> A in sort
+                           
                         select b.Name + " " + b.Surname + " (" + b.login + ")";
                 return a.ToList();
             }
@@ -71,7 +71,7 @@ namespace Company.Data
             }
         }
 
-        //Cписок саплеров
+        //Cписок сапплаеров
         public List<Supplier> ListOfSuppliers()
         {
             using (Context c = new Context())
@@ -84,17 +84,7 @@ namespace Company.Data
         }
 
 
-        ////список заказов
-        //public List<Orders> ORDERS()
-        //{
-        //    using (Context c = new Context())
-        //    {
-        //        var a = from b in c.Orders
-        //                select b;
-        //        return a.ToList();
-        //    }
-        //}
-        //список удаленных айтэмов из показа каталога
+       
         public List<string> DeletedItems = new List<string>();
 
        

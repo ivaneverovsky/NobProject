@@ -14,9 +14,8 @@ namespace Company.Data.Migrations
 
         protected override void Seed(Context context)
         {
-            //данные, которые всегда будут в базе, хочу добавить возможность регистрации нового человека,
-            //в качестве любого из пользователей и регистрации/удаления нового продукта (возможно потребуется переписка
-            //кода для Каталога).
+            
+           
             context.Clients.AddOrUpdate(a => a.Name, new Client
             {
                 Name = "Ivan",

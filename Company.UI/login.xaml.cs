@@ -88,7 +88,7 @@ namespace Company.UI
             }
             else
             {
-                MessageBox.Show("Вы ввели неверные данные, повторите ещё раз");
+                MessageBox.Show("You've entered incorrect login or password. Try again, please");
                 return;
             }
         }

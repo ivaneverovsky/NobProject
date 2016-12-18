@@ -26,7 +26,7 @@ namespace Company.UI
         {
             InitializeComponent();
         }
-        //  profile_Client clientInfo = new profile_Client();
+        
 
 
         private void EmailLoginBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -54,8 +54,7 @@ namespace Company.UI
             var namestr = name[0].ToString();
             var surnamestr = surname[0].ToString();
 
-            //беру список заказов (пока не удалось)
-            //MessageBox.Show(repo.ORDERS().ToString());
+           
 
             try
             {
@@ -79,8 +78,11 @@ namespace Company.UI
                 return;
             }
             Hide();
-            MessageBox.Show("Письмо было отправлено Вам на почту!");
+            MessageBox.Show("The confirmation was sent to your Email!");
 
         }
+
+        
+       
     }
 }
