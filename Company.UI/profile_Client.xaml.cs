@@ -120,6 +120,9 @@ namespace Company.UI
                 }
                 MessageBox.Show("Заказано");
                 list_myCart.Items.Clear();
+                listBox_orders.Items.Clear();
+                ListOrders.Clear();
+                ListMyCart.Clear();
             }
             senter.ShowDialog();
         }

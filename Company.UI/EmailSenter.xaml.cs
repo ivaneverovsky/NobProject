@@ -78,7 +78,7 @@ namespace Company.UI
                 MessageBox.Show("You've entered incorrect Email adress!");
                 return;
             }
-            Close();
+            Hide();
             MessageBox.Show("Письмо было отправлено Вам на почту!");
 
         }
