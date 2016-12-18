@@ -193,19 +193,32 @@ namespace Company.UI
 
         private void ShowOrdersButton_Click(object sender, RoutedEventArgs e)
         {
-            listBox_Orders.Items.Clear();
+            listView_Orders.Items.Clear();
             foreach (Orders item in ListOrders)
             {
                 string itemname = item.ItemName;
                 //string nameClient = item.Client.Name;
                 //string nameAdmin = item.Admin.Name;
                 CheckBox checkbox = new CheckBox();
+                
                 checkbox.Content = "order is checked";
 
-                listBox_Orders.Items.Add(/*nameClient +*/" " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/ );
-                listBox_Orders.Items.Add(checkbox);
+                listView_Orders.Items.Add(/*nameClient +*/" " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/ );
+                listView_Orders.Items.Add(checkbox);
+                if (checkBox.IsPressed)
+                {
+                    //using (var c = new Context())
+                    //{
+                    //    foreach (var stat in c.Orders)
+                    //    {
+                    //        stat.Status += 1;
+                    //    }
+                    //}
+                    MessageBox.Show("is checked");
+                }
                 
             }
+
            
             
 
