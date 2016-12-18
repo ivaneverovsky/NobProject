@@ -25,7 +25,7 @@ namespace Company.Data.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         ItemName = c.String(),
-                        Price = c.Int(nullable: false),
+                        Price = c.Int(nullable: true),
                     })
                 .PrimaryKey(t => t.Id);
             
