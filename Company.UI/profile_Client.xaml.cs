@@ -94,9 +94,9 @@ namespace Company.UI
                     listBox_orders.Items.Add(a[0] + " " + price.ToString() + "$");
 
                     string tovar = a[0];
-                    foreach (var resultItem in dictItems)
+                    foreach (var resultItem in c.Orders)
                     {
-                        dictItems.Add(tovar, price);
+                        dictItems.Add(resultItem.ItemName.ItemName, resultItem.Cost);
                     }
                     int outItem;
                    if (dictItems.TryGetValue(tovar, out outItem))
@@ -115,7 +115,7 @@ namespace Company.UI
                     //    Cost = price
                     //});
                     //c.SaveChanges();
-                    purchase += price;
+                        purchase += price;
                 }
                 totalCost.Content = purchase.ToString() + "$";
                 if (list_myCart.Items.Count == 0)
