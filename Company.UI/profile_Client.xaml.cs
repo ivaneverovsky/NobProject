@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -137,6 +138,23 @@ namespace Company.UI
             Close();
             login l = new login();
             l.ShowDialog();
+        }
+
+        private void btn_exl_Click(object sender, RoutedEventArgs e)
+        {
+            StreamWriter sw = new StreamWriter(@"C:\Users\Андрей Метельский\Desktop\path.txt");
+            List<object> orderList = new List<object>();
+            foreach (var order in listBox_orders.Items)
+            {
+                orderList.Add(order);
+                sw.WriteLine(order);
+
+            }
+            sw.Close();
+            
+            
+
+        
         }
     }
 }
