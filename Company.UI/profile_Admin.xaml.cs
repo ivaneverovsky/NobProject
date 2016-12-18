@@ -204,11 +204,7 @@ namespace Company.UI
                 string itemname = item.ItemName;
                 string nameClient = item.Client;
                 CheckBox checkbox = new CheckBox();
-                listView_Orders.Items.Add(new
-                {
-                    Id = checkbox.IsChecked,
-                    Name = " " + nameClient + " " + itemname + " " + item.Cost + "$ "
-                });
+                listView_Orders.Items.Add(new {id = checkbox, Name =" " + nameClient + " " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/});
             }
 
 
