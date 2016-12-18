@@ -193,7 +193,7 @@ namespace Company.UI
 
         private void ShowOrdersButton_Click(object sender, RoutedEventArgs e)
         {
-            listBox_Orders.Items.Clear();
+            listView_Orders.Items.Clear();
             foreach (Orders item in ListOrders)
             {
                 string itemname = item.ItemName;
@@ -201,10 +201,9 @@ namespace Company.UI
                 //string nameAdmin = item.Admin.Name;
                 CheckBox checkbox = new CheckBox();
                 checkbox.Content = "order is checked";
+                listView_Orders.Items.Add(/*nameClient +*/" " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/ );
+                listView_Orders.Items.Add(checkbox);
 
-                listBox_Orders.Items.Add(/*nameClient +*/" " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/ );
-                listBox_Orders.Items.Add(checkbox);
-                
             }
            
             
