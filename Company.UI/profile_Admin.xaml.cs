@@ -35,7 +35,7 @@ namespace Company.UI
             using (var c = new Context())
             {
                 listBox_myCatalogue.Items.Clear();
-                
+
 
                 ListCatalogue = c.Catalogue.ToList();
                 ListOrders = c.Orders.ToList();
@@ -64,8 +64,8 @@ namespace Company.UI
                 {
                     listBox_myCatalogue.Items.Add(item.ItemName + " " + item.Price);
                 }
-              
-                
+
+
             }
         }
 
@@ -153,7 +153,7 @@ namespace Company.UI
                 listBox_myCatalogue.Items.Remove(item);
                 listBox_myCatalogue.Items.Refresh();
 
-                
+
                 //вызвать обязательно в конце цикла, а то падает
                 break;
                 //базу трогать не стал (много тонкостей), код оставлю закоменченным
@@ -189,16 +189,21 @@ namespace Company.UI
 
         private void ShowOrdersButton_Click(object sender, RoutedEventArgs e)
         {
+            listBox_Clients.Items.Clear();
+            foreach (var item in repo.ListOfClients())
+            {
+                listBox_Clients.Items.Add(item);
+            }
             listBox_Orders.Items.Clear();
             foreach (Orders item in ListOrders)
             {
                 string itemname = item.ItemName;
-                //string nameClient = item.Client.Name;
-                //string nameAdmin = item.Admin.Name;
+                string nameClient = item.Client;
+                //string nameAdmin = item.Admin;
 
-                listBox_Orders.Items.Add(/*nameClient +*/" " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/);
+                listBox_Orders.Items.Add(nameClient + " " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/);
             }
-            
+
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)
