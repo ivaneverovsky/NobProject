@@ -204,9 +204,26 @@ namespace Company.UI
                 string itemname = item.ItemName;
                 string nameClient = item.Client;
                 CheckBox checkbox = new CheckBox();
-                listView_Orders.Items.Add(new {id = checkbox, Name =" " + nameClient + " " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/});
-            }
+                checkbox.IsThreeState = true;
+                listView_Orders.Items.Add(new
 
+                {
+                    Id = 0,
+                    Name = " " + nameClient + " " + itemname + " " + item.Cost + "$ "
+                });
+                if (checkbox.IsChecked == true)
+                {
+                    using (var c = new Context())
+                    {
+                        foreach (var stat in c.Orders)
+                        {
+                            stat.Status += 1;
+                        }
+                    }
+                    MessageBox.Show("is checked");
+                }
+            }
+            
 
 
         }
