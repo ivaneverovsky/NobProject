@@ -39,7 +39,7 @@
         <Button x:Name="exit" Content="Exit" HorizontalAlignment="Left" Margin="755,10,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="exit_Click"/>
         <Button x:Name="ShowOrdersButton" Content="Show orders&#xD;&#xA;" HorizontalAlignment="Left" Margin="401,336,0,0" VerticalAlignment="Top" Width="122" Height="26" Click="ShowOrdersButton_Click"/>
         <StackPanel HorizontalAlignment="Left" Height="109" Margin="434,35,0,0" VerticalAlignment="Top" Width="138"/>
-        <ListBox x:Name="listBox_Clients" HorizontalAlignment="Left" Height="100" Margin="648,211,0,0" VerticalAlignment="Top" Width="182" Cursor=""/>
+        <ListBox x:Name="listBox_Clients" HorizontalAlignment="Left" Height="100" Margin="648,211,0,0" VerticalAlignment="Top" Width="182" Cursor="" SelectionChanged="listBox_Clients_SelectionChanged" MouseDoubleClick="listBox_Clients_MouseDoubleClick"/>
         <Label x:Name="label" Content="List of Clients" HorizontalAlignment="Left" Margin="648,180,0,0" VerticalAlignment="Top"/>
 
     </Grid>

@@ -205,12 +205,14 @@ namespace Company.UI
             {
                 string itemname = item.ItemName;
                 string nameClient = item.Client;
-                CheckBox checkbox = new CheckBox();
-                listView_Orders.Items.Add(new
 
+                listView_Orders.Items.Add(new
                 {
-                    Id = checkbox.IsChecked,
-                    Name = " " + nameClient + " " + itemname + " " + item.Cost + "$ "
+
+                    Status = checkbox.IsVisible,
+                    login = nameClient,
+                    Item = itemname,
+                    Price = item.Cost + "$ "
                 });
                 if (checkbox.IsChecked == true)
                 {
@@ -224,9 +226,16 @@ namespace Company.UI
                     MessageBox.Show("is checked");
                 }
             }
+
+
+
+        }
+        private void listBox_Clients_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            listView_Orders.Items.Clear();
+           listView_Orders.Items.Add(repo._SortedClients());
+
             
-
-
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)
@@ -234,6 +243,11 @@ namespace Company.UI
             Close();
             login l = new login();
             l.ShowDialog();
+        }
+
+        private void listBox_Clients_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
