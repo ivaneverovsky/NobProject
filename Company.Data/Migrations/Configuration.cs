@@ -40,7 +40,7 @@ namespace Company.Data.Migrations
             });
             context.Catalogue.AddOrUpdate(a => a.ItemName, new Catalogue
             {
-                ItemName = "Thank You",
+                ItemName = "ThankYou",
                 Price = 100
             });
             context.Catalogue.AddOrUpdate(a => a.ItemName, new Catalogue
