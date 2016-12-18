@@ -96,7 +96,7 @@ namespace Company.UI
                     string tovar = a[0];
                     foreach (var resultItem in c.Orders)
                     {
-                        dictItems.Add(resultItem.ItemName.ItemName, resultItem.Cost);
+                        dictItems.Add(resultItem.ItemName, resultItem.Cost);
                     }
                     int outItem;
                    if (dictItems.TryGetValue(tovar, out outItem))

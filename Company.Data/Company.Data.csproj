@@ -73,11 +73,14 @@
     <Compile Include="Migrations\201612132051554_Orders_upd.Designer.cs">
       <DependentUpon>201612132051554_Orders_upd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612181230358_UpdDB.cs" />
+    <Compile Include="Migrations\201612181230358_UpdDB.Designer.cs">
+      <DependentUpon>201612181230358_UpdDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Orders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
-    <Compile Include="Status.cs" />
     <Compile Include="Supplier.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612132051554_Orders_upd.resx">
       <DependentUpon>201612132051554_Orders_upd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612181230358_UpdDB.resx">
+      <DependentUpon>201612181230358_UpdDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

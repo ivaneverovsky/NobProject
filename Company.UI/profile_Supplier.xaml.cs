@@ -75,7 +75,7 @@ namespace Company.UI
                 ListOrders = c.Orders.ToList();
                 foreach (Orders item in ListOrders)
                 {
-                    string itemname = item.ItemName.ItemName;
+                    string itemname = item.ItemName;
                     //string nameClient = item.Client.Name;
                     //string nameAdmin = item.Admin.Name;
 

@@ -192,13 +192,20 @@ namespace Company.UI
             listBox_Orders.Items.Clear();
             foreach (Orders item in ListOrders)
             {
-                string itemname = item.ItemName.ItemName;
+                string itemname = item.ItemName;
                 //string nameClient = item.Client.Name;
                 //string nameAdmin = item.Admin.Name;
 
                 listBox_Orders.Items.Add(/*nameClient +*/" " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/);
             }
             
+        }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            login l = new login();
+            l.ShowDialog();
         }
     }
 }

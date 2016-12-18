@@ -10,12 +10,12 @@ namespace Company.Data
     {
         public int Id { get; set; }
 
-        public Client Client { get; set; }
-        public Admin Admin { get; set; }
-        public Catalogue ItemName { get; set; }
+        public string Client { get; set; }
+        public string Admin { get; set; }
+        public string ItemName { get; set; }
 
         public int Cost { get; set; }
-        public Status Status { get; set; }
+        public int Status { get; set; }
         
     }
 }

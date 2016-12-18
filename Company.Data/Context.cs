@@ -14,7 +14,7 @@ namespace Company.Data
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Catalogue> Catalogue { get; set; }
         public DbSet<Orders> Orders { get; set; }
-        public DbSet<Status> Status { get; set; }
+        
 
         public Context() : base("localsql")
         {
