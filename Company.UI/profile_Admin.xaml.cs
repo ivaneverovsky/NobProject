@@ -21,12 +21,12 @@ namespace Company.UI
     public partial class profile_Admin : Window
     {
         public profile_Admin()
-        { 
+        {
             InitializeComponent();
-            
+
         }
-        
-        
+
+
         Repository repo = new Repository();
         List<Catalogue> ListCatalogue = new List<Catalogue>();
         List<Orders> ListOrders = new List<Orders>();
@@ -34,7 +34,7 @@ namespace Company.UI
         //по кнопке показываю базу данных Админу
         private void button_Show_Click(object sender, RoutedEventArgs e)
         {
-            
+
             using (var c = new Context())
             {
                 listBox_myCatalogue.Items.Clear();
@@ -147,7 +147,7 @@ namespace Company.UI
 
                 int index = listBox_myCatalogue.Items.IndexOf(item);
                 ListCatalogue.RemoveAt(index);
-                
+
                 //добавляю в лист удаленных (строку)
                 string deletedstr = item.ToString();
                 repo.DeletedItems.Add(deletedstr);
@@ -180,7 +180,7 @@ namespace Company.UI
                 //}
             }
         }
-        
+
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -193,21 +193,22 @@ namespace Company.UI
 
         private void ShowOrdersButton_Click(object sender, RoutedEventArgs e)
         {
-            listBox_Orders.Items.Clear();
+            listView_Orders.Items.Clear();
+            listBox_Clients.Items.Clear();
+            foreach (var item in repo.ListOfClients())
+            {
+                listBox_Clients.Items.Add(item);
+            }
             foreach (Orders item in ListOrders)
             {
                 string itemname = item.ItemName;
-                //string nameClient = item.Client.Name;
+                string nameClient = item.Client;
                 //string nameAdmin = item.Admin.Name;
                 CheckBox checkbox = new CheckBox();
-                checkbox.Content = "order is checked";
-
-                listBox_Orders.Items.Add(/*nameClient +*/" " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/ );
-                listBox_Orders.Items.Add(checkbox);
-                
+                listView_Orders.Items.Add(new {id = checkbox, Name =" " + nameClient + " " + itemname + " " + item.Cost + "$ " + item.Status + " "/* + nameAdmin*/});
             }
-           
-            
+
+
 
         }
 
