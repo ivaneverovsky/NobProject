@@ -13,7 +13,7 @@ namespace Company.Data
         public string Surname { get; set; }
         public string login { get; set; }
         public string password { get; set; }
-        //может потребуется отсюда на что-то ссылаться
+        
 
     }
 }

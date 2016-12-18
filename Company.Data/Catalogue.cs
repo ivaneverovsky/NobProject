@@ -11,7 +11,7 @@ namespace Company.Data
         public int Id { get; set; }
         public string ItemName { get; set; }
         public int Price { get; set; }
-        //мб на что-то ссылаться
+        
 
     }
 }
