@@ -75,7 +75,7 @@ namespace Company.UI
             }
             catch (Exception v)
             {
-                MessageBox.Show("Error in Email!");
+                MessageBox.Show("Error in Email!" + v);
                 return;
             }
             Close();

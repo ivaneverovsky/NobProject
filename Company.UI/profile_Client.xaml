@@ -12,7 +12,7 @@
         <Button x:Name="button_show_catalogue" Content="Show" HorizontalAlignment="Left" Margin="10,373,0,0" VerticalAlignment="Top" Width="75" Click="button_show_catalogue_Click"/>
         <Button x:Name="clear_button" Content="Delete Order" HorizontalAlignment="Left" Margin="353,373,0,0" VerticalAlignment="Top" Width="75" Click="clear_button_Click"/>
         <Button x:Name="order_botton" Content="Order" HorizontalAlignment="Left" Margin="538,373,0,0" VerticalAlignment="Top" Width="75" Click="order_botton_Click"/>
-        <ListBox x:Name="list_myCart" HorizontalAlignment="Left" Height="159" Margin="353,209,0,0" VerticalAlignment="Top" Width="260" SelectionChanged="list_myCart_SelectionChanged"/>
+        <ListBox x:Name="list_myCart" HorizontalAlignment="Left" Height="159" Margin="353,209,0,0" VerticalAlignment="Top" Width="260"/>
         <ListView x:Name="listView_myCatalogue" HorizontalAlignment="Left" Height="159" Margin="10,209,0,0" VerticalAlignment="Top" Width="292" MouseDoubleClick="listView_myCatalogue_MouseDoubleClick" ToolTip="Double click to add to basket">
             <ListView.View>
                 <GridView>
@@ -26,7 +26,7 @@
         <Label x:Name="totalCost" Content="0" HorizontalAlignment="Left" Margin="216,152,0,0" VerticalAlignment="Top" ToolTip="purchase"/>
         <Label x:Name="labelName" Content="Name" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="72,10,0,0" RenderTransformOrigin="0.595,0.038"/>
         <Label x:Name="labelSurname" Content="Surname" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0"/>
-        <Button x:Name="btn_exl" Content="ToExcel" HorizontalAlignment="Left" Margin="120,53,0,0" VerticalAlignment="Top" Width="75" Click="btn_exl_Click"/>
+        <Button x:Name="btn_exl" Content="ToExcel" HorizontalAlignment="Left" Margin="120,53,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="exit" Content="Exit" HorizontalAlignment="Left" Margin="538,10,0,0" VerticalAlignment="Top" Width="75" Click="exit_Click"/>
     </Grid>
 </Window>

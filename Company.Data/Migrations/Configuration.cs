@@ -33,14 +33,14 @@ namespace Company.Data.Migrations
             });
             context.Suppliers.AddOrUpdate(a => a.Name, new Supplier
             {
-                Name = "Sergey",
-                Surname = "Mosyakov",
-                login = "SerMos",
-                password = "hse2016"
+                Name = "Andrew",
+                Surname = "Koreshev",
+                login = "koresh",
+                password = "vip2016"
             });
             context.Catalogue.AddOrUpdate(a => a.ItemName, new Catalogue
             {
-                ItemName = "Thank You",
+                ItemName = "ThankYou",
                 Price = 100
             });
             context.Catalogue.AddOrUpdate(a => a.ItemName, new Catalogue

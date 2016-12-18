@@ -80,11 +80,16 @@ namespace Company.UI
             Catalogue itemname = new Catalogue();
             //оформить заказ (отправляю новые данные в таблицу бд Orders)
             int purchase = 0;
-            Dictionary<string, int> dictItems = new Dictionary<string, int>();
+
             using (var c = new Context())
             {
+                string clientName = labelName.Content.ToString();
+                var clientLogin = (from names in c.Clients
+                                   where names.Name == clientName
+                                   select names.login).FirstOrDefault();
+
                 foreach (string item in ListMyCart)
-                { 
+                {
                     ListOrders.Add(item);
                     //отрываю название от цены)
                     string[] a = item.Split(' ');
@@ -94,28 +99,17 @@ namespace Company.UI
                     listBox_orders.Items.Add(a[0] + " " + price.ToString() + "$");
 
                     string tovar = a[0];
-                    foreach (var resultItem in c.Orders)
+
+                    
+
+                    c.Orders.Add(new Orders
                     {
-                        dictItems.Add(resultItem.ItemName, resultItem.Cost);
-                    }
-                    int outItem;
-                   if (dictItems.TryGetValue(tovar, out outItem))
-                    {  //не воркает(
-                       //result почему-то приходит null
-
-                        //var result = c.Orders.FirstOrDefault(t => (tovar == itemname.ItemName) && (price == t.Cost));
-
-                        /* сюда дописать нужно переменную поиска клиента по логину и все, остальное дописывается из класса Админ */
-                        c.SaveChanges();
-                    }
-                    //c.Orders.Add(new Orders
-                    //{
-
-                    //    ItemName = itemname,
-                    //    Cost = price
-                    //});
-                    //c.SaveChanges();
-                        purchase += price;
+                        Client = clientLogin,
+                        ItemName = a[0],
+                        Cost = price
+                    });
+                    c.SaveChanges();
+                    purchase += price;
                 }
                 totalCost.Content = purchase.ToString() + "$";
                 if (list_myCart.Items.Count == 0)
@@ -125,22 +119,8 @@ namespace Company.UI
                 }
                 MessageBox.Show("Заказано");
                 list_myCart.Items.Clear();
-
-
-
             }
-
             senter.ShowDialog();
-            Close();
-        }
-
-        public void ClientNameBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-        }
-
-        public void ClientSurnameBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -150,25 +130,6 @@ namespace Company.UI
                 var a = item.ToString();
                 MessageBox.Show(a);
             }
-        }
-
-        private void list_myCart_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void StatusButton_Click(object sender, RoutedEventArgs e)
-        {
-        }
-
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btn_exl_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void exit_Click(object sender, RoutedEventArgs e)
