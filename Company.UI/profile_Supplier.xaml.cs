@@ -24,10 +24,10 @@ namespace Company.UI
         {
             InitializeComponent();
         }
-     
+
         List<Catalogue> ListCatalogue = new List<Catalogue>();
         List<Orders> ListOrders = new List<Orders>();
-        
+
         private void listBox_CatalogueOfOrders_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             //удаление выбраных элементов по двойному щелчку мыши из листбокса и из базы
@@ -53,16 +53,16 @@ namespace Company.UI
             using (var c = new Context())
             {
                 listBox_CatalogueOfOrders.Items.Clear();
-               
+
 
                 ListCatalogue = c.Catalogue.ToList();
-                
+
 
                 foreach (Catalogue item in ListCatalogue)
                 {
                     listBox_CatalogueOfOrders.Items.Add(item.ItemName + " " + item.Price);
                 }
-                
+
             }
         }
 
@@ -84,6 +84,13 @@ namespace Company.UI
             }
 
         }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            login l = new login();
+            l.ShowDialog();
+        }
     }
-    }
+}
 

@@ -99,7 +99,7 @@ namespace Company.UI
                         dictItems.Add(tovar, price);
                     }
                     int outItem;
-                   if (dictItems.TryGetValue(tovar, out outItem);
+                   if (dictItems.TryGetValue(tovar, out outItem))
                     {  //не воркает(
                        //result почему-то приходит null
 
@@ -169,6 +169,13 @@ namespace Company.UI
         private void btn_exl_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            login l = new login();
+            l.ShowDialog();
         }
     }
 }

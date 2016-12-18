@@ -193,5 +193,13 @@ namespace Company.UI
                 MessageBox.Show(a);
             }
         }
+
+        private void exit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            login l = new login();
+            l.ShowDialog();
+            
+        }
     }
 }
