@@ -8,7 +8,7 @@ namespace Company.Data
 {
     public class Repository
     {
-        
+
 
         //здесь будут листы, которые мы будем показывать
 
@@ -37,13 +37,13 @@ namespace Company.Data
         }
 
         //Список клиентов
-        public List<Client> ListOfClients()
+        public List<string> ListOfClients()
         {
             using (Context c = new Context())
             {
                 var a = from b in c.Clients
-                        where b.Surname[0] == 'A'  //eng -> A in sort
-                        select b;
+                            //where b.Surname[0] == 'A'  //eng -> A in sort
+                        select b.Name + b.Surname;
                 return a.ToList();
             }
         }
@@ -72,7 +72,7 @@ namespace Company.Data
             }
         }
 
-        
+
         ////список заказов
         //public List<Orders> ORDERS()
         //{
