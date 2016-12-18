@@ -23,6 +23,17 @@ namespace Company.Data
                 return a.ToList();
             }
         }
+        public List<Orders> _SortedClients()
+        {
+            using (var c = new Context())
+            {
+                var a = from b in c.Orders
+                        orderby b.Client
+                        select b;
+                return a.ToList();
+
+            }
+        }
 
         //Список Заказов, показываем Админу и Поставщику
         public List<Orders> CompanyOrders()
