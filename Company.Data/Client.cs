@@ -13,6 +13,8 @@ namespace Company.Data
         public string Surname { get; set; }
         public string login { get; set; }
         public string password { get; set; }
+        public string phone { get; set; }
+        public string email { get; set; }
         public List<Orders> Orders { get; set; }
        
 

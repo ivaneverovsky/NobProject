@@ -54,29 +54,13 @@
     <Compile Include="Catalogue.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="Context.cs" />
-    <Compile Include="Migrations\201611301043245_Initial.cs" />
-    <Compile Include="Migrations\201611301043245_Initial.Designer.cs">
-      <DependentUpon>201611301043245_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201701142002504_Initial.cs" />
+    <Compile Include="Migrations\201701142002504_Initial.Designer.cs">
+      <DependentUpon>201701142002504_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201611301202335_Name.cs" />
-    <Compile Include="Migrations\201611301202335_Name.Designer.cs">
-      <DependentUpon>201611301202335_Name.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612121359177__.cs" />
-    <Compile Include="Migrations\201612121359177__.Designer.cs">
-      <DependentUpon>201612121359177__.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612121614558_dbup.cs" />
-    <Compile Include="Migrations\201612121614558_dbup.Designer.cs">
-      <DependentUpon>201612121614558_dbup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612132051554_Orders_upd.cs" />
-    <Compile Include="Migrations\201612132051554_Orders_upd.Designer.cs">
-      <DependentUpon>201612132051554_Orders_upd.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201612181230358_UpdDB.cs" />
-    <Compile Include="Migrations\201612181230358_UpdDB.Designer.cs">
-      <DependentUpon>201612181230358_UpdDB.cs</DependentUpon>
+    <Compile Include="Migrations\201701142004444_ChangeDbClient.cs" />
+    <Compile Include="Migrations\201701142004444_ChangeDbClient.Designer.cs">
+      <DependentUpon>201701142004444_ChangeDbClient.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Orders.cs" />
@@ -89,23 +73,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201611301043245_Initial.resx">
-      <DependentUpon>201611301043245_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701142002504_Initial.resx">
+      <DependentUpon>201701142002504_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201611301202335_Name.resx">
-      <DependentUpon>201611301202335_Name.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612121359177__.resx">
-      <DependentUpon>201612121359177__.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612121614558_dbup.resx">
-      <DependentUpon>201612121614558_dbup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612132051554_Orders_upd.resx">
-      <DependentUpon>201612132051554_Orders_upd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201612181230358_UpdDB.resx">
-      <DependentUpon>201612181230358_UpdDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201701142004444_ChangeDbClient.resx">
+      <DependentUpon>201701142004444_ChangeDbClient.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

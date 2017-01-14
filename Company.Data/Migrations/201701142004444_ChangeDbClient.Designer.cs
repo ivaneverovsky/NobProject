@@ -7,13 +7,13 @@ namespace Company.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class _ : IMigrationMetadata
+    public sealed partial class ChangeDbClient : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(_));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ChangeDbClient));
         
         string IMigrationMetadata.Id
         {
-            get { return "201612121359177__"; }
+            get { return "201701142004444_ChangeDbClient"; }
         }
         
         string IMigrationMetadata.Source
