@@ -62,6 +62,10 @@
     <Compile Include="Migrations\201701142004444_ChangeDbClient.Designer.cs">
       <DependentUpon>201701142004444_ChangeDbClient.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701142053446_DataAddOrder.cs" />
+    <Compile Include="Migrations\201701142053446_DataAddOrder.Designer.cs">
+      <DependentUpon>201701142053446_DataAddOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Orders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -78,6 +82,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701142004444_ChangeDbClient.resx">
       <DependentUpon>201701142004444_ChangeDbClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701142053446_DataAddOrder.resx">
+      <DependentUpon>201701142053446_DataAddOrder.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

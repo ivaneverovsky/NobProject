@@ -16,7 +16,6 @@ namespace Company.Data
         public string phone { get; set; }
         public string email { get; set; }
         public List<Orders> Orders { get; set; }
-       
 
     }
 }

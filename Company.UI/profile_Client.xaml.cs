@@ -38,8 +38,11 @@ namespace Company.UI
 
                 foreach (Catalogue item in ListCatalogue)
                 {
-                    //ListViewItem boxitem = new ListViewItem();
-                    listView_myCatalogue.Items.Add(item.ItemName + " " + item.Price);
+                    listView_myCatalogue.Items.Add(new
+                    {
+                        Name = item.ItemName,
+                        Price = item.Price
+                    });
                 }
             }
         }
@@ -47,15 +50,28 @@ namespace Company.UI
         private void listView_myCatalogue_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             //добавление содержимого из списка каталога в корзину
-
             foreach (var item in listView_myCatalogue.SelectedItems)
             {
+                /*
+                 * по умному вытащить данные из айтема, ибо опять объект
+                 * и будет дальше ошибка в программе, нужно хитро вытащить данные
+                 * из строки ниже (var a = item.ToString)
+                 * приходит строка вида: {Name = ..., Price = ...}
+                 * нужно хитро строку изнасиловать и засунуть в лист, а то ломается,
+                 * падла
+                 * ибо при записи в базу берет как раз
+                 * инфу из ListMyCart
+                 * а у нас сейчас в нем строка вида больного
+                 * так шо нада подумать, как лучше это сделать. 
+                 */
+                 
                 //добавляю данные в листбокс заказов
                 list_myCart.Items.Add(item);
-
+                
                 //все данные в строку и отправляю их в лист
                 var a = item.ToString();
                 ListMyCart.Add(a);
+                
 
                 MessageBox.Show("item was added");
             }
@@ -104,7 +120,8 @@ namespace Company.UI
                     {
                         Client = clientLogin,
                         ItemName = a[0],
-                        Cost = price
+                        Cost = price,
+                        Date = DateTime.Now
                     });
                     c.SaveChanges();
                     purchase += price;
@@ -168,6 +185,22 @@ namespace Company.UI
             {
                 MessageBox.Show("you didn't have any orders!");
             }
+        }
+
+        private void btn_lng_Click(object sender, RoutedEventArgs e)
+        {
+            //смена языка, нужно подумать, как менять его в сплывающих сообщениях
+            // и как менять язык обратно при повторном нажатии лол
+
+            label_orders.Content = "Мои Заказы";
+            label.Content = "Моя Корзина";
+            label1.Content = "Мой Каталог";
+            button_show_catalogue.Content = "Показать";
+            btn_exl.Content = "В Документ";
+            clear_button.Content = "Удалить Заказ";
+            order_botton.Content = "Заказать"; // лол через "о" написано боттон, а не баттон)0))
+            exit.Content = "Выйти";
+
         }
     }
 }
