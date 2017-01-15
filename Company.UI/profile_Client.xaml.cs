@@ -49,35 +49,37 @@ namespace Company.UI
 
         private void listView_myCatalogue_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            int purchase = 0;
             //добавление содержимого из списка каталога в корзину
             foreach (var item in listView_myCatalogue.SelectedItems)
             {
-                /*
-                 * по умному вытащить данные из айтема, ибо опять объект
-                 * и будет дальше ошибка в программе, нужно хитро вытащить данные
-                 * из строки ниже (var a = item.ToString)
-                 * приходит строка вида: {Name = ..., Price = ...}
-                 * нужно хитро строку изнасиловать и засунуть в лист, а то ломается,
-                 * падла
-                 * ибо при записи в базу берет как раз
-                 * инфу из ListMyCart
-                 * а у нас сейчас в нем строка вида больного
-                 * так шо нада подумать, как лучше это сделать. 
-                 */
-                 
-                //добавляю данные в листбокс заказов
-                list_myCart.Items.Add(item);
-                
-                //все данные в строку и отправляю их в лист
+                //все данные в строку, форматирую их и отправляю их в лист
                 var a = item.ToString();
-                ListMyCart.Add(a);
-                
+                var removeStr = new string[] { "{", "}", "Name", "=", "Price", "," };
+                foreach (var c in removeStr)
+                {
+                    a = a.Replace(c, string.Empty);
+                }
+                a = a.Remove(0, 3);
 
+                string[] words = a.Split(' ');
+
+                ListMyCart.Add(words[0] + " " + words[3]);
+                //добавляю данные в листбокс заказов
+                list_myCart.Items.Add(new
+                {
+                    Name = words[0],
+                    Price = words[3]
+                });
+
+                int price = Convert.ToInt32(words[3]);
+                purchase += price;
                 MessageBox.Show("item was added");
             }
+            sum.Content = purchase.ToString() + "$";
         }
 
-
+        //удаление всего заказа
         private void clear_button_Click(object sender, RoutedEventArgs e)
         {
             //удалить заказ (удаляет весь список, позже можно настроить, чтобы поштучно удалял)
@@ -86,10 +88,12 @@ namespace Company.UI
                 MessageBox.Show("you haven't choose any item!");
                 return;
             }
+            sum.Content = "0" + "$";
             list_myCart.Items.Clear();
             ListMyCart.Clear();
         }
 
+        //сделать заказ
         private void order_botton_Click(object sender, RoutedEventArgs e)
         {
 
