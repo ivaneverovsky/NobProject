@@ -20,6 +20,7 @@
                     <GridViewColumn Header="login" DisplayMemberBinding="{Binding login}"/>
                     <GridViewColumn Header="Item" DisplayMemberBinding="{Binding Item}"/>
                     <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}"/>
+                    <GridViewColumn Header="Data" DisplayMemberBinding="{Binding Data}"/>
                 </GridView>
             </ListView.View>
             </ListView>

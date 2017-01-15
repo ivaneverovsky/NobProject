@@ -167,7 +167,8 @@ namespace Company.UI
                     Status = "awaits",
                     login = nameClient,
                     Item = itemname,
-                    Price = item.Cost + "$ "
+                    Price = item.Cost + "$ ",
+                    Data = item.Date
                 });
                 cost += item.Cost;
                 if (checkbox.IsChecked == true)
@@ -208,7 +209,8 @@ namespace Company.UI
                         Status = element.Status,
                         login = element.Client,
                         Item = element.ItemName,
-                        Price = element.Cost + "$ "
+                        Price = element.Cost + "$ ",
+                        Data = element.Date
                     });
                     cost += element.Cost;
                 }

@@ -49,7 +49,6 @@ namespace Company.UI
 
         private void listView_myCatalogue_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            int purchase = 0;
             //добавление содержимого из списка каталога в корзину
             foreach (var item in listView_myCatalogue.SelectedItems)
             {
@@ -65,6 +64,7 @@ namespace Company.UI
                 string[] words = a.Split(' ');
 
                 ListMyCart.Add(words[0] + " " + words[3]);
+                
                 //добавляю данные в листбокс заказов
                 list_myCart.Items.Add(new
                 {
@@ -72,11 +72,17 @@ namespace Company.UI
                     Price = words[3]
                 });
 
-                int price = Convert.ToInt32(words[3]);
-                purchase += price;
                 MessageBox.Show("item was added");
             }
+            int purchase = 0;
+            foreach (var item in ListMyCart)
+            {
+                string[] el = item.Split(' ');
+                int price = Convert.ToInt32(el[1]);
+                purchase += price;
+            }
             sum.Content = purchase.ToString() + "$";
+
         }
 
         //удаление всего заказа
@@ -138,7 +144,7 @@ namespace Company.UI
                 }
                 MessageBox.Show("The order was done");
                 list_myCart.Items.Clear();
-
+                sum.Content = 0;
                 ListOrders.Clear();
                 ListMyCart.Clear();
             }
